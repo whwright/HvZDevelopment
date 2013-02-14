@@ -1,7 +1,6 @@
 #Eclipse ignore
 
 *.pydevproject
-.project
 .metadata
 bin/**
 tmp/**
