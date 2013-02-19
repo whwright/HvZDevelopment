@@ -15,8 +15,8 @@ public class PlayerDataSource {
 
 	public Player getPlayerById(int idnumber) 
 	{
-		
-		Object response = resourceManager.getNetworkManager().makeRequest(playerURL);
+		String tempUTL = playerURL + "?id=" + idnumber;
+		Object response = resourceManager.getNetworkManager().makeRequest(tempUTL);
 		return null;
 	}
 
