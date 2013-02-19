@@ -1,3 +1,4 @@
+package edu.gatech.hvz.networking;
 import org.jsoup.nodes.Document;
 import org.jsoup.Connection.Response;
 import org.jsoup.Connection.Method;
