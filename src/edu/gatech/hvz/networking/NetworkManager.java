@@ -1,30 +1,36 @@
 package edu.gatech.hvz.networking;
 
 import java.io.IOException;
+
 import java.util.Map;
 
-import org.jsoup.Connection.Method;
-import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 public class NetworkManager {
 	
 	private Map<String, String> casCookies;
 	
-	public NetworkManager()
-	{
-		
+	public NetworkManager() {
 	}
 
-	public Object makeRequest(String urlString) {
+	public void setCookies(Map<String, String> cookies) {
+		this.casCookies = cookies;
+	}
+	
+	public String makeRequest(String urlString, String ... data ) {
+		String json = null;
 		
 		try {
-			Response r = Jsoup.connect(urlString).cookies(casCookies).method(Method.GET).execute();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			Document doc = Jsoup.connect(urlString).data(data).cookies(casCookies).get();
+			Elements elem = doc.getElementsByTag("body");
+			json = elem.first().ownText();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		return null;
+		
+		return json;
 	}
 
 }
