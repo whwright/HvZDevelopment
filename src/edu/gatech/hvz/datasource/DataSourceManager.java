@@ -1,5 +1,6 @@
 package edu.gatech.hvz.datasource;
 
+import edu.gatech.hvz.entites.Kill;
 import edu.gatech.hvz.entites.Player;
 
 public class DataSourceManager implements IDataSourceManager 
@@ -15,6 +16,12 @@ public class DataSourceManager implements IDataSourceManager
 	@Override
 	public Player getPlayerById(int idnumber) {
 		return playerDataSource.getPlayerById(idnumber);
+	}
+
+
+	@Override
+	public Kill[] getKillsByPLayer(String player) {
+		return playerDataSource.getKillsByPlayer(player);
 	}
 
 }
