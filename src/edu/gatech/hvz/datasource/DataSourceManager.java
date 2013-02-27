@@ -18,10 +18,17 @@ public class DataSourceManager implements IDataSourceManager
 		return playerDataSource.getPlayerById(idnumber);
 	}
 
+	@Override
+	public Player getPlayerByName(String name) {
+		return playerDataSource.getPlayerByName(name);
+	}
 
 	@Override
 	public Kill[] getKillsByPLayer(String player) {
 		return playerDataSource.getKillsByPlayer(player);
 	}
+
+
+	
 
 }
