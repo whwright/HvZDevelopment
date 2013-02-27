@@ -62,7 +62,7 @@ public class TestActivity extends Activity {
 		String user, pass;
 		user = ((EditText) findViewById(R.id.username)).getText().toString();
 		pass = ((EditText) findViewById(R.id.password)).getText().toString();
-		AsyncTask task = new LoginRequest().execute(user, pass);
+		new LoginRequest().execute(user, pass);
 	}
 	
 	
