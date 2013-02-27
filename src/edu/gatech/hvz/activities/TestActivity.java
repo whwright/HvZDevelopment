@@ -1,11 +1,8 @@
 package edu.gatech.hvz.activities;
 
-import java.util.Map;
-
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entites.Kill;
-import edu.gatech.hvz.networking.CASAuthenticator;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
@@ -26,18 +23,10 @@ public class TestActivity extends Activity {
 
 		resources = ResourceManager.getResourceManager();
 		
-		Button button = (Button) findViewById(R.id.button1);
-		button.setEnabled(false);		
+		Button button = (Button) findViewById(R.id.button1);	
 		button.setOnClickListener(new Button.OnClickListener() {
 	   		 public void onClick(View v) {
 	   			 doKill();
-	   		 }
-		});
-		
-		button = (Button) findViewById(R.id.button2);
-		button.setOnClickListener(new Button.OnClickListener() {
-	   		 public void onClick(View v) {
-	   			 doLogin();
 	   		 }
 		});
 		
@@ -57,48 +46,13 @@ public class TestActivity extends Activity {
 		String player = ((EditText)findViewById(R.id.editText1)).getText().toString();
 		new KillRequest().execute(player);
 	}
-	
-	public void doLogin() {
-		String user, pass;
-		user = ((EditText) findViewById(R.id.username)).getText().toString();
-		pass = ((EditText) findViewById(R.id.password)).getText().toString();
-		new LoginRequest().execute(user, pass);
-	}
-	
-	
-	
-	private class LoginRequest extends AsyncTask<String, Void, Void> {
-		boolean success = false;
 		
-		protected Void doInBackground(String ... info) {
-			Map<String, String> cookies = new CASAuthenticator(info[0], info[1]).connect();
-			if (cookies != null) {
-				success = true;
-				edu.gatech.hvz.ResourceManager.getResourceManager().getNetworkManager().setCookies(cookies);
-			}
-			return null;
-		}
-		
-		protected void onProgressUpdate(Void ... stuff) {
-		}
-		
-		protected void onPostExecute(Void stuff) {
-			if (success) {
-				Button button = (Button) findViewById(R.id.button1);
-				
-				button.setEnabled(true);
-			}
-		}
-	 }
-	
-	
-	
 	private class KillRequest extends AsyncTask<String, Void, Kill[]> {
 	     protected Kill[] doInBackground(String ... player) {
 	    	 return resources.getDataManager().getKillsByPLayer(player[0]); 
 	     }
 
-	     protected void onProgressUpdate(Integer... progress) {
+	     protected void onProgressUpdate(Void ... voids) {
 	     }
 
 	     protected void onPostExecute(Kill[] kills) { 
