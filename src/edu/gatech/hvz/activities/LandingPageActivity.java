@@ -17,7 +17,7 @@ public class LandingPageActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_landing_page);
 		
-		reportKillButton = (Button) findViewById(R.id.button_report_kill);
+		reportKillButton = (Button) findViewById(R.id.landingpage_reportkill_button);
 		reportKillButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {

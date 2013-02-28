@@ -23,7 +23,7 @@ public class TestActivity extends Activity {
 
 		resources = ResourceManager.getResourceManager();
 		
-		Button button = (Button) findViewById(R.id.button_report_kill);	
+		Button button = (Button) findViewById(R.id.landingpage_reportkill_button);	
 		button.setOnClickListener(new Button.OnClickListener() {
 	   		 public void onClick(View v) {
 	   			 doKill();

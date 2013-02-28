@@ -11,9 +11,9 @@
     tools:context=".LandingPageActivity" >
 
     <Button
-        android:id="@+id/button_report_kill"
+        android:id="@+id/landingpage_reportkill_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_report_kill_label" />
+        android:text="@string/landingpage_reportkill_string" />
 
 </LinearLayout>
