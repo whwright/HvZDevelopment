@@ -5,8 +5,10 @@ import edu.gatech.hvz.entites.Player;
 
 public interface IDataSourceManager {
 
+	/* ---------- Player ---------- */
 	public Player getPlayerById(int idnumber);
 	public Player getPlayerByName(String name);
-	public Kill[] getKillsByPLayer(String player);
+	public Player getPlayterByCode(String code);
 	
+	public Kill[] getKillsByPLayer(String player);
 }

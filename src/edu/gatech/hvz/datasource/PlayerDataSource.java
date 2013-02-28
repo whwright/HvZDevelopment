@@ -28,7 +28,14 @@ public class PlayerDataSource {
 	
 	public Player getPlayerByName(String name)
 	{
-		String[] params = {"gt_name", name};
+		String[] params = { "gt_name", name };
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(playerURL, params);
+		return new Gson().fromJson(json, Player.class);
+	}
+	
+	public Player getPlayerByCode(String code)
+	{
+		String[] params = { "player_code", code };
 		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(playerURL, params);
 		return new Gson().fromJson(json, Player.class);
 	}

@@ -11,7 +11,6 @@ public class DataSourceManager implements IDataSourceManager
 	{
 		this.playerDataSource = new PlayerDataSource();
 	}
-	
 
 	@Override
 	public Player getPlayerById(int idnumber) {
@@ -22,13 +21,16 @@ public class DataSourceManager implements IDataSourceManager
 	public Player getPlayerByName(String name) {
 		return playerDataSource.getPlayerByName(name);
 	}
+	
+	@Override
+	public Player getPlayterByCode(String code) {
+		return playerDataSource.getPlayerByCode(code);
+	}
 
 	@Override
 	public Kill[] getKillsByPLayer(String player) {
 		return playerDataSource.getKillsByPlayer(player);
 	}
-
-
 	
 
 }

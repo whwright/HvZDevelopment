@@ -32,6 +32,10 @@
             android:name="edu.gatech.hvz.activities.LandingPageActivity"
             android:label="@string/title_activity_landing_page" >
         </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.ReportKillActivity"
+            android:label="@string/title_activity_report_kill" >
+        </activity>
     </application>
 
 </manifest>
