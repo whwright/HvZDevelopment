@@ -8,9 +8,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ReportKillActivity" >
 
-    <TextView
+    <EditText
+        android:id="@+id/reportkill_playercode_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignBottom="@+id/reportkill_playercode_textview"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/reportkill_playercode_textview"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/reportkill_playercode_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="63dp"
+        android:text="@string/reportkill_playercode_string"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/reportkill_qrpicture_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/reportkill_playercode_textfield"
+        android:layout_alignLeft="@+id/reportkill_playercode_textview"
+        android:layout_alignRight="@+id/reportkill_playercode_textfield"
+        android:text="@string/reportkill_qrpicture_string" />
+
+    <Button
+        android:id="@+id/reportkill_reportkill_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="69dp"
+        android:text="@string/reportkill_reportkill_string" />
 
 </RelativeLayout>

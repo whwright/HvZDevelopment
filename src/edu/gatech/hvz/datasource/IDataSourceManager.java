@@ -10,5 +10,5 @@ public interface IDataSourceManager {
 	public Player getPlayerByName(String name);
 	public Player getPlayterByCode(String code);
 	
-	public Kill[] getKillsByPLayer(String player);
+	public Kill[] getKillsByPlayer(String player);
 }

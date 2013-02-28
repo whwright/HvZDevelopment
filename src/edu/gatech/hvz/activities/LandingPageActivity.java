@@ -4,6 +4,7 @@ import edu.gatech.hvz.R;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,7 @@ public class LandingPageActivity extends Activity {
 		reportKillButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//new ChangeViewRequest().execute("ReportKill");
+				new ChangeViewRequest().execute("ReportKill");
 			}
 		});
 		
@@ -35,11 +36,12 @@ public class LandingPageActivity extends Activity {
 	}
 	
 	private class ChangeViewRequest extends AsyncTask<String, Void, Void> 
-	{
-
+	{ 
+		private String activityParam;
+		
 		@Override
 		protected Void doInBackground(String... params) {
-			// TODO Auto-generated method stub
+			this.activityParam = params[0];
 			return null;
 		}
 		
@@ -47,6 +49,11 @@ public class LandingPageActivity extends Activity {
 		}
 		
 		protected void onPostExecute(Void stuff) {
+			if(activityParam.equals("ReportKill"))
+			{
+				startActivity(new Intent(LandingPageActivity.this, ReportKillActivity.class));
+			}
+			finish();
 		}
 		
 	}

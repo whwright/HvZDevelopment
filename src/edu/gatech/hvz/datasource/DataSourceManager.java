@@ -28,7 +28,7 @@ public class DataSourceManager implements IDataSourceManager
 	}
 
 	@Override
-	public Kill[] getKillsByPLayer(String player) {
+	public Kill[] getKillsByPlayer(String player) {
 		return playerDataSource.getKillsByPlayer(player);
 	}
 	

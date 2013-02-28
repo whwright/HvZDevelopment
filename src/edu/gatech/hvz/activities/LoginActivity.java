@@ -70,7 +70,7 @@ public class LoginActivity extends Activity {
 		
 		protected void onPostExecute(Void stuff) {
 			if (success) {
-				startActivity(new Intent(LoginActivity.this, TestActivity.class));
+				startActivity(new Intent(LoginActivity.this, LandingPageActivity.class));
 				finish();
 			} else {
 				loginButton.setEnabled(true);
