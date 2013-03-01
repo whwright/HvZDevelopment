@@ -22,7 +22,8 @@ public class LandingPageActivity extends Activity {
 		reportKillButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new ChangeViewRequest().execute("ReportKill");
+				startActivity(new Intent(LandingPageActivity.this, ReportKillActivity.class));
+				finish();
 			}
 		});
 		
@@ -33,29 +34,6 @@ public class LandingPageActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.landing_page, menu);
 		return true;
-	}
-	
-	private class ChangeViewRequest extends AsyncTask<String, Void, Void> 
-	{ 
-		private String activityParam;
-		
-		@Override
-		protected Void doInBackground(String... params) {
-			this.activityParam = params[0];
-			return null;
-		}
-		
-		protected void onProgressUpdate(Void ... stuff) {
-		}
-		
-		protected void onPostExecute(Void stuff) {
-			if(activityParam.equals("ReportKill"))
-			{
-				startActivity(new Intent(LandingPageActivity.this, ReportKillActivity.class));
-			}
-			finish();
-		}
-		
 	}
 
 }
