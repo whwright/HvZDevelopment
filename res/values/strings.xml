@@ -11,8 +11,9 @@
     <string name="title_activity_report_kill">ReportKillActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="reportkill_playercode_string">Player Code:</string>
-    <string name="reportkill_qrpicture_string">Take a Picture</string>
+    <string name="reportkill_qrpicture_string">Capture QR Code</string>
     <string name="reportkill_reportkill_string">Report Kill</string>
     <string name="reportkill_reportkillprogress_string">Reporting kill...</string>
+    <string name="reportkill_feed_string">Zombies to Feed:</string>
 
 </resources>

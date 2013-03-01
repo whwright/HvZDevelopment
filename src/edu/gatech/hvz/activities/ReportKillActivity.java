@@ -40,7 +40,9 @@ public class ReportKillActivity extends Activity {
 		new KillRequest().execute();
 	}
 
-	private class KillRequest extends AsyncTask<String, Void, Void> {
+	private class KillRequest extends AsyncTask<String, Void, Void> 
+	{
+		private boolean success;
 
 		@Override
 		protected Void doInBackground(String... params) {
