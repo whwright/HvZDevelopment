@@ -14,15 +14,19 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Black" >
         <activity
-            android:name="edu.gatech.hvz.activities.LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:name="edu.gatech.hvz.activities.MainMenuActivity"
+            android:label="@string/title_activity_main_menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.LoginActivity"
+            android:label="@string/title_activity_login" >
         </activity>
         <activity
             android:name="edu.gatech.hvz.activities.TestActivity"
@@ -36,6 +40,7 @@
             android:name="edu.gatech.hvz.activities.ReportKillActivity"
             android:label="@string/title_activity_report_kill" >
         </activity>
+        
     </application>
 
 </manifest>
