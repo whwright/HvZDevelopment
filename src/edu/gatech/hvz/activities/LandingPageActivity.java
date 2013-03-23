@@ -1,7 +1,6 @@
 package edu.gatech.hvz.activities;
 
 import edu.gatech.hvz.R;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +11,8 @@ import android.widget.Button;
 public class LandingPageActivity extends Activity {
 	
 	private Button reportKillButton;
-
+	private Button showMyCodeButton;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,6 +23,15 @@ public class LandingPageActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(LandingPageActivity.this, ReportKillActivity.class));
+				finish();
+			}
+		});
+		
+		showMyCodeButton = (Button) findViewById(R.id.landingpage_showmycode_button);
+		showMyCodeButton.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LandingPageActivity.this, ShowMyCodeActivity.class));
 				finish();
 			}
 		});

@@ -12,8 +12,14 @@
 
     <Button
         android:id="@+id/landingpage_reportkill_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/landingpage_reportkill_string" />
+
+    <Button
+        android:id="@+id/landingpage_showmycode_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/landingpage_showmycode_string" />
 
 </LinearLayout>
