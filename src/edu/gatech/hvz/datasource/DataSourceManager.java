@@ -31,6 +31,11 @@ public class DataSourceManager implements IDataSourceManager
 	public Kill[] getKillsByPlayer(String player) {
 		return playerDataSource.getKillsByPlayer(player);
 	}
+
+	@Override
+	public String getQRCode(int w, int h) {
+		return playerDataSource.getQRCode(w, h);
+	}
 	
 
 }

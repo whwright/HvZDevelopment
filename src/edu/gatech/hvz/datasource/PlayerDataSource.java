@@ -10,6 +10,7 @@ public class PlayerDataSource {
 	
 	private String playerURL = "https://hvz.gatech.edu/api/player.php";
 	private String killsURL = "https://hvz.gatech.edu/api/kills.php";
+	private String qrCodeURL = "http://api.qrserver.com/v1/create-qr-code/?qzone=1&size=%dx%d&data=%s";
 	
 	
 	public PlayerDataSource()
@@ -47,6 +48,10 @@ public class PlayerDataSource {
 		Gson gson = new Gson();
 		Kill[] kills = gson.fromJson(json, Kill[].class);
 		return kills;
+	}
+	
+	public String getQRCode(int w, int h) {
+		return String.format(qrCodeURL, w, h, "Temp Test Data");
 	}
 
 }
