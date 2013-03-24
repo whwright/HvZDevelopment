@@ -10,5 +10,5 @@ public interface IDataSourceManager {
 	
 	public Kill[] getKillsByPlayer(String player);
 	
-	public String getQRCode(int w, int h);
+	public String getQRCode(String data, int w, int h);
 }

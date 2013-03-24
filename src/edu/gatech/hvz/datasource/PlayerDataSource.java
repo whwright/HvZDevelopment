@@ -8,8 +8,8 @@ import edu.gatech.hvz.entites.Player;
 
 public class PlayerDataSource {
 	
-	private String playerURL = "https://hvz.gatech.edu/api/player.php";
-	private String killsURL = "https://hvz.gatech.edu/api/kills.php";
+	private String playerURL = "https://hvz.gatech.edu/api/player/%s";
+	private String killsURL = "https://hvz.gatech.edu/api/player/%s/kills";
 	private String qrCodeURL = "http://api.qrserver.com/v1/create-qr-code/?qzone=1&size=%dx%d&data=%s";
 	
 	
@@ -20,8 +20,7 @@ public class PlayerDataSource {
 	
 	public Player getPlayerByName(String name)
 	{
-		String[] params = { "gt_name", name };
-		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(playerURL, params);
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(String.format(playerURL, name));
 		return new Gson().fromJson(json, Player.class);
 	}
 	
@@ -34,15 +33,14 @@ public class PlayerDataSource {
 	
 	public Kill[] getKillsByPlayer(String player) 
 	{
-		String[] data = {"killer", player};
-		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(killsURL, data);
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(String.format(killsURL, player));
 		Gson gson = new Gson();
 		Kill[] kills = gson.fromJson(json, Kill[].class);
 		return kills;
 	}
 	
-	public String getQRCode(int w, int h) {
-		return String.format(qrCodeURL, w, h, "Temp Test Data");
+	public String getQRCode(String data, int w, int h) {
+		return String.format(qrCodeURL, w, h, data);
 	}
 
 }

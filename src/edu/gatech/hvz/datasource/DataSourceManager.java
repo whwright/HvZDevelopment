@@ -28,8 +28,8 @@ public class DataSourceManager implements IDataSourceManager
 	}
 
 	@Override
-	public String getQRCode(int w, int h) {
-		return playerDataSource.getQRCode(w, h);
+	public String getQRCode(String data, int w, int h) {
+		return playerDataSource.getQRCode(data, w, h);
 	}
 	
 
