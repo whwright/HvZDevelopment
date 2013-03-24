@@ -33,3 +33,11 @@ http://hvz.gatech.edu/api
 * **/player/{gt_name}/kills**
 
     Fetches the kills by player {gt_name}
+
+* **/mission/{faction}**
+
+    Fetches missions for {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
+
+* **/mission/{faction}/current**
+
+    Fetches current missions for {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]

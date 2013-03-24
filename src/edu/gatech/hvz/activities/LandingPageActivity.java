@@ -2,7 +2,6 @@ package edu.gatech.hvz.activities;
 
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
-import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Player;
 import android.os.AsyncTask;
 import android.os.Bundle;
