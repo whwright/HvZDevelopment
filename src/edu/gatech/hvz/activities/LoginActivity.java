@@ -43,9 +43,6 @@ public class LoginActivity extends Activity {
 		//Set the user's login if they have entered it successfully before
 		userNameEditText = (EditText) findViewById(R.id.edittext_username);
 		userNameEditText.setText(getSharedPreferences("HvZGaTechSettings",0).getString("gt_name", ""));
-				
-		
-		
 	}
 
 	@Override
@@ -86,7 +83,7 @@ public class LoginActivity extends Activity {
 		protected void onPostExecute(Boolean success) {
 			if (success) {
 				startActivity(new Intent(LoginActivity.this, LandingPageActivity.class));
-				finish();
+				LoginActivity.this.finish();
 			} else {
 				loginButton.setEnabled(true);
 				loginButton.setText("Login (failed, try again)");

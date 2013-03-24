@@ -16,6 +16,7 @@ public class MainMenuActivity extends Activity{
 	public void login(View v){
 		Intent i = new Intent(MainMenuActivity.this, LoginActivity.class);
 		startActivity(i);
+		finish();
 		
 	}
 	

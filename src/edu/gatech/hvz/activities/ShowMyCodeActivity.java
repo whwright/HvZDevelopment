@@ -16,7 +16,6 @@ public class ShowMyCodeActivity extends Activity {
 	
 	private TextView myCodeTextView;
 	private WebView qrCodeWebView;
-	private String testCode = "Sup Guys";
 
 	private ResourceManager resources;
 
@@ -28,9 +27,9 @@ public class ShowMyCodeActivity extends Activity {
 		myCodeTextView = (TextView) findViewById(R.id.showmycode_textview_mycode);
 		qrCodeWebView = (WebView) findViewById(R.id.showmycode_webview_qrcode);
 		
-		myCodeTextView.setText(testCode);
-		
 		resources = ResourceManager.getResourceManager();
+		
+		myCodeTextView.setText(resources.getPlayer().getPlayerCode());
 	}
 	
 	@Override
@@ -46,8 +45,9 @@ public class ShowMyCodeActivity extends Activity {
 	}
 	
 	private void fetchQRCode() {
+		String code = resources.getPlayer().getPlayerCode();
 		int x = Math.min((int)(qrCodeWebView.getWidth()*.6), (int)(qrCodeWebView.getHeight()*.6));
-		String webpage = String.format(html, resources.getDataManager().getQRCode(x, x));
+		String webpage = String.format(html, resources.getDataManager().getQRCode(code, x, x));
 		qrCodeWebView.loadData(webpage, "text/html", null);
 	}
 
