@@ -18,14 +18,14 @@
         android:text="O no" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/reportkill_playercode_textfield"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" >
     </EditText>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/landingpage_reportkill_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Get Kills by GT Name" />

@@ -14,13 +14,6 @@
         android:src="@drawable/logo" />
 
     <TextView
-        android:id="@+id/textview_announcements"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="2.87"
-        android:text="Announcements and missiongs go here." />
-
-    <TextView
         android:id="@+id/textview_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,5 +46,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login" />
+
+    <TextView
+        android:id="@+id/textview_announcements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.87"
+        android:text="Announcements and missions go here." />
 
 </LinearLayout>

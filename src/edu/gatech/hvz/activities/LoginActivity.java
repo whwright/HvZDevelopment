@@ -28,6 +28,11 @@ public class LoginActivity extends Activity {
 		
 		resources = ResourceManager.getResourceManager();
 		
+		//Uncomment this to bypass logging in for basic testing
+		//Set the intent to whatever
+//		startActivity(new Intent(LoginActivity.this, LandingPageActivity.class));
+//		finish();
+		
 		loginButton = (Button) findViewById(R.id.button_login);
 		loginButton.setOnClickListener(new Button.OnClickListener() {
 	   		 public void onClick(View v) {
@@ -88,5 +93,5 @@ public class LoginActivity extends Activity {
 			}
 		}
 	 }
-
+	
 }

@@ -23,14 +23,14 @@ public class TestActivity extends Activity {
 
 		resources = ResourceManager.getResourceManager();
 		
-		Button button = (Button) findViewById(R.id.button1);	
+		Button button = (Button) findViewById(R.id.landingpage_reportkill_button);	
 		button.setOnClickListener(new Button.OnClickListener() {
 	   		 public void onClick(View v) {
 	   			 doKill();
 	   		 }
 		});
 		
-		((EditText)findViewById(R.id.editText1)).setText("kshah45");		
+		((EditText)findViewById(R.id.reportkill_playercode_textfield)).setText("kshah45");		
 	}
 
 	@Override
@@ -43,13 +43,13 @@ public class TestActivity extends Activity {
 	
 	
 	public void doKill() {
-		String player = ((EditText)findViewById(R.id.editText1)).getText().toString();
+		String player = ((EditText)findViewById(R.id.reportkill_playercode_textfield)).getText().toString();
 		new KillRequest().execute(player);
 	}
 		
 	private class KillRequest extends AsyncTask<String, Void, Kill[]> {
 	     protected Kill[] doInBackground(String ... player) {
-	    	 return resources.getDataManager().getKillsByPLayer(player[0]); 
+	    	 return resources.getDataManager().getKillsByPlayer(player[0]); 
 	     }
 
 	     protected void onProgressUpdate(Void ... voids) {
