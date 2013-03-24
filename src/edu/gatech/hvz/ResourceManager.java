@@ -1,6 +1,7 @@
 package edu.gatech.hvz;
 
 import edu.gatech.hvz.datasource.DataSourceManager;
+import edu.gatech.hvz.entites.Player;
 import edu.gatech.hvz.networking.NetworkManager;
 
 public class ResourceManager {
@@ -8,6 +9,7 @@ public class ResourceManager {
 	private static ResourceManager resourceManager;
 	private NetworkManager networkManager;
 	private DataSourceManager dataManager;
+	private Player player;
 	
 	private ResourceManager()
 	{
@@ -29,5 +31,14 @@ public class ResourceManager {
 	public DataSourceManager getDataManager() {
 		return dataManager;
 	}
+	
+	public Player getPlayer() {
+		return player;
+	}
+	
+	public void setPlayer(Player p) {
+		player = p;
+	}
+	
 
 }
