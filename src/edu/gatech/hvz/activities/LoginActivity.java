@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ public class LoginActivity extends Activity {
 
 	private ResourceManager resources;
 	private Button loginButton;
+	private EditText userNameEditText;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,11 @@ public class LoginActivity extends Activity {
 	   			 doLogin();
 	   		 }
 		});
+		
+		//Set the user's login if they have entered it successfully before
+		userNameEditText = (EditText) findViewById(R.id.edittext_username);
+		userNameEditText.setText(getSharedPreferences("HvZGaTechSettings",0).getString("gt_name", ""));
+				
 		
 		
 	}
@@ -53,24 +60,27 @@ public class LoginActivity extends Activity {
 	}
 	
 	
-	private class LoginRequest extends AsyncTask<String, Void, Void> {
-		boolean success = false;
-		
-		protected Void doInBackground(String ... info) {
+	private class LoginRequest extends AsyncTask<String, Void, Boolean> {
+
+		protected Boolean doInBackground(String ... info) {
 			Map<String, String> cookies = new CASAuthenticator(info[0], info[1]).connect();
 			if (cookies != null) {
-				success = true;
+				//Save the successful login id for later use
+				Editor editor = getSharedPreferences("HvZGaTechSettings",0).edit();
 				resources.getNetworkManager().setCookies(cookies);
+				editor.putString("gt_name", info[0]);
+				editor.commit();
+				return true;
 			}
-			return null;
+			return false;
 		}
 		
 		protected void onProgressUpdate(Void ... stuff) {
 		}
 		
-		protected void onPostExecute(Void stuff) {
+		protected void onPostExecute(Boolean success) {
 			if (success) {
-				startActivity(new Intent(LoginActivity.this, TestActivity.class));
+				startActivity(new Intent(LoginActivity.this, LandingPageActivity.class));
 				finish();
 			} else {
 				loginButton.setEnabled(true);
