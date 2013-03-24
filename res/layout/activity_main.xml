@@ -7,22 +7,18 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:adjustViewBounds="true"
         android:src="@drawable/logo" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
 
-        <Button
-            android:id="@+id/LoginButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="login"
-            android:text="Login" />
+	<Button
+	    android:id="@+id/LoginButton"
+	    android:layout_width="200dip"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_horizontal"
+	    android:onClick="login"
+	    android:text="Login" />
 
-    </RelativeLayout>
 
 </LinearLayout>
