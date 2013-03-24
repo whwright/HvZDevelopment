@@ -10,6 +10,14 @@ public class Player {
 	private String starve_time;
 	private int kills;
 	
+	public String getPlayerCode() {
+		return player_code;
+	}
+
+	public String getFName() {
+		return fname;
+	}
+
 	@Override
 	public String toString() {
 		return "Player [id=" + id + ", gt_name=" + gt_name + ", player_code="
