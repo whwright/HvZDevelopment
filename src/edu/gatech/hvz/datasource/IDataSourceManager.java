@@ -1,9 +1,9 @@
 package edu.gatech.hvz.datasource;
 
-import edu.gatech.hvz.entites.FactionType;
-import edu.gatech.hvz.entites.Kill;
-import edu.gatech.hvz.entites.Mission;
-import edu.gatech.hvz.entites.Player;
+import edu.gatech.hvz.entities.FactionType;
+import edu.gatech.hvz.entities.Kill;
+import edu.gatech.hvz.entities.Mission;
+import edu.gatech.hvz.entities.Player;
 
 public interface IDataSourceManager {
 

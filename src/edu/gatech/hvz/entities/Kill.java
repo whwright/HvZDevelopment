@@ -1,4 +1,4 @@
-package edu.gatech.hvz.entites;
+package edu.gatech.hvz.entities;
 
 public class Kill {
 	private String victim;

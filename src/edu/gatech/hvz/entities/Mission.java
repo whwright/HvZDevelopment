@@ -1,4 +1,4 @@
-package edu.gatech.hvz.entites;
+package edu.gatech.hvz.entities;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package edu.gatech.hvz.entites;
+package edu.gatech.hvz.entities;
 
 public class Player {
 	private int id;

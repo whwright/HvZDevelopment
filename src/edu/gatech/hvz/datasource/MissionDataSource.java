@@ -3,8 +3,8 @@ package edu.gatech.hvz.datasource;
 import com.google.gson.Gson;
 
 import edu.gatech.hvz.ResourceManager;
-import edu.gatech.hvz.entites.FactionType;
-import edu.gatech.hvz.entites.Mission;
+import edu.gatech.hvz.entities.FactionType;
+import edu.gatech.hvz.entities.Mission;
 
 public class MissionDataSource {
 	

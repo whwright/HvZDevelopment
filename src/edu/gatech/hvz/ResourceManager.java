@@ -1,7 +1,7 @@
 package edu.gatech.hvz;
 
 import edu.gatech.hvz.datasource.DataSourceManager;
-import edu.gatech.hvz.entites.Player;
+import edu.gatech.hvz.entities.Player;
 import edu.gatech.hvz.networking.NetworkManager;
 
 public class ResourceManager {
