@@ -12,12 +12,6 @@ public class DataSourceManager implements IDataSourceManager
 		this.playerDataSource = new PlayerDataSource();
 	}
 	
-
-	@Override
-	public Player getPlayerById(int idnumber) {
-		return playerDataSource.getPlayerById(idnumber);
-	}
-
 	@Override
 	public Player getPlayerByName(String name) {
 		return playerDataSource.getPlayerByName(name);

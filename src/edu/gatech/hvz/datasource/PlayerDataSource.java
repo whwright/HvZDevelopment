@@ -16,15 +16,6 @@ public class PlayerDataSource {
 	{
 
 	}
-
-	public Player getPlayerById(int idnumber) 
-	{
-		String[] data = {"id", "" + idnumber};
-		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(playerURL, data);
-		Gson gson = new Gson();
-		Player player = gson.fromJson(json, Player.class);
-		return player;
-	}
 	
 	public Player getPlayerByName(String name)
 	{
