@@ -28,7 +28,6 @@ public class ShowMyCodeActivity extends Activity {
 		qrCodeWebView = (WebView) findViewById(R.id.showmycode_webview_qrcode);
 		
 		resources = ResourceManager.getResourceManager();
-		System.out.println(resources.getPlayer().getPlayerCode());
 		myCodeTextView.setText(resources.getPlayer().getPlayerCode());
 	}
 	
