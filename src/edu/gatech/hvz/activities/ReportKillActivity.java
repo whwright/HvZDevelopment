@@ -1,6 +1,10 @@
 package edu.gatech.hvz.activities;
 
+import java.util.Map;
+
 import edu.gatech.hvz.R;
+import edu.gatech.hvz.ResourceManager;
+import edu.gatech.hvz.networking.CASAuthenticator;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,11 +15,14 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 public class ReportKillActivity extends Activity {
 	
     private static final int CAMERA_REQUEST = 1888; 
+    
+    private static final int PLAYER_CODE_DIALOG_ID = 0;
 	
 	private Button reportKillButton, captureQrButton;
 	private Uri imageUri;
@@ -24,7 +31,7 @@ public class ReportKillActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_report_kill);
-		/*
+		
 		captureQrButton = (Button) findViewById(R.id.reportkill_qrpicture_button);
 		captureQrButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
@@ -32,7 +39,7 @@ public class ReportKillActivity extends Activity {
 				doCaptureQr();
 			}
 		});
-		*/
+		
 		
 		reportKillButton = (Button) findViewById(R.id.reportkill_reportkill_button);
 		reportKillButton.setOnClickListener(new Button.OnClickListener() {
@@ -41,6 +48,7 @@ public class ReportKillActivity extends Activity {
 				doReportKill();
 			}
 		});
+		
 	}
 
 	@Override
@@ -63,13 +71,21 @@ public class ReportKillActivity extends Activity {
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
 	}
 
-	private class KillRequest extends AsyncTask<String, Void, Void> 
+	private class KillRequest extends AsyncTask<String, Void, Boolean> 
 	{
-		private boolean success;
-
+		private String message;
+		
 		@Override
-		protected Void doInBackground(String... params) {
-			// TODO Auto-generated method stub
+		protected Boolean doInBackground(String... params) {
+			String player_code = ((EditText) findViewById(R.id.reportkill_playercode_edittext)).getText().toString();
+			if( player_code.equals("") )
+			{
+				
+				message = "Invalid player code.";
+				return false;
+			}
+			
+			//ResourceManager.getResourceManager().getDataManager().getPlayterByCode()
 			return null;
 		}
 		
@@ -77,9 +93,18 @@ public class ReportKillActivity extends Activity {
 
 		}
 		
-		protected void onPostExecute(Void stuff) {
-			reportKillButton.setEnabled(true);
-			reportKillButton.setText( getString(R.string.reportkill_reportkill_string) );
+		protected void onPostExecute(Boolean success) {
+			if( success )
+			{
+				reportKillButton.setEnabled(true);
+				reportKillButton.setText( getString(R.string.reportkill_reportkill_string) );
+			}
+			else
+			{
+				reportKillButton.setEnabled(true);
+				reportKillButton.setText( message );
+			}
+			
 		}
 	}
 }

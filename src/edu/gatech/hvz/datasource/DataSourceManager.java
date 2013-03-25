@@ -22,7 +22,7 @@ public class DataSourceManager implements IDataSourceManager
 	}
 	
 	@Override
-	public Player getPlayterByCode(String code) {
+	public Player getPlayerByCode(String code) {
 		return playerDataSource.getPlayerByCode(code);
 	}
 

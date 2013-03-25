@@ -21,7 +21,12 @@ public class PlayerDataSource {
 	public Player getPlayerByName(String name)
 	{
 		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(String.format(playerURL, name));
-		return new Gson().fromJson(json, Player.class);
+		if( !json.equals("No player by that id") )
+		{
+			return new Gson().fromJson(json, Player.class);
+		}
+		return null;
+		
 	}
 	
 	public Player getPlayerByCode(String code)

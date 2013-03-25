@@ -30,3 +30,6 @@ proguard/
 
 # Eclipse settings folder
 .settings/
+
+# Log files
+*.log

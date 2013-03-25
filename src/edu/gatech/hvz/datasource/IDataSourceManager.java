@@ -8,7 +8,7 @@ import edu.gatech.hvz.entities.Player;
 public interface IDataSourceManager {
 
 	public Player getPlayerByName(String name);
-	public Player getPlayterByCode(String code);
+	public Player getPlayerByCode(String code);
 	
 	public Kill[] getKillsByPlayer(String player);
 	
