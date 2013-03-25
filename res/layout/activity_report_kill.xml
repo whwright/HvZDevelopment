@@ -47,7 +47,7 @@
     <TextView
         android:id="@+id/reportkill_feed_textview"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:text="@string/reportkill_feed_string"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -63,8 +63,8 @@
             android:ems="10" />
 
         <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="70dp"
+            android:id="@+id/reportkill_zombie1_imagebutton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/search_icon" />
@@ -83,8 +83,8 @@
             android:ems="10" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="70dp"
+            android:id="@+id/reportkill_zombie2_imagebutton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/search_icon" />

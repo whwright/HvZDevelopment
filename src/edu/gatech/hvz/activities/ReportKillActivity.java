@@ -1,7 +1,8 @@
 package edu.gatech.hvz.activities;
 
+import java.util.List;
 import java.util.Map;
-
+import edu.gatech.hvz.entities.*;
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.networking.CASAuthenticator;
@@ -16,6 +17,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 public class ReportKillActivity extends Activity {
@@ -25,6 +28,7 @@ public class ReportKillActivity extends Activity {
     private static final int PLAYER_CODE_DIALOG_ID = 0;
 	
 	private Button reportKillButton, captureQrButton;
+	private ImageButton zombieOneButton, zombieTwoButton;
 	private Uri imageUri;
 
 	@Override
@@ -49,6 +53,22 @@ public class ReportKillActivity extends Activity {
 			}
 		});
 		
+		zombieOneButton = (ImageButton) findViewById(R.id.reportkill_zombie1_imagebutton);
+		zombieOneButton.setOnClickListener(new ImageButton.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				searchZombie("one");
+			}			
+		});
+		
+		zombieTwoButton = (ImageButton) findViewById(R.id.reportkill_zombie2_imagebutton);
+		zombieTwoButton.setOnClickListener(new ImageButton.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				searchZombie("two");
+			}			
+		});
+		
 	}
 
 	@Override
@@ -70,22 +90,51 @@ public class ReportKillActivity extends Activity {
 		Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE); 
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
 	}
+	
+	private void searchZombie(String zombieNumber) {
+		
+		List<Player> zombies = ResourceManager.getResourceManager().getDataManager().getZombies();
+		System.out.println();
+	}
 
 	private class KillRequest extends AsyncTask<String, Void, Boolean> 
 	{
-		private String message;
+		private String errorMessage;
 		
 		@Override
 		protected Boolean doInBackground(String... params) {
 			String player_code = ((EditText) findViewById(R.id.reportkill_playercode_edittext)).getText().toString();
 			if( player_code.equals("") )
 			{
-				
-				message = "Invalid player code.";
+				errorMessage = "The player code of your victim is required.";
 				return false;
 			}
 			
-			//ResourceManager.getResourceManager().getDataManager().getPlayterByCode()
+			String zombie1 = ((EditText) findViewById(R.id.reportkill_zombie1_edittext)).getText().toString();
+			String zombie2 = ((EditText) findViewById(R.id.reportkill_zombie2_edittext)).getText().toString();
+			
+			if( zombie1.equals("") && zombie2.equals("") )
+			{
+				errorMessage = "Don't forget to feed your zombie brethren!";
+				return false;
+			}
+			
+			Player victim = ResourceManager.getResourceManager().getDataManager().getPlayerByCode( player_code );
+			if( victim == null )
+			{
+				errorMessage = "Invalid player code! Try again.  If the problem persits, contact the admins.";
+				return false;
+			}
+			
+			if( victim.getFaction() != "HUMAN" )
+			{
+				errorMessage = "That human's a spy! (The code you entered does not belong to an active human)";
+				return false;
+			}
+			
+			
+			
+			
 			return null;
 		}
 		
@@ -96,14 +145,16 @@ public class ReportKillActivity extends Activity {
 		protected void onPostExecute(Boolean success) {
 			if( success )
 			{
-				reportKillButton.setEnabled(true);
-				reportKillButton.setText( getString(R.string.reportkill_reportkill_string) );
+				
 			}
 			else
 			{
-				reportKillButton.setEnabled(true);
-				reportKillButton.setText( message );
+				Toast.makeText(ReportKillActivity.this, 
+						errorMessage, 
+						Toast.LENGTH_SHORT).show();
 			}
+			reportKillButton.setEnabled(true);
+			reportKillButton.setText( getString(R.string.reportkill_reportkill_string) );
 			
 		}
 	}

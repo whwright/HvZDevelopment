@@ -17,6 +17,10 @@ public class Player {
 	public String getFName() {
 		return fname;
 	}
+	
+	public String getFaction() {
+		return faction;
+	}
 
 	@Override
 	public String toString() {

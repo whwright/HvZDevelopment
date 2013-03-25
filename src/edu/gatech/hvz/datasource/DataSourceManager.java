@@ -1,5 +1,7 @@
 package edu.gatech.hvz.datasource;
 
+import java.util.List;
+
 import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Mission;
@@ -39,6 +41,11 @@ public class DataSourceManager implements IDataSourceManager
 	@Override
 	public Mission[] getMissions(FactionType faction, boolean current) {
 		return missionDataSource.getMissions(faction, current);
+	}
+
+	@Override
+	public List<Player> getZombies() {
+		return playerDataSource.getZombies();
 	}
 
 }
