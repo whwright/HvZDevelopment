@@ -94,6 +94,7 @@ public class ReportKillActivity extends Activity {
 	private void searchZombie(String zombieNumber) {
 		
 		List<Player> zombies = ResourceManager.getResourceManager().getDataManager().getZombies();
+		
 		System.out.println();
 	}
 
