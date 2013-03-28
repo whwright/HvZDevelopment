@@ -1,13 +1,20 @@
 package edu.gatech.hvz.activities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import com.google.gson.Gson;
 
 import edu.gatech.hvz.entities.*;
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.networking.CASAuthenticator;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,6 +22,7 @@ import android.provider.MediaStore;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -40,13 +48,16 @@ public class ReportKillActivity extends Activity {
 	private String zombieToChange;
 
 	private ProgressDialog loadingDialog;
-	
+	private ResourceManager resources;
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_report_kill);
 		
+		resources = ResourceManager.getResourceManager();
 		new ZombieRequest().execute();
+		
 		loadingDialog = ProgressDialog.show(this, "Loading...", "Fetching Zombie names", false);
 		
 		captureQrButton = (Button) findViewById(R.id.reportkill_qrpicture_button);
@@ -184,7 +195,7 @@ public class ReportKillActivity extends Activity {
 			}
 						
 			//CHECKING VICTIM ON SERVER
-			Player victim = ResourceManager.getResourceManager().getDataManager().getPlayerByCode( victimPlayerCode );
+			Player victim = resources.getDataManager().getPlayerByCode( victimPlayerCode );
 			if( victim == null )
 			{
 				errorMessage = "Invalid player code! Try again.  If the problem persits, contact the admins.";
@@ -196,7 +207,11 @@ public class ReportKillActivity extends Activity {
 				return false;
 			}
 			
-			return null;
+			String currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+			//using blank GPS data for now
+			Kill kill = new Kill(resources.getPlayer().getGTName(), victimPlayerCode, zombie1.getGTName(), zombie2.getGTName(), -1, -1, currTime);
+			resources.getDataManager().postKill(kill);			
+			return true;
 		}
 		
 		protected void onProgressUpdate(Void ... stuff) {
@@ -206,7 +221,9 @@ public class ReportKillActivity extends Activity {
 		protected void onPostExecute(Boolean success) {
 			if( success )
 			{
-				
+				Toast.makeText(ReportKillActivity.this,
+						"Kill reported.",
+						Toast.LENGTH_SHORT).show();
 			}
 			else
 			{
@@ -229,7 +246,7 @@ public class ReportKillActivity extends Activity {
 	{
 		protected Boolean doInBackground(Void... params) 
 		{
-			zombies = (ArrayList<Player>) ResourceManager.getResourceManager().getDataManager().getZombies("starve_time");
+			zombies = (ArrayList<Player>) resources.getDataManager().getZombies("starve_time");
 			if( zombies != null )
 			{
 				return true;
@@ -255,5 +272,5 @@ public class ReportKillActivity extends Activity {
 	    }
 		
 	}
-	
+
 }
