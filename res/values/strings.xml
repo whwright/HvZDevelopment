@@ -33,5 +33,10 @@
     <string name="title_activity_contact">Contact</string>
     <string name="title_activity_mission_list">MissionList</string>
     <string name="title_activity_kill_map">KillMap</string>
-
+    <string name="landingpage_contactadmins_string">Contact Admins</string>
+    <string name="title_activity_contact_admins">ContactAdminsActivity</string>
+    <string name="contactadmins_contactadmins_string">Contact Admins</string>
+    <string name="contactadmins_contactverbage_string">Please describe your issue below, and enter the email which is best to contact you at.</string>
+    <string name="contactadmins_emailaddress_string">Email Address</string>
+    <string name="contactadmins_submit_string">Submit</string>
 </resources>

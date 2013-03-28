@@ -41,7 +41,7 @@
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     <TextView
-                        android:id="@+id/textView1"
+                        android:id="@+id/contactadmins_contactadmins_textview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="11:00				Skyscraper"

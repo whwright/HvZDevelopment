@@ -25,7 +25,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/contactadmins_contactadmins_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageButton1"
@@ -34,11 +34,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/contactadmins_description_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
-        android:layout_alignRight="@+id/textView1"
+        android:layout_alignRight="@+id/contactadmins_contactadmins_textview"
         android:layout_below="@+id/textView2"
         android:ems="10" >
 
@@ -58,7 +58,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editText1"
+        android:layout_below="@+id/contactadmins_description_edittext"
         android:layout_marginTop="75dp"
         android:src="@android:drawable/btn_star" />
 

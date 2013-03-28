@@ -18,12 +18,7 @@ import android.widget.Toast;
 public class LandingPageActivity extends Activity {
 
 	private ResourceManager resources;
-	private ImageButton missionListButton;
-	private ImageButton reportKillButton;
-	private ImageButton profileButton;
-	private ImageButton chatroomButton;
-	private ImageButton killBoardButton;
-	private ImageButton killMapButton;
+	private ImageButton missionListButton,reportKillButton,profileButton,chatroomButton,killBoardButton,killMapButton;
 	
 	private ProgressDialog loadingDialog;
 	
@@ -79,7 +74,6 @@ public class LandingPageActivity extends Activity {
 				startActivity(new Intent(LandingPageActivity.this, KillMap.class));
 			}
 		});
-		
 		resources = ResourceManager.getResourceManager();
 		
 		getPlayerData();

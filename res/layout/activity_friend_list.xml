@@ -15,7 +15,7 @@
         android:src="@android:drawable/alert_light_frame" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/contactadmins_contactadmins_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageButton1"
@@ -27,7 +27,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/contactadmins_contactadmins_textview"
         android:layout_toRightOf="@+id/imageButton1"
         android:text="Slogan"
         android:textAppearance="?android:attr/textAppearanceSmall" />
