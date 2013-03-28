@@ -17,8 +17,7 @@ import android.widget.Toast;
 public class LandingPageActivity extends Activity {
 
 	private ResourceManager resources;
-	private Button reportKillButton;
-	private Button showMyCodeButton;
+	private Button reportKillButton, showMyCodeButton, contactAdminsButton;
 	
 	private ProgressDialog loadingDialog;
 	
@@ -42,6 +41,16 @@ public class LandingPageActivity extends Activity {
 				startActivity(new Intent(LandingPageActivity.this, ShowMyCodeActivity.class));
 			}
 		});
+		
+		contactAdminsButton = (Button) findViewById(R.id.landingpage_contactadmins_button);
+		contactAdminsButton.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LandingPageActivity.this, ContactAdminsActivity.class));				
+			}
+		});
+		
+		
 		
 		resources = ResourceManager.getResourceManager();
 		
