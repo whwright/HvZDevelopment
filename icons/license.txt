@@ -1,0 +1,2 @@
+License for all icons is the LGPL
+http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
