@@ -42,7 +42,7 @@ http://hvz.gatech.edu/api
 
     Fetches current missions for {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
     
-* **/faction/{faction}
+* **/faction/{faction}**
 
 
     Fetches a list of of players that belond to {faction}
