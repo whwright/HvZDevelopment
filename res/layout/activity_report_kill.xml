@@ -14,12 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/reportkill_qrpicture_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/reportkill_qrpicture_string" />
     </LinearLayout>
 
     <LinearLayout
@@ -43,6 +37,12 @@
             <requestFocus android:layout_width="match_parent" />
         </EditText>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/reportkill_qrpicture_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reportkill_qrpicture_string" />
 
     <TextView
         android:id="@+id/reportkill_feed_textview"
