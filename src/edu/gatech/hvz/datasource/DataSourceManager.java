@@ -5,6 +5,7 @@ import java.util.List;
 import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Mission;
+import edu.gatech.hvz.entities.Mission.Status;
 import edu.gatech.hvz.entities.Player;
 
 public class DataSourceManager implements IDataSourceManager 
@@ -53,6 +54,12 @@ public class DataSourceManager implements IDataSourceManager
 	@Override
 	public void postKill(Kill kill) {
 		killDataSource.postKill(kill);
+	}
+
+	@Override
+	public Mission[] getMissions(Status status) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
