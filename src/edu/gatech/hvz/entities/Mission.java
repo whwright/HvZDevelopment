@@ -6,6 +6,11 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Mission {
+	public enum Status {
+		ACTIVE,
+		ISSUED,
+		CLOSED
+	}
 	private int id;
 	private String name;
 	private String start_datetime;
