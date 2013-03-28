@@ -4,6 +4,7 @@ import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.webkit.WebView;
 import android.widget.TextView;
@@ -26,6 +27,13 @@ public class ShowMyCodeActivity extends Activity {
 		
 		myCodeTextView = (TextView) findViewById(R.id.showmycode_textview_mycode);
 		qrCodeWebView = (WebView) findViewById(R.id.showmycode_webview_qrcode);
+		
+		qrCodeWebView.getSettings().setLoadWithOverviewMode(true);
+		qrCodeWebView.getSettings().setUseWideViewPort(true);
+		//DisplayMetrics displayMetrics = new DisplayMetrics();
+		//getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+		//int height = displayMetrics.heightPixels;
+		//int width = displayMetrics.widthPixels;
 		
 		resources = ResourceManager.getResourceManager();
 		myCodeTextView.setText(resources.getPlayer().getPlayerCode());

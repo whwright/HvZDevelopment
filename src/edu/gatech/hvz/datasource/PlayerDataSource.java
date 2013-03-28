@@ -31,7 +31,6 @@ public class PlayerDataSource {
 			return new Gson().fromJson(json, Player.class);
 		}
 		return null;
-		
 	}
 	
 	public Player getPlayerByCode(String code)

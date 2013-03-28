@@ -8,6 +8,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import edu.gatech.hvz.entities.Kill;
+
 public class NetworkManager {
 	
 	private Map<String, String> casCookies;
