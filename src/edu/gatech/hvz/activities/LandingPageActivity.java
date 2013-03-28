@@ -32,7 +32,7 @@ public class LandingPageActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_landing_page);
 		
-		missionListButton = (ImageButton) findViewById(R.id.mission);
+		missionListButton = (ImageButton) findViewById(R.id.landing_mission);
 		missionListButton.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -40,7 +40,7 @@ public class LandingPageActivity extends Activity {
 			}
 		});
 		
-		reportKillButton = (ImageButton) findViewById(R.id.report);
+		reportKillButton = (ImageButton) findViewById(R.id.landing_report);
 		reportKillButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -48,7 +48,7 @@ public class LandingPageActivity extends Activity {
 			}
 		});
 		
-		profileButton = (ImageButton) findViewById(R.id.profile);
+		profileButton = (ImageButton) findViewById(R.id.landing_profile);
 		profileButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -56,7 +56,7 @@ public class LandingPageActivity extends Activity {
 			}
 		});
 		
-		chatroomButton = (ImageButton) findViewById(R.id.chatroom);
+		chatroomButton = (ImageButton) findViewById(R.id.landing_chatroom);
 		chatroomButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -64,7 +64,7 @@ public class LandingPageActivity extends Activity {
 			}
 		});
 		
-		killBoardButton = (ImageButton) findViewById(R.id.killboard);
+		killBoardButton = (ImageButton) findViewById(R.id.landing_killboard);
 		killBoardButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -72,7 +72,7 @@ public class LandingPageActivity extends Activity {
 			}
 		});
 		
-		killMapButton = (ImageButton) findViewById(R.id.killmap);
+		killMapButton = (ImageButton) findViewById(R.id.landing_killmap);
 		killMapButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -116,7 +116,7 @@ public class LandingPageActivity extends Activity {
 	    				 Toast.LENGTH_SHORT).show();
 	    	 } else {
 	    		 resources.setPlayer(p);
-	    		 TextView welcomeTV = (TextView) findViewById(R.id.welcomeText);
+	    		 TextView welcomeTV = (TextView) findViewById(R.id.landing_welcome_text);
 	    		 welcomeTV.setText("Welcome, " + p.getFName());
 	    	 }
 	     }

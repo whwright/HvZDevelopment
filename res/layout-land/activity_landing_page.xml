@@ -11,12 +11,11 @@
     tools:context=".LandingPageActivity" >
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/landing_welcome_text"
