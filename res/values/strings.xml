@@ -21,4 +21,5 @@
     <string name="title_activity_show_my_code">My Code</string>
 	<string name="showmycode_textview_mycode_label_string">My Kill Code2</string>
 	<string name="o_no">O no</string>
+	<string name="get_kills_by_gt_name">Get Kills by GT Name</string>
 </resources>

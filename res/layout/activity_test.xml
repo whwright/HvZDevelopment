@@ -28,6 +28,6 @@
         android:id="@+id/landingpage_reportkill_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Get Kills by GT Name" />
+        android:text="@string/get_kills_by_gt_name" />
 
 </LinearLayout>
