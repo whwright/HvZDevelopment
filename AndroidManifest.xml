@@ -41,12 +41,17 @@
             android:label="@string/title_activity_show_my_code" >
         </activity>
         <activity
+<<<<<<< HEAD
             android:name="edu.gatech.hvz.MissionDetail"
             android:label="@string/title_activity_mission_detail" >
         </activity>
         <activity
             android:name="edu.gatech.hvz.Chatroom"
             android:label="@string/title_activity_chatroom" >
+=======
+            android:name="edu.gatech.hvz.activities.ZombieSearchActivity"
+            android:label="@string/title_activity_zombie_search" >
+>>>>>>> ba7b07c2ef0a3fbbba74b37a7baf2c1494339337
         </activity>
     </application>
 

@@ -11,11 +11,13 @@ public class DataSourceManager implements IDataSourceManager
 {
 	private PlayerDataSource playerDataSource;
 	private MissionDataSource missionDataSource;
+	private KillDataSource killDataSource;
 	
 	public DataSourceManager()
 	{
 		this.playerDataSource = new PlayerDataSource();
 		this.missionDataSource = new MissionDataSource();
+		this.killDataSource = new KillDataSource();
 	}
 	
 	@Override
@@ -44,8 +46,13 @@ public class DataSourceManager implements IDataSourceManager
 	}
 
 	@Override
-	public List<Player> getZombies() {
-		return playerDataSource.getZombies();
+	public List<Player> getZombies(String orderByParam) {
+		return playerDataSource.getZombies(orderByParam);
+	}
+
+	@Override
+	public void postKill(Kill kill) {
+		killDataSource.postKill(kill);
 	}
 
 }

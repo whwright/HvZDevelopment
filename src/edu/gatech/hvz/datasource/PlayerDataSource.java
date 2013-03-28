@@ -53,8 +53,9 @@ public class PlayerDataSource {
 		return String.format(qrCodeURL, w, h, data);
 	}
 
-	public List<Player> getZombies() {
-		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(String.format(factionURL, "zombie"));		
+	public List<Player> getZombies(String orderByParam) {
+		String[] params = { "order", orderByParam };
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(String.format(factionURL, "zombie"), params);		
 		return new ArrayList<Player>(Arrays.asList( new Gson().fromJson(json, Player[].class)));
 	}
 
