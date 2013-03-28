@@ -30,6 +30,7 @@ public class ContactAdminsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_contact_admins);
 		
+		//set email to gt_name@gatech.edu
 		EditText emailEditText = (EditText) findViewById(R.id.contactadmins_email_edittext);
 		emailEditText.setText( ResourceManager.getResourceManager().getPlayer().getGTName() + "@gatech.edu" );
 		
