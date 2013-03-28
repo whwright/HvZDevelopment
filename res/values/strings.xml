@@ -20,17 +20,10 @@
     <string name="reportkill_feed_string">Zombies to Feed:</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="title_activity_show_my_code">My Code</string>
-<<<<<<< HEAD
     <string name="showmycode_textview_mycode_label_string">My Kill Code2</string>
     <string name="o_no">O no</string>
     <string name="get_kills_by_gt_name">Get Kills by GT Name</string>
     <string name="title_activity_mission_detail">MissionDetail</string>
     <string name="title_activity_chatroom">Chatroom</string>
-
-</resources>
-=======
-	<string name="showmycode_textview_mycode_label_string">My Kill Code2</string>	
 	<string name="title_activity_zombie_search">ZombieSearchActivity</string>
-	<string name="o_no">O no</string>
 </resources>
->>>>>>> ba7b07c2ef0a3fbbba74b37a7baf2c1494339337
