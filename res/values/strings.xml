@@ -20,12 +20,7 @@
     <string name="reportkill_feed_string">Zombies to Feed:</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="title_activity_show_my_code">My Code</string>
-<<<<<<< HEAD
 	<string name="showmycode_textview_mycode_label_string">My Kill Code2</string>	
 	<string name="title_activity_zombie_search">ZombieSearchActivity</string>
-</resources>
-=======
-	<string name="showmycode_textview_mycode_label_string">My Kill Code2</string>
 	<string name="o_no">O no</string>
 </resources>
->>>>>>> cd03a0367aab718f962273c8c207f79339383c6e
