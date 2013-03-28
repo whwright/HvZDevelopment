@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -21,29 +21,28 @@
         android:id="@+id/textview_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/edittext_username"
-        android:layout_below="@+id/imageView1"
+        android:layout_alignBaseline="@+id/textview_password"
+        android:layout_alignBottom="@+id/textview_password"
+        android:layout_toLeftOf="@+id/imageView1"
         android:text="Username" />
 
     <EditText
         android:id="@+id/edittext_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textview_username"
-        android:layout_centerHorizontal="true"
+        android:layout_alignBaseline="@+id/edittext_password"
+        android:layout_alignBottom="@+id/edittext_password"
+        android:layout_alignLeft="@+id/textview_username"
         android:ems="10"
-        android:inputType="textNoSuggestions" >
-
-        <requestFocus />
-    </EditText>
+        android:inputType="textNoSuggestions" />
 
     <EditText
         android:id="@+id/edittext_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/edittext_username"
-        android:layout_alignRight="@+id/button_login"
         android:layout_below="@+id/textview_password"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/edittext_username"
         android:ems="10"
         android:inputType="textPassword" />
 
@@ -51,18 +50,16 @@
         android:id="@+id/textview_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textview_username"
-        android:layout_below="@+id/edittext_username"
+        android:layout_alignLeft="@+id/edittext_password"
+        android:layout_below="@+id/imageView1"
         android:text="Password" />
 
     <Button
         android:id="@+id/button_login"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textview_password"
-        android:layout_alignRight="@+id/edittext_username"
-        android:layout_below="@+id/edittext_password"
-        android:layout_marginTop="16dp"
+        android:layout_below="@+id/edittext_username"
+        android:layout_centerHorizontal="true"
         android:text="Login" />
 
 </RelativeLayout>
