@@ -44,6 +44,10 @@
             android:name="edu.gatech.hvz.activities.ShowMyCodeActivity"
             android:label="@string/title_activity_show_my_code" >
         </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.ZombieSearchActivity"
+            android:label="@string/title_activity_zombie_search" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,19 @@
+<RelativeLayout
+android:id="@+id/widget32"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <ListView
+        android:id="@+id/zombiesearch_zombie_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="200dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scrollbars="vertical" >
+
+    </ListView>
+ 
+</RelativeLayout>
