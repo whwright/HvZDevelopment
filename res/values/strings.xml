@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name="black">#000000</color>
-    
+
+    <color name="black">#000000</color>
+
     <string name="app_name">HvZ GATech</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="action_settings">Settings</string>
@@ -19,6 +20,7 @@
     <string name="reportkill_feed_string">Zombies to Feed:</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="title_activity_show_my_code">My Code</string>
-	<string name="showmycode_textview_mycode_label_string">My Kill Code2</string>
+	<string name="showmycode_textview_mycode_label_string">My Kill Code2</string>	
+	<string name="title_activity_zombie_search">ZombieSearchActivity</string>
 	<string name="o_no">O no</string>
 </resources>

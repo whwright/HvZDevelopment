@@ -9,11 +9,31 @@ import edu.gatech.hvz.entities.Player;
 
 public interface IDataSourceManager {
 
+	/**
+	 * 
+	 * @param name
+	 * @return
+	 */
 	public Player getPlayerByName(String name);
+	
+	/**
+	 * 
+	 * @param code
+	 * @return
+	 */
 	public Player getPlayerByCode(String code);
 	
-	public List<Player> getZombies();
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Player> getZombies(String orderByParam);
 	
+	/**
+	 * 
+	 * @param player
+	 * @return
+	 */
 	public Kill[] getKillsByPlayer(String player);
 	
 	/**
@@ -27,7 +47,27 @@ public interface IDataSourceManager {
 	 */
 	public Mission[] getMissions(Mission.Status status);
 	
-	
+	/**
+	 * 
+	 * @param faction
+	 * @param current
+	 * @return
+	 */
 	public Mission[] getMissions(FactionType faction, boolean current);
+	
+	/**
+	 * 
+	 * @param data
+	 * @param w
+	 * @param h
+	 * @return
+	 */
 	public String getQRCode(String data, int w, int h);
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public void postKill(Kill kill);
 }
