@@ -11,14 +11,19 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class LandingPageActivity extends Activity {
 
 	private ResourceManager resources;
-	private Button reportKillButton;
-	private Button showMyCodeButton;
+	private ImageButton missionListButton;
+	private ImageButton reportKillButton;
+	private ImageButton profileButton;
+	private ImageButton chatroomButton;
+	private ImageButton killBoardButton;
+	private ImageButton killMapButton;
 	
 	private ProgressDialog loadingDialog;
 	
@@ -27,7 +32,15 @@ public class LandingPageActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_landing_page);
 		
-		reportKillButton = (Button) findViewById(R.id.landingpage_reportkill_button);
+		missionListButton = (ImageButton) findViewById(R.id.mission);
+		missionListButton.setOnClickListener(new Button.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LandingPageActivity.this,MissionList.class));
+			}
+		});
+		
+		reportKillButton = (ImageButton) findViewById(R.id.report);
 		reportKillButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -35,11 +48,35 @@ public class LandingPageActivity extends Activity {
 			}
 		});
 		
-		showMyCodeButton = (Button) findViewById(R.id.landingpage_showmycode_button);
-		showMyCodeButton.setOnClickListener(new Button.OnClickListener() {
+		profileButton = (ImageButton) findViewById(R.id.profile);
+		profileButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(LandingPageActivity.this, ShowMyCodeActivity.class));
+				startActivity(new Intent(LandingPageActivity.this, Profile.class));
+			}
+		});
+		
+		chatroomButton = (ImageButton) findViewById(R.id.chatroom);
+		chatroomButton.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LandingPageActivity.this, Chatroom.class));
+			}
+		});
+		
+		killBoardButton = (ImageButton) findViewById(R.id.killboard);
+		killBoardButton.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LandingPageActivity.this, KillBoard.class));
+			}
+		});
+		
+		killMapButton = (ImageButton) findViewById(R.id.killmap);
+		killMapButton.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LandingPageActivity.this, KillMap.class));
 			}
 		});
 		
@@ -79,7 +116,7 @@ public class LandingPageActivity extends Activity {
 	    				 Toast.LENGTH_SHORT).show();
 	    	 } else {
 	    		 resources.setPlayer(p);
-	    		 TextView welcomeTV = (TextView) findViewById(R.id.landingpage_welcome_textview);
+	    		 TextView welcomeTV = (TextView) findViewById(R.id.welcomeText);
 	    		 welcomeTV.setText("Welcome, " + p.getFName());
 	    	 }
 	     }
