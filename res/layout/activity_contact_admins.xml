@@ -25,10 +25,23 @@
         android:background="#FFFFFF" />
 
     <TextView
-        android:id="@+id/contactadmins_contactverbage_textview"
+        android:id="@+id/contactadmins_subject_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contactadmins_subject_string"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/contactadmins_subjet_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/contactadmins_contactverbage_string"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/contactadmins_body_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contactadmins_body_string"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
@@ -38,6 +51,22 @@
         android:layout_weight="0.18"
         android:ems="10"
         android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/contactadmins_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contactadmins_name_string"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/contactadmins_name_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
     <TextView
         android:id="@+id/contactadmins_emailaddress_textview"

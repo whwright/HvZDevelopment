@@ -62,7 +62,7 @@ public class TestActivity extends Activity {
 				str += k + "\n";
 			}
 			
-			TextView textBox = (TextView) findViewById(R.id.textView2);
+			TextView textBox = (TextView) findViewById(R.id.contactadmins_body_textview);
 			textBox.setText(str);
 	     }
 	 }

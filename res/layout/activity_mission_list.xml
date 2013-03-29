@@ -34,7 +34,7 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/contactadmins_name_textview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="End Time			Mission"
@@ -48,7 +48,7 @@
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/contactadmins_body_textview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="18:00				Who has the key?"

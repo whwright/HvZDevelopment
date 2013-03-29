@@ -210,8 +210,7 @@ public class ReportKillActivity extends Activity {
 			String currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 			//using bad GPS data for now
 			Kill kill = new Kill(resources.getPlayer().getGTName(), victimPlayerCode, zombie1.getGTName(), zombie2.getGTName(), -1, -1, currTime);
-			
-			resources.getDataManager().postKill(kill);			
+			//resources.getDataManager().postKill(kill);			
 			return true;
 		}
 		
