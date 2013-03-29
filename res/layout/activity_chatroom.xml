@@ -37,7 +37,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Large Text"
+                        android:text="Chat Messages"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <EditText
@@ -53,14 +53,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical" >
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Large Text"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <EditText
                         android:id="@+id/contactadmins_email_edittext"
