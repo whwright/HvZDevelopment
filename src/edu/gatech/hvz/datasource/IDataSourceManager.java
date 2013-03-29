@@ -18,6 +18,13 @@ public interface IDataSourceManager {
 	
 	/**
 	 * 
+	 * @param code
+	 * @return
+	 */
+	public Player getPlayerByCode(String code);
+	
+	/**
+	 * 
 	 * @return
 	 */
 	public List<Player> getZombies(String orderByParam);

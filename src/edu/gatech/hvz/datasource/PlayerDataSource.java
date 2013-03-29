@@ -32,7 +32,13 @@ public class PlayerDataSource {
 		}
 		return null;
 	}
-
+	
+	public Player getPlayerByCode(String code)
+	{
+		String[] params = { "player_code", code };
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(playerURL, params);
+		return new Gson().fromJson(json, Player.class);
+	}
 	
 	public Kill[] getKillsByPlayer(String player) 
 	{
