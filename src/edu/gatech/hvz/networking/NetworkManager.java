@@ -8,8 +8,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import edu.gatech.hvz.entities.Kill;
-
 public class NetworkManager {
 	
 	private Map<String, String> casCookies;
@@ -26,6 +24,20 @@ public class NetworkManager {
 		
 		try {
 			Document doc = Jsoup.connect(urlString).data(data).cookies(casCookies).get();
+			Elements elem = doc.getElementsByTag("body");
+			json = elem.first().ownText();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return json;
+	}
+	
+	public String makePost(String urlString, String ... data ) {
+		String json = null;
+		
+		try {
+			Document doc = Jsoup.connect(urlString).data(data).cookies(casCookies).post();
 			Elements elem = doc.getElementsByTag("body");
 			json = elem.first().ownText();
 		} catch (IOException e) {
