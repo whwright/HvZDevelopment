@@ -41,35 +41,47 @@
             android:label="@string/title_activity_show_my_code" >
         </activity>
         <activity
-            android:name="edu.gatech.hvz.MissionDetail"
+            android:name="edu.gatech.hvz.activities.MissionDetail"
             android:label="@string/title_activity_mission_detail" >
         </activity>
         <activity
-            android:name="edu.gatech.hvz.Chatroom"
+            android:name="edu.gatech.hvz.activities.Chatroom"
             android:label="@string/title_activity_chatroom" />
         <activity
             android:name="edu.gatech.hvz.activities.ZombieSearchActivity"
             android:label="@string/title_activity_zombie_search" >
         </activity>
         <activity
-            android:name="edu.gatech.hvz.Profile"
+            android:name="edu.gatech.hvz.activities.Profile"
             android:label="@string/title_activity_profile" >
         </activity>
         <activity
-            android:name="edu.gatech.hvz.Achievement"
+            android:name="edu.gatech.hvz.activities.Achievement"
             android:label="@string/title_activity_achievement" >
         </activity>
         <activity
-            android:name="edu.gatech.hvz.FriendList"
+            android:name="edu.gatech.hvz.activities.FriendList"
             android:label="@string/title_activity_friend_list" >
         </activity>
         <activity
-            android:name="edu.gatech.hvz.KillBoard"
+            android:name="edu.gatech.hvz.activities.KillBoard"
             android:label="@string/title_activity_kill_board" >
         </activity>
         <activity
-            android:name="edu.gatech.hvz.Contact"
+            android:name="edu.gatech.hvz.activities.Contact"
             android:label="@string/title_activity_contact" >
+        </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.MissionList"
+            android:label="@string/title_activity_mission_list" >
+        </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.KillMap"
+            android:label="@string/title_activity_kill_map" >
+        </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.ContactAdminsActivity"
+            android:label="@string/title_activity_contact_admins" >
         </activity>
     </application>
 

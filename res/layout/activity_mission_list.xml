@@ -41,7 +41,7 @@
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     <TextView
-                        android:id="@+id/textView1"
+                        android:id="@+id/contactadmins_contactadmins_textview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="11:00				Skyscraper"
@@ -53,7 +53,6 @@
                         android:layout_height="wrap_content"
                         android:text="18:00				Who has the key?"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -61,7 +60,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical" >
-
                 </LinearLayout>
 
                 <LinearLayout
