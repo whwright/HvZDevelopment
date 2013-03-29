@@ -4,96 +4,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
-    android:orientation="vertical"
-    android:paddingBottom="15dp"
-    android:paddingLeft="15dp"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp"
+    android:paddingLeft="7.5dp"
     android:paddingRight="15dp"
     tools:context=".LandingPageActivity" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/landing_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:id="@+id/landing_welcome_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_weight="0.4"
+        android:src="@drawable/logo_landscape" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center_vertical|center_horizontal" >
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/landing_welcome_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ImageButton
             android:id="@+id/landing_mission"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:src="@drawable/missions" 
-			android:layout_weight="1"
-            android:scaleType="fitCenter"/>			
-
-        <ImageButton
-            android:id="@+id/landing_report"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:src="@drawable/kill_report"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="fitCenter"/>
-            
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:gravity="center_vertical|center_horizontal" >
+            android:scaleType="fitCenter"
+            android:src="@drawable/missions" />
 
         <ImageButton
             android:id="@+id/landing_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:src="@drawable/profile"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/profile" />
 
         <ImageButton
-            android:id="@+id/landing_chatroom"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:src="@drawable/chat"
+            android:id="@+id/landing_killboard"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/kill_board" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center_vertical|center_horizontal" >
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/stub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ImageButton
-            android:id="@+id/landing_killboard"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:src="@drawable/kill_board"
+            android:id="@+id/landing_report"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/kill_report" />
+
+        <ImageButton
+            android:id="@+id/landing_chatroom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/chat" />
 
         <ImageButton
             android:id="@+id/landing_killmap"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:src="@drawable/kill_map"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/kill_map" />
 
     </LinearLayout>
 
