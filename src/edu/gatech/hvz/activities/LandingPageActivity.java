@@ -32,7 +32,7 @@ public class LandingPageActivity extends Activity {
 		missionListButton.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(LandingPageActivity.this,MissionList.class));
+				startActivity(new Intent(LandingPageActivity.this, MissionList.class));
 			}
 		});
 		
@@ -75,8 +75,8 @@ public class LandingPageActivity extends Activity {
 				startActivity(new Intent(LandingPageActivity.this, KillMap.class));
 			}
 		});
-		resources = ResourceManager.getResourceManager();
 		
+		resources = ResourceManager.getResourceManager();
 		getPlayerData();
 		
 	}
