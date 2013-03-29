@@ -46,14 +46,7 @@ public interface IDataSourceManager {
 	 * @return An array of Missions that currently match the status
 	 */
 	public Mission[] getMissions(Mission.Status status);
-	
-	/**
-	 * 
-	 * @param faction
-	 * @param current
-	 * @return
-	 */
-	public Mission[] getMissions(FactionType faction, boolean current);
+
 	
 	/**
 	 * 
