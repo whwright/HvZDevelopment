@@ -10,9 +10,9 @@ import edu.gatech.hvz.entities.Player;
 public interface IDataSourceManager {
 
 	/**
-	 * 
-	 * @param name
-	 * @return
+	 * Get a player by their GT name
+	 * @param name The GT name (eg gburdell3) of the player
+	 * @return The player object associated with the GT Name, or null if no player
 	 */
 	public Player getPlayerByName(String name);
 	
@@ -30,9 +30,10 @@ public interface IDataSourceManager {
 	public List<Player> getZombies(String orderByParam);
 	
 	/**
-	 * 
-	 * @param player
-	 * @return
+	 * Fetch all of the players that have been killed by
+	 * a certain player.
+	 * @param player The player who we are interested in
+	 * @return An array of all of the kills by player
 	 */
 	public Kill[] getKillsByPlayer(String player);
 	
@@ -46,21 +47,14 @@ public interface IDataSourceManager {
 	 * @return An array of Missions that currently match the status
 	 */
 	public Mission[] getMissions(Mission.Status status);
+
 	
 	/**
-	 * 
-	 * @param faction
-	 * @param current
-	 * @return
-	 */
-	public Mission[] getMissions(FactionType faction, boolean current);
-	
-	/**
-	 * 
-	 * @param data
-	 * @param w
-	 * @param h
-	 * @return
+	 * Used to get a URL to an image that contains a QR code.
+	 * @param data The data you want to encode
+	 * @param w The width in pixels of the QR code
+	 * @param h The height in pixels of the QR code
+	 * @return The URL of the QR code image
 	 */
 	public String getQRCode(String data, int w, int h);
 	

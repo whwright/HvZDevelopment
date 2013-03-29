@@ -42,11 +42,6 @@ public class DataSourceManager implements IDataSourceManager
 	}
 
 	@Override
-	public Mission[] getMissions(FactionType faction, boolean current) {
-		return missionDataSource.getMissions(faction, current);
-	}
-
-	@Override
 	public List<Player> getZombies(String orderByParam) {
 		return playerDataSource.getZombies(orderByParam);
 	}
@@ -58,8 +53,7 @@ public class DataSourceManager implements IDataSourceManager
 
 	@Override
 	public Mission[] getMissions(Status status) {
-		// TODO Auto-generated method stub
-		return null;
+		return missionDataSource.getMissions(status);
 	}
 
 }
