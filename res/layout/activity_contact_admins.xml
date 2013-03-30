@@ -45,7 +45,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/contactadmins_message_edittext"
+        android:id="@+id/contactadmins_body_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.18"

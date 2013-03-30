@@ -2,6 +2,7 @@ package edu.gatech.hvz.datasource;
 
 import java.util.List;
 
+import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Mission;
@@ -64,4 +65,6 @@ public interface IDataSourceManager {
 	 * @return
 	 */
 	public void postKill(Kill kill);
+	
+	public void postEmail(Email email);
 }
