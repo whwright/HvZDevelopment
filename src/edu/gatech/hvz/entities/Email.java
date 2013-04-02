@@ -12,7 +12,7 @@ public class Email {
 		this.subject = subject;
 		this.body = body;
 		this.name = name;
-		this.toEmail = toEmail;
+		this.toEmail = email;
 		this.hvzemail = "hvzgatech@gmail.com";
 	}
 
