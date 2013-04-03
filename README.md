@@ -44,5 +44,12 @@ http://hvz.gatech.edu/api
     
 * **/faction/{faction}**
 
-
     Fetches a list of of players that belond to {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
+    
+* **/messages**
+
+    Fetches all of the messages to the currently logged in player
+
+* **/messages/new?to={gt_name}&message={message_content}**
+
+    Creates a new message to the given {gt_name} with the provided {message_content}
