@@ -31,7 +31,7 @@ public class LandingPageActivity extends Activity {
 		missionListButton.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(LandingPageActivity.this,MissionList.class));
+				startActivity(new Intent(LandingPageActivity.this,MissionListActivity.class));
 			}
 		});
 		
@@ -47,7 +47,7 @@ public class LandingPageActivity extends Activity {
 		profileButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(LandingPageActivity.this, Profile.class));
+				startActivity(new Intent(LandingPageActivity.this, ProfileActivity.class));
 			}
 		});
 		
@@ -55,7 +55,7 @@ public class LandingPageActivity extends Activity {
 		chatroomButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(LandingPageActivity.this, Chatroom.class));
+				startActivity(new Intent(LandingPageActivity.this, ChatroomActivity.class));
 			}
 		});
 		
@@ -63,7 +63,7 @@ public class LandingPageActivity extends Activity {
 		killBoardButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(LandingPageActivity.this, KillBoard.class));
+				startActivity(new Intent(LandingPageActivity.this, KillBoardActivity.class));
 			}
 		});
 		
@@ -71,7 +71,7 @@ public class LandingPageActivity extends Activity {
 		killMapButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(LandingPageActivity.this, KillMap.class));
+				startActivity(new Intent(LandingPageActivity.this, KillMapActivity.class));
 			}
 		});
 		resources = ResourceManager.getResourceManager();

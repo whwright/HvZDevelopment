@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Contact" >
+    tools:context=".ContactActivity" >
 
     <TextView
         android:id="@+id/contactadmins_contactadmins_textview"

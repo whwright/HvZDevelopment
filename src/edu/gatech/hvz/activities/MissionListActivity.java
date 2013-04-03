@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-public class MissionList extends Activity {
+public class MissionListActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
