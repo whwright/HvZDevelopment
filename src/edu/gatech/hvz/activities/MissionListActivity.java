@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MissionList extends Activity {
+public class MissionListActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class MissionList extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
 		case 0:
-			Intent lineIntent = new Intent(MissionList.this,MissionDetail.class);
+			Intent lineIntent = new Intent(MissionListActivity.this,MissionDetailActivity.class);
 			startActivity(lineIntent);
 			return true;
 		}
