@@ -33,37 +33,15 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/contactadmins_contactadmins_textview"
+                        android:id="@+id/chatroom_messages"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Large Text"
+                        android:layout_weight="0.34"
+                        android:text="Chat Messages"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <EditText
-                        android:id="@+id/contactadmins_description_edittext"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textMultiLine" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tab2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Large Text"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                    <EditText
-                        android:id="@+id/contactadmins_email_edittext"
+                        android:id="@+id/chatroom_textbox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -72,7 +50,15 @@
                         <requestFocus />
                     </EditText>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                </LinearLayout>
             </FrameLayout>
+
         </LinearLayout>
     </TabHost>
 

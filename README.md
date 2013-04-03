@@ -34,15 +34,18 @@ http://hvz.gatech.edu/api
 
     Fetches the kills by player {gt_name}
 
-* **/mission/{faction}**
+* **/mission/{status}**
 
-    Fetches missions for {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
-
-* **/mission/{faction}/current**
-
-    Fetches current missions for {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
+    Fetches missions for the current player's faction where {status} is one of [ACTIVE, ISSUED, CLOSED]
     
 * **/faction/{faction}**
 
+    Fetches a list of of players that belong to {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
+    
+* **/messages**
 
-    Fetches a list of of players that belond to {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
+    Fetches all of the messages to the currently logged in player
+
+* **/messages/new?to={gt_name}&message={message_content}**
+
+    Creates a new message to the given {gt_name} with the provided {message_content}

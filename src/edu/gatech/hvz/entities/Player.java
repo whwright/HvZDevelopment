@@ -109,5 +109,9 @@ public class Player implements Parcelable {
 			return new Player[size];
 		}
 	};
+
+	public CharSequence getName() {
+		return (fname + " " + lname);
+	}
 	
 }

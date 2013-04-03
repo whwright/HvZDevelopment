@@ -2,6 +2,7 @@ package edu.gatech.hvz.datasource;
 
 import java.util.List;
 
+import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Mission;
@@ -13,12 +14,14 @@ public class DataSourceManager implements IDataSourceManager
 	private PlayerDataSource playerDataSource;
 	private MissionDataSource missionDataSource;
 	private KillDataSource killDataSource;
+	private EmailDataSource emailDataSource;
 	
 	public DataSourceManager()
 	{
 		this.playerDataSource = new PlayerDataSource();
 		this.missionDataSource = new MissionDataSource();
 		this.killDataSource = new KillDataSource();
+		this.emailDataSource = new EmailDataSource();
 	}
 	
 	@Override
@@ -54,6 +57,11 @@ public class DataSourceManager implements IDataSourceManager
 	@Override
 	public Mission[] getMissions(Status status) {
 		return missionDataSource.getMissions(status);
+	}
+
+	@Override
+	public void postEmail(Email email) {
+		emailDataSource.postEmail(email);
 	}
 
 }

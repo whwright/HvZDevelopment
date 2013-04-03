@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -74,8 +75,8 @@ public class LandingPageActivity extends Activity {
 				startActivity(new Intent(LandingPageActivity.this, KillMapActivity.class));
 			}
 		});
-		resources = ResourceManager.getResourceManager();
 		
+		resources = ResourceManager.getResourceManager();
 		getPlayerData();
 		
 	}
@@ -84,7 +85,18 @@ public class LandingPageActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.landing_page, menu);
+		menu.add(0,0,0,"Contact Admin");
 		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch (item.getItemId()){
+		case 0:
+			Intent lineIntent = new Intent(LandingPageActivity.this,ContactAdminsActivity.class);
+			startActivity(lineIntent);
+			return true;
+		}
+		return false;
 	}
 	
 	private void getPlayerData() {

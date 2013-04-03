@@ -1,74 +1,108 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity" >
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+	tools:context=".ProfileActivity" >
+	
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:paddingTop="15dp" >
 
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="15dp"
-        android:src="@android:drawable/btn_star" />
+        <ImageButton
+            android:id="@+id/ImageButton03"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="4"
+            android:src="@android:drawable/btn_star" />
 
-    <TextView
-        android:id="@+id/contactadmins_contactadmins_textview"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Name - Faction"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton1"
-        android:layout_toRightOf="@+id/imageButton1"
-        android:text="Name - Faction"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+		android:layout_weight="0.2">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" 
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/contactadmins_body_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Slogan"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/contactadmins_name_edittext"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" 
+            android:layout_weight="4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/contactadmins_description_edittext"
-        android:layout_below="@+id/contactadmins_contactadmins_textview"
-        android:text="Slogan"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_weight="0.5" >
 
-    <EditText
-        android:id="@+id/contactadmins_description_edittext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/contactadmins_contactadmins_textview"
-        android:layout_alignRight="@+id/ImageButton03"
-        android:layout_below="@+id/textView2"
-        android:ems="10" >
+        <ImageButton
+            android:id="@+id/ImageButton04"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:src="@android:drawable/btn_star" />
 
-        <requestFocus />
-    </EditText>
+        <ImageButton
+            android:id="@+id/ImageButton02"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:src="@android:drawable/btn_star" />
 
-    <ImageButton
-        android:id="@+id/ImageButton02"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_alignTop="@+id/ImageButton01"
-        android:layout_centerHorizontal="true"
-        android:src="@android:drawable/btn_star" />
+        <ImageButton
+            android:id="@+id/ImageButton01"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:src="@android:drawable/btn_star" />
 
-    <ImageButton
-        android:id="@+id/ImageButton03"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_alignTop="@+id/ImageButton02"
-        android:layout_marginLeft="70dp"
-        android:layout_toRightOf="@+id/ImageButton02"
-        android:src="@android:drawable/btn_star" />
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/ImageButton01"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_marginBottom="34dp"
-        android:layout_marginRight="30dp"
-        android:src="@android:drawable/btn_star" />
-
-</RelativeLayout>
+</LinearLayout>

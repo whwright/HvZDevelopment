@@ -6,6 +6,7 @@ import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.R.layout;
 import edu.gatech.hvz.R.menu;
+import edu.gatech.hvz.entities.Email;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
@@ -33,6 +34,9 @@ public class ContactAdminsActivity extends Activity {
 		//set email to gt_name@gatech.edu
 		EditText emailEditText = (EditText) findViewById(R.id.contactadmins_email_edittext);
 		emailEditText.setText( ResourceManager.getResourceManager().getPlayer().getGTName() + "@gatech.edu" );
+		//set name to default
+		EditText nameEditText = (EditText) findViewById(R.id.contactadmins_name_edittext);
+		nameEditText.setText( ResourceManager.getResourceManager().getPlayer().getName() );
 		
 		Button sendButton = (Button) findViewById(R.id.contactadmins_send_button);
 		sendButton.setOnClickListener(new Button.OnClickListener() {
@@ -52,12 +56,41 @@ public class ContactAdminsActivity extends Activity {
 	
 	private class ContactRequest extends AsyncTask<Void, Void, Boolean>
 	{
+		private String errorMessage;
+		
 		@Override
 		protected Boolean doInBackground(Void... params) {
+			loadingDialog = ProgressDialog.show(ContactAdminsActivity.this, "Loading...", "Sending email to admins.", false);
 			
+			String subject = ((EditText) findViewById(R.id.contactadmins_subjet_edittext)).getText().toString();
+			if( subject.equals("") )
+			{
+				errorMessage = "Please enter a subject.";
+				return false;
+			}
 			
-			//loadingDialog = ProgressDialog.show(ContactAdminsActivity.this, "Loading...", "Sending email to admins.", false);
-			//SEND EMAIL
+			String body = ((EditText) findViewById(R.id.contactadmins_body_edittext)).getText().toString();
+			if( body.equals("") )
+			{
+				errorMessage = "Please enter a message body.";
+				return false;
+			}
+			
+			String name = ((EditText) findViewById(R.id.contactadmins_email_edittext)).getText().toString();
+			if( name.equals("") )
+			{
+				errorMessage = "Please enter your name.";
+				return false;
+			}
+			
+			String toEmail = ((EditText) findViewById(R.id.contactadmins_email_edittext)).getText().toString();
+			if( toEmail.equals("") )
+			{
+				errorMessage = "Please enter your email.";
+				return false;
+			}
+			Email emailToSend = new Email(subject, body, name, toEmail);
+			ResourceManager.getResourceManager().getDataManager().postEmail(emailToSend);
 			
 			return true;
 		}
@@ -67,7 +100,17 @@ public class ContactAdminsActivity extends Activity {
 		}
 		
 		protected void onPostExecute(Boolean success) {
-			//loadingDialog.dismiss();
+			loadingDialog.dismiss();
+			if( success )
+			{
+				
+			}
+			else
+			{
+				Toast.makeText(ContactAdminsActivity.this, 
+						errorMessage, 
+						Toast.LENGTH_SHORT).show();
+			}
 			
 		}
 	}
