@@ -7,7 +7,7 @@ import edu.gatech.hvz.entities.Kill;
 
 public class KillDataSource {
 	
-	private String killURL = "https://hvz.gatech.edu/api/";
+	private String killURL = "https://hvz.gatech.edu/api/kill";
 
 	/**
 	 * Posts the given Kill object to the web server.
@@ -17,7 +17,7 @@ public class KillDataSource {
 	{
 		String json = new Gson().toJson(kill);
 		String[] params = { "json", json };
-		ResourceManager.getResourceManager().getNetworkManager().makePost(killURL, params);
+		ResourceManager.getResourceManager().getNetworkManager().makeRequest(killURL, params);
 	}
 
 }
