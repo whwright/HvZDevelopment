@@ -24,7 +24,13 @@ import java.util.*;
 
 public class ContactAdminsActivity extends Activity {
 	
+	//Strings for loading dialog
+	private String loadingDialogTitle = "Loading...";
+	private String loadingDialogMessage = "Sending email to the admins.";
+	private String loadingDialogSuccess = "Message sent.";
+	
 	private ProgressDialog loadingDialog;
+	private Button sendButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +44,20 @@ public class ContactAdminsActivity extends Activity {
 		EditText nameEditText = (EditText) findViewById(R.id.contactadmins_name_edittext);
 		nameEditText.setText( ResourceManager.getResourceManager().getPlayer().getName() );
 		
-		Button sendButton = (Button) findViewById(R.id.contactadmins_send_button);
+		sendButton = (Button) findViewById(R.id.contactadmins_send_button);
 		sendButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new ContactRequest().execute();
+				doContactAdmins();
 			}
 		});
+	}
+	
+	private void doContactAdmins() {
+		sendButton.setEnabled(false);
+		loadingDialog = ProgressDialog.show(ContactAdminsActivity.this, loadingDialogTitle, loadingDialogMessage, false);
+		new ContactRequest().execute();
+		
 	}
 
 	@Override
@@ -60,8 +73,6 @@ public class ContactAdminsActivity extends Activity {
 		
 		@Override
 		protected Boolean doInBackground(Void... params) {
-			loadingDialog = ProgressDialog.show(ContactAdminsActivity.this, "Loading...", "Sending email to admins.", false);
-			
 			String subject = ((EditText) findViewById(R.id.contactadmins_subjet_edittext)).getText().toString();
 			if( subject.equals("") )
 			{
@@ -91,7 +102,7 @@ public class ContactAdminsActivity extends Activity {
 			}
 			Email emailToSend = new Email(subject, body, name, toEmail);
 			ResourceManager.getResourceManager().getDataManager().postEmail(emailToSend);
-			
+			errorMessage = loadingDialogSuccess;
 			return true;
 		}
 		
@@ -101,9 +112,13 @@ public class ContactAdminsActivity extends Activity {
 		
 		protected void onPostExecute(Boolean success) {
 			loadingDialog.dismiss();
+			sendButton.setEnabled(true);
 			if( success )
 			{
-				
+				Toast.makeText(ContactAdminsActivity.this, 
+						errorMessage, 
+						Toast.LENGTH_SHORT).show();
+				finish(); //close the message view
 			}
 			else
 			{
