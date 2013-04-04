@@ -4,17 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.hvz.R;
-import edu.gatech.hvz.ResourceManager;
-import edu.gatech.hvz.R.layout;
-import edu.gatech.hvz.R.menu;
 import edu.gatech.hvz.entities.Player;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,11 +16,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class ZombieSearchActivity extends Activity {
 	
-	private ListView list;
+	private ListView zombieList;
 	private List<PlayerStringWrapper> zombies;
 	private EditText searchBar;
 	private ProgressDialog loadingDialog;
@@ -56,7 +49,7 @@ public class ZombieSearchActivity extends Activity {
 		setContentView(R.layout.activity_zombie_search);
 		
 		zombies = new ArrayList<PlayerStringWrapper>();
-		list = (ListView) findViewById(R.id.zombiesearch_zombie_listview);
+		zombieList = (ListView) findViewById(R.id.zombiesearch_zombie_listview);
 		
 		getZombieData();
 		updateListView();
@@ -74,12 +67,12 @@ public class ZombieSearchActivity extends Activity {
 
 	private void updateListView() 
 	{
-		list.setAdapter(new ArrayAdapter<PlayerStringWrapper>(ZombieSearchActivity.this, android.R.layout.simple_list_item_1, zombies));
-		list.setOnItemClickListener(new OnItemClickListener()
+		zombieList.setAdapter(new ArrayAdapter<PlayerStringWrapper>(ZombieSearchActivity.this, android.R.layout.simple_list_item_1, zombies));
+		zombieList.setOnItemClickListener(new OnItemClickListener()
         {
 			public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long myLong) 
 			{
-				PlayerStringWrapper selectedFromList = (PlayerStringWrapper) list.getItemAtPosition(myItemInt);
+				PlayerStringWrapper selectedFromList = (PlayerStringWrapper) zombieList.getItemAtPosition(myItemInt);
 				if( selectedFromList == null )
 				{
 					Intent returnIntent = new Intent();

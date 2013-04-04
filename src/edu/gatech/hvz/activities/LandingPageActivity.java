@@ -86,15 +86,20 @@ public class LandingPageActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.landing_page, menu);
 		menu.add(0,0,0,"Contact Admin");
+		menu.add(0, 1, 1, "Messages");
 		return true;
 	}
 	
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
-		case 0:
-			Intent lineIntent = new Intent(LandingPageActivity.this,ContactAdminsActivity.class);
-			startActivity(lineIntent);
-			return true;
+			case 0:
+				Intent lineIntent = new Intent(LandingPageActivity.this, ContactAdminsActivity.class);
+				startActivity(lineIntent);
+				return true;
+			case 1:
+				Intent messages = new Intent(LandingPageActivity.this, MessagingActivity.class);
+				startActivity(messages);
+				return true;
 		}
 		return false;
 	}

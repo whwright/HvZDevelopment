@@ -42,4 +42,8 @@
     <string name="contactadmins_name_string">Name</string>
     <string name="contactadmins_body_string">Body</string>
     <string name="contactadmins_subject_string">Subject</string>
+    <string name="title_activity_messaging">MessagingActivity</string>
+    <string name="messaging_compose_string">Compose</string>
+    <string name="title_activity_compose_message">ComposeMessageActivity</string>
+
 </resources>

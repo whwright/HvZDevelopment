@@ -3,34 +3,18 @@ package edu.gatech.hvz.activities;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import com.google.gson.Gson;
-
 import edu.gatech.hvz.entities.*;
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
-import edu.gatech.hvz.networking.CASAuthenticator;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.*;
-import android.view.ViewGroup.LayoutParams;
-
 
 public class ReportKillActivity extends Activity {
 	

@@ -5,6 +5,7 @@ import java.util.List;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Kill;
+import edu.gatech.hvz.entities.Message;
 import edu.gatech.hvz.entities.Mission;
 import edu.gatech.hvz.entities.Mission.Status;
 import edu.gatech.hvz.entities.Player;
@@ -15,6 +16,7 @@ public class DataSourceManager implements IDataSourceManager
 	private MissionDataSource missionDataSource;
 	private KillDataSource killDataSource;
 	private EmailDataSource emailDataSource;
+	private MessageDataSource messageDataSource;
 	
 	public DataSourceManager()
 	{
@@ -22,6 +24,7 @@ public class DataSourceManager implements IDataSourceManager
 		this.missionDataSource = new MissionDataSource();
 		this.killDataSource = new KillDataSource();
 		this.emailDataSource = new EmailDataSource();
+		this.messageDataSource = new MessageDataSource();
 	}
 	
 	@Override
@@ -62,6 +65,11 @@ public class DataSourceManager implements IDataSourceManager
 	@Override
 	public void postEmail(Email email) {
 		emailDataSource.postEmail(email);
+	}
+
+	@Override
+	public List<Message> getMessages() {
+		return messageDataSource.getMessage();
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Kill;
+import edu.gatech.hvz.entities.Message;
 import edu.gatech.hvz.entities.Mission;
 import edu.gatech.hvz.entities.Player;
 
@@ -67,4 +68,6 @@ public interface IDataSourceManager {
 	public void postKill(Kill kill);
 	
 	public void postEmail(Email email);
+	
+	public List<Message> getMessages();
 }

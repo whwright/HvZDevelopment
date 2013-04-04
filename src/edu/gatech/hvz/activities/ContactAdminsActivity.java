@@ -1,26 +1,17 @@
 package edu.gatech.hvz.activities;
 
-import java.util.Properties;
-
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
-import edu.gatech.hvz.R.layout;
-import edu.gatech.hvz.R.menu;
 import edu.gatech.hvz.entities.Email;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.text.Html;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.*;
 
 public class ContactAdminsActivity extends Activity {
 	
