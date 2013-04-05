@@ -27,7 +27,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/messagefrom_body_textfield"
+        android:id="@+id/messageview_body_textfield"
         android:layout_width="match_parent"
         android:layout_height="315dp"
         android:layout_weight="0.10"

@@ -42,14 +42,12 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/contactadmins_body_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Slogan"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/contactadmins_name_edittext"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10" />
@@ -68,7 +66,6 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <Button
-                android:id="@+id/messaging_compose_button"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Save" />

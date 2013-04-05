@@ -34,7 +34,7 @@ public class MessageViewActivity extends Activity
 		TextView timeTextView = (TextView) findViewById(R.id.messageview_time_textfield);
 		timeTextView.setText( messageBeingViewed.getTimeStamp(), TextView.BufferType.EDITABLE );
 		
-		TextView bodyTextView = (TextView) findViewById(R.id.messagefrom_body_textfield);
+		TextView bodyTextView = (TextView) findViewById(R.id.messageview_body_textfield);
 		bodyTextView.setText( messageBeingViewed.getMessage(), TextView.BufferType.EDITABLE );
 		
 		replyButton = (Button) findViewById(R.id.messageview_reply_button);

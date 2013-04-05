@@ -10,11 +10,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MessagingActivity" >
 
-    <Button
-        android:id="@+id/messaging_compose_button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/messaging_compose_string" />
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/messaging_compose_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/messaging_compose_string" />
+
+        <Button
+            android:id="@+id/messaging_refresh_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="refresh" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/messaging_message_listview"

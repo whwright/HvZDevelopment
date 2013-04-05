@@ -93,7 +93,6 @@ public class ContactAdminsActivity extends Activity {
 			}
 			Email emailToSend = new Email(subject, body, name, toEmail);
 			ResourceManager.getResourceManager().getDataManager().postEmail(emailToSend);
-			errorMessage = loadingDialogSuccess;
 			return true;
 		}
 		
@@ -107,7 +106,7 @@ public class ContactAdminsActivity extends Activity {
 			if( success )
 			{
 				Toast.makeText(ContactAdminsActivity.this, 
-						errorMessage, 
+						loadingDialogSuccess, 
 						Toast.LENGTH_SHORT).show();
 				finish(); //close the message view
 			}

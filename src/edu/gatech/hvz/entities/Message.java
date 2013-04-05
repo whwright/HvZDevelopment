@@ -11,6 +11,13 @@ public class Message implements Parcelable {
 	private String message;
 	private String timestamp;
 	
+	public Message(String to, String from, String message)
+	{
+		this.user_to = to;
+		this.user_from = from;
+		this.message = message;
+	}
+	
 	public Message(Parcel in)
 	{
 		id = in.readInt();

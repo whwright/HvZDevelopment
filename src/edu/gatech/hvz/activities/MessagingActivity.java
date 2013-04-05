@@ -25,7 +25,7 @@ public class MessagingActivity extends Activity {
 	private List<Message> messages;
 	private ListView messageList;
 	
-	private Button composeButton;
+	private Button composeButton, refreshButton;
 	
 	private ProgressDialog loadingDialog;
 	
@@ -34,8 +34,7 @@ public class MessagingActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_messaging);
 		
-		new FetchMessages().execute();
-		loadingDialog = ProgressDialog.show(this,  "Loading...", "Fetching messages", false);
+		doFetchMessages();
 		
 		messageList = (ListView) findViewById(R.id.messaging_message_listview);
 		
@@ -47,6 +46,14 @@ public class MessagingActivity extends Activity {
 			}
 		});
 		
+		refreshButton = (Button) findViewById(R.id.messaging_refresh_button);
+		refreshButton.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				doFetchMessages();
+			}
+		});
+		
 		
 	}	
 
@@ -55,6 +62,12 @@ public class MessagingActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.messaging, menu);
 		return true;
+	}
+	
+	private void doFetchMessages()
+	{
+		new FetchMessages().execute();
+		loadingDialog = ProgressDialog.show(this,  "Loading...", "Fetching messages", false);
 	}
 	
 	/**

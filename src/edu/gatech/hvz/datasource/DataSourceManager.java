@@ -72,4 +72,8 @@ public class DataSourceManager implements IDataSourceManager
 		return messageDataSource.getMessage();
 	}
 
+	public void postMessage(Message message) {
+		messageDataSource.postMessage(message);
+	}
+
 }

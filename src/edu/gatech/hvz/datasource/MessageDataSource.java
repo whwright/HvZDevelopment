@@ -13,10 +13,17 @@ import edu.gatech.hvz.entities.Player;
 public class MessageDataSource {
 	
 	private final String messageUrl = "https://hvz.gatech.edu/api/messages";
+	private final String messageComposeUrl = "https://hvz.gatech.edu/api/messages/new?to=%s&message=%s";
 
 	public List<Message> getMessage() {
 		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(messageUrl);
 		return new ArrayList<Message>(Arrays.asList(new Gson().fromJson(json, Message[].class)));
+	}
+
+	public void postMessage(Message message) 
+	{
+		String requestString = String.format(messageComposeUrl, message.getUserTo(), message.getMessage());
+		ResourceManager.getResourceManager().getNetworkManager().makeRequest(requestString);	
 	}
 	
 }

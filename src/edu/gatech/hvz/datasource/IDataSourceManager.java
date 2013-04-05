@@ -69,5 +69,7 @@ public interface IDataSourceManager {
 	
 	public void postEmail(Email email);
 	
+	public void postMessage(Message messageToSend);
+	
 	public List<Message> getMessages();
 }
