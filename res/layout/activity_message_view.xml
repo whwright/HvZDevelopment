@@ -35,10 +35,22 @@
         android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/messageview_reply_button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/messageview_reply_string" />
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/messageview_reply_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/messageview_reply_string" />
+
+        <Button
+            android:id="@+id/messageview_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/messageview_delete_string" />
+
+    </LinearLayout>
 
 </LinearLayout>

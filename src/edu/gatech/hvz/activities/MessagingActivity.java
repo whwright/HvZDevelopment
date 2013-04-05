@@ -171,6 +171,14 @@ public class MessagingActivity extends Activity {
 					fromTextView.setText( m.getUserFrom() );
 				}
 				
+				TextView bodyTextView = (TextView) v.findViewById(R.id.messagelayout_preview_textview);
+				if( bodyTextView != null )
+				{
+					String preview = m.getMessage();
+					//if( preview.length() >)
+					bodyTextView.setText( preview );
+				}
+				
 				TextView timeTextView = (TextView) v.findViewById(R.id.messagelayout_time_textview);
 				if( timeTextView != null )
 				{

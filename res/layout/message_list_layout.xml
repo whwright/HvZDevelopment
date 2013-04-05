@@ -15,13 +15,23 @@
             android:gravity="left"
             android:height="40sp"
             android:text="name"
-            android:textColor="#FFFFFF" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </TableRow>
 
     <TableRow android:layout_height="wrap_content"
               android:layout_width="fill_parent">
 
+        <TextView 
+            android:id="@+id/messagelayout_preview_textview"
+            android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:gravity="left"
+	        android:height="20sp"
+	        android:text="preview" 
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+        
 	    <TextView
 	        android:id="@+id/messagelayout_time_textview"
 	        android:layout_width="fill_parent"
@@ -29,8 +39,10 @@
 	        android:layout_weight="1"
 	        android:gravity="right"
 	        android:height="20sp"
-	        android:text="time" />
+	        android:text="time" 
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	</TableRow>
+
 
 </TableLayout>

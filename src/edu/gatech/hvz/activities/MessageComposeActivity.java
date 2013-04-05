@@ -88,17 +88,32 @@ public class MessageComposeActivity extends Activity {
 				return false;
 			}
 			
-			Player userToPlayer = ResourceManager.getResourceManager().getDataManager().getPlayerByName(userTo);
-			if( userToPlayer == null )
+			//parse userTo
+			String[] usersTo = userTo.split(",");
+			boolean userToValidated = true;
+			for(int i=0; i<usersTo.length && userToValidated; i++)
 			{
-				errorMessage = "Could not find player " + userTo + ".";
-				return false;
+				usersTo[i] = usersTo[i].trim();
+				Player userToPlayer = ResourceManager.getResourceManager().getDataManager().getPlayerByName(usersTo[i]);
+				if( userToPlayer == null )
+				{
+					errorMessage = "Could not find player " + usersTo[i] + ".";
+					userToValidated =  false;
+				}
 			}
 			
-			//send message
-			Message messageToSend = new Message(userTo, ResourceManager.getResourceManager().getPlayer().getGTName(), messageBody);
-			ResourceManager.getResourceManager().getDataManager().postMessage(messageToSend);
-			return true;
+			if( userToValidated ) 
+			{
+				for( String user : usersTo )
+				{
+					user = user.trim();
+					Message messageToSend = new Message(user, ResourceManager.getResourceManager().getPlayer().getGTName(), messageBody);
+					ResourceManager.getResourceManager().getDataManager().postMessage(messageToSend);
+				}
+				return true;
+			}
+			
+			return false;
 		}
 		
 		protected void onProgressUpdate(Void ... params) {

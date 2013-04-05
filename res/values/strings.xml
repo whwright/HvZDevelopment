@@ -49,7 +49,9 @@
     <string name="title_activity_message_compose">MessageComposeActivity</string>
     <string name="messageview_reply_string">Reply</string>
     <string name="messagecompose_send_string">Send</string>
-    <string name="messagecompose_to_textview">To:</string>
+    <string name="messagecompose_to_textview">Recipient(s):</string>
     <string name="messagecompose_body_string">Body (Limited to 255 characters)</string>
+    <string name="messagecompose_todetail_string">Separate multiple usernames with commas</string>
+    <string name="messageview_delete_string">Delete</string>
 
 </resources>
