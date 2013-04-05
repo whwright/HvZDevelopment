@@ -21,11 +21,13 @@
             android:layout_weight="1"
             android:text="@string/messaging_compose_string" />
 
-        <Button
+        <ImageButton
             android:id="@+id/messaging_refresh_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="refresh" />
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/refresh" />
 
     </LinearLayout>
 

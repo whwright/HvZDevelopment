@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Message;
-import edu.gatech.hvz.entities.Player;
 
 public class MessageDataSource {
 	

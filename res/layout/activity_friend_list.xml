@@ -5,7 +5,7 @@
     tools:context=".FriendListActivity" >
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/messaging_refresh_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
@@ -18,8 +18,8 @@
         android:id="@+id/contactadmins_contactadmins_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton1"
-        android:layout_toRightOf="@+id/imageButton1"
+        android:layout_alignTop="@+id/messaging_refresh_button"
+        android:layout_toRightOf="@+id/messaging_refresh_button"
         android:text="Name - Faction"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/contactadmins_contactadmins_textview"
-        android:layout_toRightOf="@+id/imageButton1"
+        android:layout_toRightOf="@+id/messaging_refresh_button"
         android:text="Slogan"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 

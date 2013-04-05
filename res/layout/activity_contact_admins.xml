@@ -50,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.18"
         android:ems="10"
+        android:gravity="center_vertical|top"
         android:inputType="textMultiLine" />
 
     <TextView

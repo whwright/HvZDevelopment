@@ -1,12 +1,7 @@
 package edu.gatech.hvz.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.Editable;
 
 public class Player implements Parcelable {
 	private int id;

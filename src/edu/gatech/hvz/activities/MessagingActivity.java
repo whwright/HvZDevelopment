@@ -15,6 +15,7 @@ import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,8 @@ public class MessagingActivity extends Activity {
 	private List<Message> messages;
 	private ListView messageList;
 	
-	private Button composeButton, refreshButton;
+	private Button composeButton;
+	private ImageButton refreshButton;
 	
 	private ProgressDialog loadingDialog;
 	
@@ -46,7 +48,7 @@ public class MessagingActivity extends Activity {
 			}
 		});
 		
-		refreshButton = (Button) findViewById(R.id.messaging_refresh_button);
+		refreshButton = (ImageButton) findViewById(R.id.messaging_refresh_button);
 		refreshButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {

@@ -85,8 +85,8 @@ public class LandingPageActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.landing_page, menu);
-		menu.add(0,0,0,"Contact Admin");
-		menu.add(0, 1, 1, "Messages");
+		menu.add(Menu.NONE, 0, 0,"Contact Admin");
+		menu.add(Menu.NONE, 1, 1, "Messages");
 		return true;
 	}
 	

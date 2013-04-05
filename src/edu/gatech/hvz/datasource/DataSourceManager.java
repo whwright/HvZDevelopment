@@ -3,7 +3,6 @@ package edu.gatech.hvz.datasource;
 import java.util.List;
 
 import edu.gatech.hvz.entities.Email;
-import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Message;
 import edu.gatech.hvz.entities.Mission;
