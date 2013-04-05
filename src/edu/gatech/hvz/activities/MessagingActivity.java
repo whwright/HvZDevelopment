@@ -12,11 +12,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.*;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class MessagingActivity extends Activity {
 
@@ -41,7 +43,7 @@ public class MessagingActivity extends Activity {
 		composeButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(MessagingActivity.this, ComposeMessageActivity.class));
+				startActivity(new Intent(MessagingActivity.this, MessageComposeActivity.class));
 			}
 		});
 		
@@ -55,6 +57,12 @@ public class MessagingActivity extends Activity {
 		return true;
 	}
 	
+	/**
+	 * FetchMessages is an asynchronous task that fetches the player's messages, and if they are retrieved successfully
+	 * the messageList ListView is initialized with an adapter and on click listener.
+	 * @author whwright
+	 *
+	 */
 	private class FetchMessages extends AsyncTask<Void, Void, Boolean>
 	{
 		private String errorMessage;
@@ -78,8 +86,29 @@ public class MessagingActivity extends Activity {
 	    	loadingDialog.dismiss();
 	    	if( success )
 	    	{
-	    		//messageList.setAdapter(new ArrayAdapter<Message>(MessagingActivity.this, android.R.layout.simple_list_item_1, messages));
-	    		messageList.setAdapter( new MessagesAdapter(MessagingActivity.this, R.layout.message_list_layout, messages));
+	    		//if success add adapter and onclick
+	    		messageList.setAdapter( new MessagesAdapter(MessagingActivity.this, R.layout.message_list_layout, messages) );
+	    		messageList.setOnItemClickListener(new OnItemClickListener()
+	    		{
+					@Override
+					public void onItemClick(AdapterView<?> myAdpater, View myView, int myItemInt, long myLong) 
+					{
+						Message msg = (Message) messageList.getItemAtPosition(myItemInt);
+						
+						if( msg != null )
+						{
+							Intent returnIntent = new Intent(MessagingActivity.this, MessageViewActivity.class);
+							returnIntent.putExtra("SelectedMessage", msg);
+							startActivity(returnIntent);
+						}
+						else
+						{
+							Toast.makeText(MessagingActivity.this,
+									"Error finding message.",
+									Toast.LENGTH_SHORT).show();
+						}
+					}
+	    		});
 	    	}
 	    	else
 	    	{

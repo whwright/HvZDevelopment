@@ -91,6 +91,14 @@
             android:name="edu.gatech.hvz.activities.ComposeMessageActivity"
             android:label="@string/title_activity_compose_message" >
         </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.MessageViewActivity"
+            android:label="@string/title_activity_message_view" >
+        </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.MessageComposeActivity"
+            android:label="@string/title_activity_message_compose" >
+        </activity>
     </application>
 
 </manifest>

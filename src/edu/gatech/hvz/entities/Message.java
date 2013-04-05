@@ -1,12 +1,24 @@
 package edu.gatech.hvz.entities;
 
-public class Message {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Message implements Parcelable {
 	
 	private int id;
 	private String user_to;
 	private String user_from;
 	private String message;
 	private String timestamp;
+	
+	public Message(Parcel in)
+	{
+		id = in.readInt();
+		user_to = in.readString();
+		user_from = in.readString();
+		message = in.readString();
+		timestamp = in.readString();
+	}
 	
 	public int getId() {
 		return id;
@@ -47,6 +59,35 @@ public class Message {
 				+ timestamp + "]";
 			
 	}
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(id);
+		dest.writeString(user_to);
+		dest.writeString(user_from);
+		dest.writeString(message);
+		dest.writeString(timestamp);
+	}
+	
+	public static final Parcelable.Creator<Message> CREATOR = new Parcelable.Creator<Message>()
+	{
+
+		public Message createFromParcel(Parcel in)
+		{
+			return new Message(in);
+		}
+		
+		public Message[] newArray(int size)
+		{
+			return new Message[size];
+		}
+	};
 	
 
 }
