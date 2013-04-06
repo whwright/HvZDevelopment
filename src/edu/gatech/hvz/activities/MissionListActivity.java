@@ -1,9 +1,7 @@
 package edu.gatech.hvz.activities;
 
-import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.util.Formatter;
 import java.util.Locale;
 
 import android.content.Context;
@@ -18,57 +16,91 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Mission;
+import android.widget.TabHost;
+import android.widget.TabHost.TabContentFactory;
 
-public class MissionListActivity extends FragmentActivity {
+public class MissionListActivity extends FragmentActivity implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
 	static final int ACTIVE = 0;
 	static final int ISSUED = 1;
 	static final int CLOSED = 2;
 	static final int NUM_TABS = 3;
 
-	MyAdapter mAdapter;
+	private MyAdapter mAdapter;
+	private ViewPager mPager;
 
-	ViewPager mPager;
+	private TabHost mTabHost;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mission_list);
 
+		//Pages setup
 		mAdapter = new MyAdapter(getSupportFragmentManager());
-
-		mPager = (ViewPager)findViewById(R.id.pager);
+		mPager = (ViewPager)findViewById(R.id.missionlistactivity_pager);
 		mPager.setAdapter(mAdapter);
 
-		// Watch for button clicks.
-		Button button = (Button)findViewById(R.id.missionlistactivity_active_button);
-		button.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				mPager.setCurrentItem(ACTIVE);
-			}
-		});
-		button = (Button)findViewById(R.id.missionlistactivity_issued_button);
-		button.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				mPager.setCurrentItem(ISSUED);
-			}
-		});
-		button = (Button)findViewById(R.id.missionlistactivity_closed_button);
-		button.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				mPager.setCurrentItem(CLOSED);
-			}
-		});
+		//Tab setup
+		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
+		mTabHost.setup();
+		makeTab("ACTIVE", "Active");
+		makeTab("ACTIVE", "Issued");
+		makeTab("ACTIVE", "Closed");
+		mTabHost.setOnTabChangedListener(this);
 	}
 
+	private void makeTab(String tag, String text) {
+		TabSpec tab = mTabHost.newTabSpec(tag);
+		tab.setIndicator(text);
+		tab.setContent(new TabFactory(this));
+		mTabHost.addTab(tab);
+	}
+	@Override
+	public void onTabChanged(String tabId) {
+		int pos = this.mTabHost.getCurrentTab();
+		this.mPager.setCurrentItem(pos);
+	}
+
+	@Override
+	public void onPageScrollStateChanged(int state) {
+	}
+
+	@Override
+	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {		
+	}
+
+	@Override
+	public void onPageSelected(int position) {
+		Log.i("MissionListActivity", "Moving to position: " + position);
+		mTabHost.setCurrentTab(position);
+	}
+
+	public static class TabFactory implements TabContentFactory {
+
+		private final Context mContext;
+
+		public TabFactory(Context context) {
+			mContext = context;
+		}
+
+		public View createTabContent(String tag) {
+			View v = new View(mContext);
+			v.setMinimumWidth(0);
+			v.setMinimumHeight(0);
+			return v;
+		}
+
+	}
+
+	//Adapter for the pager
 	public static class MyAdapter extends FragmentPagerAdapter {
 		public MyAdapter(FragmentManager fm) {
 			super(fm);
@@ -85,6 +117,7 @@ public class MissionListActivity extends FragmentActivity {
 		}
 	}
 
+	//Fragment for each mission list
 	public static class ArrayListFragment extends ListFragment {
 		int mNum;
 		ResourceManager resources;
@@ -103,9 +136,6 @@ public class MissionListActivity extends FragmentActivity {
 		}
 
 
-		/**
-		 * When creating, retrieve this instance's number from its arguments.
-		 */
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
@@ -113,10 +143,6 @@ public class MissionListActivity extends FragmentActivity {
 			resources = ResourceManager.getResourceManager();
 		}
 
-		/**
-		 * The Fragment's UI is just a simple text view showing its
-		 * instance number.
-		 */
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
@@ -135,25 +161,25 @@ public class MissionListActivity extends FragmentActivity {
 		public void onListItemClick(ListView l, View v, int position, long id) {
 			Log.i("FragmentList", "Item clicked: " + id);
 		}
-		
+
 		//ArrayAdapter for custom Mission views
 		public class MissionAdapter extends ArrayAdapter<Mission> {
-		
+
 			private LayoutInflater inflater;
 			private Format formatter;
-			
+
 			public MissionAdapter(Context context, int textViewResourceId, Mission[] objects) {
 				super(context, textViewResourceId, objects);
 				formatter = new SimpleDateFormat("EEE hh:mm aa", Locale.US);
 				inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			}
-			
+
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
 				if (convertView == null) {
 					convertView = inflater.inflate(R.layout.activity_mission_list_item, null);
 				}
-				
+
 				Mission mission = this.getItem(position);
 				TextView name = (TextView) convertView.findViewById(R.id.missionlistactivityitem_name_textview);
 				TextView location = (TextView) convertView.findViewById(R.id.missionlistactivityitem_location_textview);
@@ -161,11 +187,11 @@ public class MissionListActivity extends FragmentActivity {
 				name.setText(mission.getName());
 				location.setText(mission.getLocation());
 				time.setText(formatter.format(mission.getStartDate()) + " to " + formatter.format(mission.getEndDate()));
-				
-			    return convertView;
-			  }
+
+				return convertView;
+			}
 		}
-		
+
 
 		//AsyncTask to grab Missions
 		private class MissionTask extends AsyncTask<Integer, Void, Mission[]> {
@@ -194,5 +220,5 @@ public class MissionListActivity extends FragmentActivity {
 				}
 			}
 		}
-	}  
+	}
 }
