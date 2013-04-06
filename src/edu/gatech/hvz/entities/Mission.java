@@ -1,11 +1,15 @@
 package edu.gatech.hvz.entities;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Mission {
+public class Mission implements Serializable{
+
+	private static final long serialVersionUID = -3595817016895659759L;
+
 	public enum Status {
 		ACTIVE,
 		ISSUED,
@@ -67,7 +71,7 @@ public class Mission {
 	
 	private Date stringToDate(String date) {
 		try {
-			return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).parse(start_datetime);
+			return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).parse(date);
 		} catch (ParseException pe) {
 			return new Date(0);
 		}
