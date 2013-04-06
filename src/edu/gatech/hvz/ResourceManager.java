@@ -40,5 +40,10 @@ public class ResourceManager {
 		player = p;
 	}
 	
+	public void resetData() {
+		this.player = null;
+		networkManager.setCookies(null);
+	}
+	
 
 }

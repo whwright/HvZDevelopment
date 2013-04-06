@@ -3,6 +3,7 @@ package edu.gatech.hvz.activities;
 import java.util.Map;
 
 import edu.gatech.hvz.R;
+import edu.gatech.hvz.entities.Player;
 import edu.gatech.hvz.networking.CASAuthenticator;
 import edu.gatech.hvz.ResourceManager;
 import android.os.AsyncTask;
@@ -72,8 +73,13 @@ public class LoginActivity extends Activity {
 				resources.getNetworkManager().setCookies(cookies);
 				editor.putString("gt_name", info[0]);
 				editor.commit();
+				
+				//Get player data
+				Player p = resources.getDataManager().getPlayerByName(info[0]);
+				resources.setPlayer(p);
 				return true;
 			}
+			
 			return false;
 		}
 		
