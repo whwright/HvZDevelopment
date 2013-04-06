@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,47 +7,45 @@
     tools:context=".MissionDetailActivity" >
 
     <TextView
+        android:id="@+id/missiondetailactivity_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:text="Skyscraper"
+        android:textIsSelectable="true"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
+    
     <TextView
-        android:id="@+id/contactadmins_contactadmins_textview"
+        android:id="@+id/missiondetailactivity_faction_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        android:text="Wed 09:30~11:00 @ CULC Lawn
-        "
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
+        android:textIsSelectable="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
     <TextView
-        android:id="@+id/Story"
+        android:id="@+id/missiondetailactivity_location_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:text="Mission Detail"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textIsSelectable="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/missiondetailactivity_time_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:text="Faithful servants,
+        android:textIsSelectable="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-Due to your humiliating failure last night, the human knowledge of our technology has grown. I have been hard at work to rebuild my time machine and return to the plan, but it is vital that we stop the humans from learning any more about the future of science. Build me a radar tower to search for the last few machine parts.
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
--Biff
+        <TextView
+            android:id="@+id/missiondetailactivity_description_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textIsSelectable="true" />
 
-TRANSLATION: Bring your own supplies, cardboard and tape, to the CULC lawn at 9:30. You will build a tower; the humans will build one on the other side of the lawn also. Whoever has the highest tower at the end of time wins. You are not allowed to touch the human tower; only distract the humans from building it." />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp" />
+    </ScrollView>
 
 </LinearLayout>

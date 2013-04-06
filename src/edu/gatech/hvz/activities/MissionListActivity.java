@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -37,16 +38,18 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 	private ViewPager mPager;
 
 	private TabHost mTabHost;
+	
+	private int lastTabPosition;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mission_list);
-
 		//Pages setup
 		mAdapter = new MyAdapter(getSupportFragmentManager());
 		mPager = (ViewPager)findViewById(R.id.missionlistactivity_pager);
 		mPager.setAdapter(mAdapter);
+		mPager.setOnPageChangeListener(this);
 
 		//Tab setup
 		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
@@ -79,7 +82,6 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 
 	@Override
 	public void onPageSelected(int position) {
-		Log.i("MissionListActivity", "Moving to position: " + position);
 		mTabHost.setCurrentTab(position);
 	}
 
@@ -102,8 +104,11 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 
 	//Adapter for the pager
 	public static class MyAdapter extends FragmentPagerAdapter {
+		private Fragment[] missionFragments;
+		
 		public MyAdapter(FragmentManager fm) {
 			super(fm);
+			missionFragments = new Fragment[3];
 		}
 
 		@Override
@@ -113,7 +118,10 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 
 		@Override
 		public Fragment getItem(int position) {
-			return ArrayListFragment.newInstance(position);
+			if (missionFragments[position] == null) {
+				missionFragments[position] = ArrayListFragment.newInstance(position);
+			}
+			return missionFragments[position];
 		}
 	}
 
@@ -121,17 +129,19 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 	public static class ArrayListFragment extends ListFragment {
 		int mNum;
 		ResourceManager resources;
+		Mission[] missions;
 		/**
 		 * Create a new instance of CountingFragment, providing "num"
 		 * as an argument.
 		 */
-		static ArrayListFragment newInstance(int num) {
+		public static ArrayListFragment newInstance(int num) {
 			ArrayListFragment f = new ArrayListFragment();
 
 			// Supply num input as an argument.
 			Bundle args = new Bundle();
 			args.putInt("num", num);
 			f.setArguments(args);
+			f.setRetainInstance(true);
 			return f;
 		}
 
@@ -141,27 +151,35 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 			super.onCreate(savedInstanceState);
 			mNum = getArguments() != null ? getArguments().getInt("num") : 1;
 			resources = ResourceManager.getResourceManager();
+			new MissionTask().execute(mNum);
 		}
+
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View v = inflater.inflate(R.layout.activity_mission_list_fragment, container, false);
-			return v;
+			return inflater.inflate(R.layout.activity_mission_list_fragment, container, false);
 		}
 
 		@Override
 		public void onActivityCreated(Bundle savedInstanceState) {
 			super.onActivityCreated(savedInstanceState);
-			new MissionTask().execute(mNum);
-
 		}
-
+		
 		@Override
 		public void onListItemClick(ListView l, View v, int position, long id) {
-			Log.i("FragmentList", "Item clicked: " + id);
+			Mission m = (Mission) getListAdapter().getItem(position);
+			Log.i("MissionListActivity", "Trying to go to mission " + m.getName());
+			Intent i = new Intent(this.getActivity(), MissionDetailActivity.class);
+			i.putExtra("mission", m);
+			startActivity(i);
 		}
-
+		
+		private void setAdapter(Mission[] missions) {
+			this.missions = missions;
+			setListAdapter(new MissionAdapter(getActivity(), android.R.layout.simple_list_item_1, missions));
+		}
+		
 		//ArrayAdapter for custom Mission views
 		public class MissionAdapter extends ArrayAdapter<Mission> {
 
@@ -196,7 +214,7 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 		//AsyncTask to grab Missions
 		private class MissionTask extends AsyncTask<Integer, Void, Mission[]> {
 			protected Mission[] doInBackground(Integer ... status) {
-				Log.i("MissionTask", "Getting missions: " + status[0]);
+				Log.i("MissionTask", "Trying to fetch missions: " + status[0]);
 				switch (status[0]) {
 				case ACTIVE:
 					return resources.getDataManager().getMissions(Mission.Status.ACTIVE);
@@ -209,14 +227,10 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 				}
 			}
 
-			protected void onProgressUpdate(Void ... voids) {
-			}
-
 			protected void onPostExecute(Mission[] missions) {
-				if (missions != null && ArrayListFragment.this.getListAdapter() == null) {
+				if (missions != null) {
 					Log.i("MissionTask", "Some missions retrieved");
-					ArrayListFragment.this.setListAdapter(new MissionAdapter(getActivity(),
-							android.R.layout.simple_list_item_1, missions));
+					setAdapter(missions);
 				}
 			}
 		}
