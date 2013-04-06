@@ -1,11 +1,6 @@
 package edu.gatech.hvz.activities;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import edu.gatech.hvz.R;
-import edu.gatech.hvz.R.layout;
-import edu.gatech.hvz.R.menu;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Message;
 import edu.gatech.hvz.entities.Player;

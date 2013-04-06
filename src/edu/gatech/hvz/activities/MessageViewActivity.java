@@ -1,8 +1,6 @@
 package edu.gatech.hvz.activities;
 
 import edu.gatech.hvz.R;
-import edu.gatech.hvz.R.layout;
-import edu.gatech.hvz.R.menu;
 import edu.gatech.hvz.entities.Message;
 import android.os.Bundle;
 import android.app.Activity;
@@ -11,7 +9,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class MessageViewActivity extends Activity 

@@ -4,7 +4,6 @@ import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.webkit.WebView;
 import android.widget.TextView;

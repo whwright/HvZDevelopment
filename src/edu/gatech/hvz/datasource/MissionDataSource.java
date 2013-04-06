@@ -1,5 +1,7 @@
 package edu.gatech.hvz.datasource;
 
+import java.util.Locale;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
@@ -12,7 +14,7 @@ public class MissionDataSource {
 	
 	public Mission[] getMissions(Mission.Status status) {
 		String url = missionsURL;
-		url += "/" + status.toString().toLowerCase();
+		url += "/" + status.toString().toLowerCase(Locale.ENGLISH);
 		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(url);
 		try {
 			Mission[] arr = new Gson().fromJson(json, Mission[].class);
