@@ -9,38 +9,36 @@ import edu.gatech.hvz.ResourceManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 
 	private ResourceManager resources;
 	private Button loginButton;
 	private EditText userNameEditText;
+	private ProgressDialog dialog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+
 		resources = ResourceManager.getResourceManager();
-		
-		//Uncomment this to bypass logging in for basic testing
-		//Set the intent to whatever
-//		startActivity(new Intent(LoginActivity.this, LandingPageActivity.class));
-//		finish();
-		
+
 		loginButton = (Button) findViewById(R.id.button_login);
 		loginButton.setOnClickListener(new Button.OnClickListener() {
-	   		 public void onClick(View v) {
-	   			 doLogin();
-	   		 }
+			public void onClick(View v) {
+				doLogin();
+			}
 		});
-		
+
 		//Set the user's login if they have entered it successfully before
 		userNameEditText = (EditText) findViewById(R.id.edittext_username);
 		userNameEditText.setText(getSharedPreferences("HvZGaTechSettings",0).getString("gt_name", ""));
@@ -53,16 +51,23 @@ public class LoginActivity extends Activity {
 		return true;
 	}
 	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		if (dialog != null && dialog.isShowing()) {
+			dialog.dismiss();
+		}
+	}
+
 	public void doLogin() {
-		loginButton.setEnabled(false);
-		loginButton.setText("Attempting login...");
+		dialog = ProgressDialog.show(this, "Logging in", "Logging in and loading your data", true, false);
 		String user, pass;
 		user = ((EditText) findViewById(R.id.edittext_username)).getText().toString();
 		pass = ((EditText) findViewById(R.id.edittext_password)).getText().toString();
 		new LoginRequest().execute(user, pass);
 	}
-	
-	
+
+
 	private class LoginRequest extends AsyncTask<String, Void, Boolean> {
 
 		protected Boolean doInBackground(String ... info) {
@@ -73,28 +78,26 @@ public class LoginActivity extends Activity {
 				resources.getNetworkManager().setCookies(cookies);
 				editor.putString("gt_name", info[0]);
 				editor.commit();
-				
+
 				//Get player data
 				Player p = resources.getDataManager().getPlayerByName(info[0]);
-				resources.setPlayer(p);
-				return true;
+				if (p != null) {
+					resources.setPlayer(p);
+					return true;
+				}
 			}
-			
 			return false;
 		}
-		
-		protected void onProgressUpdate(Void ... stuff) {
-		}
-		
+
 		protected void onPostExecute(Boolean success) {
+			dialog.dismiss();
 			if (success) {
 				startActivity(new Intent(LoginActivity.this, LandingPageActivity.class));
 				LoginActivity.this.finish();
 			} else {
-				loginButton.setEnabled(true);
-				loginButton.setText("Login (failed, try again)");
+				Toast.makeText(LoginActivity.this, "There was an error logging in to your account", Toast.LENGTH_LONG).show();
 			}
 		}
-	 }
+	}
 	
 }
