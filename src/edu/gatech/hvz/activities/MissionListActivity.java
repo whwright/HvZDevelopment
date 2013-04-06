@@ -38,8 +38,6 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 	private ViewPager mPager;
 
 	private TabHost mTabHost;
-	
-	private int lastTabPosition;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
