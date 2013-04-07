@@ -6,45 +6,33 @@ import edu.gatech.hvz.R;
 import edu.gatech.hvz.entities.Player;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class ZombieSearchActivity extends Activity {
 	
 	private ListView zombieList;
-	private List<PlayerStringWrapper> zombies;
+	private List<Player> zombies;
 	//implement searchable
-	
-	private class PlayerStringWrapper
-	{
-		private Player player;
-		private String name;
-		
-		public PlayerStringWrapper(Player zombie, String name) {
-			this.player = zombie;
-			this.name = name;
-		}
-		public String toString()
-		{
-			return name;
-		}
-		public Player getPlayer()
-		{
-			return player;
-		}
-	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zombie_search);
 		
-		zombies = new ArrayList<PlayerStringWrapper>();
+		zombies = new ArrayList<Player>();
 		zombieList = (ListView) findViewById(R.id.zombiesearch_zombie_listview);
 		
 		getZombieData();
@@ -54,21 +42,17 @@ public class ZombieSearchActivity extends Activity {
 	private void getZombieData() 
 	{
 		Intent i = getIntent();
-		ArrayList<Player> zombies = i.getParcelableArrayListExtra("ZombiesList");
-		for( Player z : zombies )
-		{
-			addToZombieNames(z);
-		}
+		zombies = i.getParcelableArrayListExtra("ZombiesList");
 	}
 
 	private void updateListView() 
 	{
-		zombieList.setAdapter(new ArrayAdapter<PlayerStringWrapper>(ZombieSearchActivity.this, android.R.layout.simple_list_item_1, zombies));
+		zombieList.setAdapter( new ZombieAdapter(ZombieSearchActivity.this, R.layout.activity_zombie_search_list_item, zombies) );
 		zombieList.setOnItemClickListener(new OnItemClickListener()
         {
 			public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long myLong) 
 			{
-				PlayerStringWrapper selectedFromList = (PlayerStringWrapper) zombieList.getItemAtPosition(myItemInt);
+				Player selectedFromList = (Player) zombieList.getItemAtPosition(myItemInt);
 				if( selectedFromList == null )
 				{
 					Intent returnIntent = new Intent();
@@ -77,7 +61,7 @@ public class ZombieSearchActivity extends Activity {
 				else
 				{
 					Intent i = new Intent();
-					i.putExtra("ZombieObject", selectedFromList.getPlayer());
+					i.putExtra("ZombieObject", selectedFromList);
 					setResult(RESULT_OK, i);
 				}
 				finish();
@@ -92,12 +76,59 @@ public class ZombieSearchActivity extends Activity {
 		return true;
 	}
 	
-	private void addToZombieNames(Player zombie)
+	/**
+	 * Custom adapter for zombieList
+	 * @author whwright
+	 *
+	 */
+	private class ZombieAdapter extends ArrayAdapter<Player>
 	{
-		String name = zombie.getFName() + " " + zombie.getLName() + " - Starve Time: " + zombie.getStarveTime();
-		zombies.add( new PlayerStringWrapper( zombie, name ));
+		public ZombieAdapter(Context context, int textViewResourceId)
+		{
+			super(context, textViewResourceId);
+			// TODO Auto-generated constructor stub
+		}
+		
+		private List<Player> zombies;
+		
+		public ZombieAdapter(Context context, int resource, List<Player> zombies)
+		{
+			super(context, resource, zombies);
+			this.zombies = zombies;
+		}
+		
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent)
+		{
+			View v = convertView;
+			
+			if( v == null )
+			{
+				LayoutInflater inflator = LayoutInflater.from(getContext());
+				v = inflator.inflate(R.layout.activity_zombie_search_list_item, null);
+			}
+			
+			Player zombie = zombies.get(position);
+			
+			if( zombie != null )
+			{
+				TextView nameTextView = (TextView) v.findViewById(R.id.zombielistitem_zombiename_textview);
+				if( nameTextView != null )
+				{
+					nameTextView.setText( zombie.getPlayerName() );
+				}
+				
+				TextView feedTextView = (TextView) v.findViewById(R.id.zombielistitem_zombiefeedtime_textview);
+				if( feedTextView != null )
+				{
+					feedTextView.setText( zombie.getStarveTime() );
+				}
+			}
+			
+			return v;
+		}
+		
 	}
-	
 	
 
 }

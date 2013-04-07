@@ -52,5 +52,6 @@
     <string name="messagecompose_body_string">Body (Limited to 255 characters)</string>
     <string name="messagecompose_todetail_string">Separate multiple usernames with commas</string>
     <string name="messageview_delete_string">Delete</string>
+    <string name="search_hint">Search Stuff</string>
 
 </resources>

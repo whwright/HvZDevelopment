@@ -33,7 +33,7 @@ public class ContactAdminsActivity extends Activity {
 		emailEditText.setText( ResourceManager.getResourceManager().getPlayer().getGTName() + "@gatech.edu" );
 		//set name to default
 		EditText nameEditText = (EditText) findViewById(R.id.contactadmins_name_edittext);
-		nameEditText.setText( ResourceManager.getResourceManager().getPlayer().getName() );
+		nameEditText.setText( ResourceManager.getResourceManager().getPlayer().getPlayerName() );
 		
 		sendButton = (Button) findViewById(R.id.contactadmins_send_button);
 		sendButton.setOnClickListener(new Button.OnClickListener() {

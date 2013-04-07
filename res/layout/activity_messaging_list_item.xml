@@ -8,7 +8,7 @@
               android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/messagelayout_from_textview"
+            android:id="@+id/messagelistitem_from_textview"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -23,7 +23,7 @@
               android:layout_width="fill_parent">
 
         <TextView 
-            android:id="@+id/messagelayout_preview_textview"
+            android:id="@+id/messagelistitem_body_textview"
             android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_weight="1"
@@ -33,7 +33,7 @@
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
         
 	    <TextView
-	        android:id="@+id/messagelayout_time_textview"
+	        android:id="@+id/messagelistitem_time_textview"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_weight="1"

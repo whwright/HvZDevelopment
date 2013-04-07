@@ -158,8 +158,7 @@ public class MessagingActivity extends Activity {
 			
 			if( v == null )
 			{
-				LayoutInflater inflator;
-				inflator = LayoutInflater.from(getContext());
+				LayoutInflater inflator = LayoutInflater.from(getContext());
 				v = inflator.inflate(R.layout.activity_messaging_list_item, null);
 			}
 			
@@ -167,13 +166,13 @@ public class MessagingActivity extends Activity {
 			
 			if( m != null )
 			{
-				TextView fromTextView = (TextView) v.findViewById(R.id.messagelayout_from_textview);
+				TextView fromTextView = (TextView) v.findViewById(R.id.messagelistitem_from_textview);
 				if( fromTextView != null )
 				{
 					fromTextView.setText( m.getUserFrom() );
 				}
 				
-				TextView bodyTextView = (TextView) v.findViewById(R.id.messagelayout_preview_textview);
+				TextView bodyTextView = (TextView) v.findViewById(R.id.messagelistitem_body_textview);
 				if( bodyTextView != null )
 				{
 					String preview = m.getMessage();
@@ -181,7 +180,7 @@ public class MessagingActivity extends Activity {
 					bodyTextView.setText( preview );
 				}
 				
-				TextView timeTextView = (TextView) v.findViewById(R.id.messagelayout_time_textview);
+				TextView timeTextView = (TextView) v.findViewById(R.id.messagelistitem_time_textview);
 				if( timeTextView != null )
 				{
 					timeTextView.setText( m.getTimeStamp() );

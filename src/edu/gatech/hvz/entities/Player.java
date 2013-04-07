@@ -1,5 +1,8 @@
 package edu.gatech.hvz.entities;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -47,6 +50,15 @@ public class Player implements Parcelable {
 	
 	public String getStarveTime() {
 		return starve_time;
+	}
+	
+	/**
+	 * Returns time until starve, i.e. "Starves in [time]"
+	 * @return String
+	 */
+	public String getStarveTimeFormatted()
+	{
+		return null;
 	}
 	
 	public String getFaction() {
@@ -104,9 +116,5 @@ public class Player implements Parcelable {
 			return new Player[size];
 		}
 	};
-
-	public CharSequence getName() {
-		return (fname + " " + lname);
-	}
 	
 }
