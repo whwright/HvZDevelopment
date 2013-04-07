@@ -102,7 +102,7 @@ public class MessagingActivity extends Activity {
 	    	if( success )
 	    	{
 	    		//if success add adapter and onclick
-	    		messageList.setAdapter( new MessagesAdapter(MessagingActivity.this, R.layout.message_list_layout, messages) );
+	    		messageList.setAdapter( new MessagesAdapter(MessagingActivity.this, R.layout.activity_messaging_list_item, messages) );
 	    		messageList.setOnItemClickListener(new OnItemClickListener()
 	    		{
 					@Override
@@ -160,7 +160,7 @@ public class MessagingActivity extends Activity {
 			{
 				LayoutInflater inflator;
 				inflator = LayoutInflater.from(getContext());
-				v = inflator.inflate(R.layout.message_list_layout, null);
+				v = inflator.inflate(R.layout.activity_messaging_list_item, null);
 			}
 			
 			Message m = messages.get(position);

@@ -20,8 +20,8 @@ public class Kill {
 	
 	@Override
 	public String toString() {
-		return "Kill [victim=" + victim + ", lat=" + lat + ", lng=" + lng
-				+ ", time=" + time + "]";
+		return "Kill [killer=" + killer + ", victim=" + victim + ", lat=" + lat + ", lng=" + lng
+				+ ", feed1=" + feed1 + ", feed2=" + feed2 + ", time=" + time + "]";
 	}
 	
 

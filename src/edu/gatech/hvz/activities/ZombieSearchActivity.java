@@ -2,27 +2,23 @@ package edu.gatech.hvz.activities;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.entities.Player;
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 
 public class ZombieSearchActivity extends Activity {
 	
 	private ListView zombieList;
 	private List<PlayerStringWrapper> zombies;
-	private EditText searchBar;
-	private ProgressDialog loadingDialog;
+	//implement searchable
 	
 	private class PlayerStringWrapper
 	{

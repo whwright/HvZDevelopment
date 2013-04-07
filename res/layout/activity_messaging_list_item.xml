@@ -14,7 +14,7 @@
             android:layout_weight="1"
             android:gravity="left"
             android:height="40sp"
-            android:text="name"
+            android:text=""
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </TableRow>
@@ -29,7 +29,7 @@
 	        android:layout_weight="1"
 	        android:gravity="left"
 	        android:height="20sp"
-	        android:text="preview" 
+	        android:text="" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
         
 	    <TextView
@@ -39,7 +39,7 @@
 	        android:layout_weight="1"
 	        android:gravity="right"
 	        android:height="20sp"
-	        android:text="time" 
+	        android:text="" 
 	        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 	</TableRow>

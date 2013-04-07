@@ -6,7 +6,6 @@ import java.util.Date;
 import edu.gatech.hvz.entities.*;
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
@@ -23,7 +22,6 @@ public class ReportKillActivity extends Activity {
     	
 	private Button reportKillButton, captureQrButton;
 	private ImageButton zombieOneButton, zombieTwoButton;
-	private Uri imageUri;
 	
 	private ArrayList<Player> zombies;
 	private Player zombie1;
