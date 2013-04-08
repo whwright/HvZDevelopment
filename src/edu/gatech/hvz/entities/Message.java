@@ -8,6 +8,10 @@ public class Message implements Parcelable {
 	private int id;
 	private String user_to;
 	private String user_from;
+	/*This variable can mean different things at different times.
+	For example, full_name is the person a message is from when
+	you receive it, or it is the recipient's name of a sent message */
+	private String full_name;
 	private String message;
 	private String timestamp;
 	
