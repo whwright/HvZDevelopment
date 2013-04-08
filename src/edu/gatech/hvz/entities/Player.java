@@ -22,6 +22,10 @@ public class Player implements Parcelable {
 	private String starve_time;
 	private int kills;
 	
+	/**
+	 * Parcelable constructor used to pass Player objects between activities
+	 * @param in
+	 */
 	public Player(Parcel in) {
 		id = in.readInt();
 		gt_name = in.readString();
@@ -60,6 +64,8 @@ public class Player implements Parcelable {
 	
 	/**
 	 * Returns time until starve, i.e. "Starves in [time]"
+	 * [time] = X years X months ... X seconds (X == 0 not shown)
+	 * Shows negative time periods right now
 	 * @return String
 	 */
 	public String getStarveTimeFormatted()
