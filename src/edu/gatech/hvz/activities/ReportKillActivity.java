@@ -189,13 +189,12 @@ public class ReportKillActivity extends Activity {
 				return false;
 			}
 			
-			//get time of day in format used in db
-			String currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+			
 			//get gps data
 			
 			
 			//using bad GPS data for now
-			Kill kill = new Kill(resources.getPlayer().getGTName(), victimPlayerCode, zombie1.getGTName(), zombie2.getGTName(), -1, -1, currTime);
+			Kill kill = new Kill(victimPlayerCode, zombie1.getGTName(), zombie2.getGTName(), -1, -1);
 			resources.getDataManager().postKill(kill);			
 			return true;
 		}
