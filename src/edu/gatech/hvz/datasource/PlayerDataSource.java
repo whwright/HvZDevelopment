@@ -12,10 +12,10 @@ import edu.gatech.hvz.entities.Player;
 
 public class PlayerDataSource {
 	
-	private String playerURL = "https://hvz.gatech.edu/api/player/%s";
-	private String killsURL = "https://hvz.gatech.edu/api/player/%s/kills";
-	private String factionURL = "https://hvz.gatech.edu/api/faction/%s";
-	private String qrCodeURL = "http://api.qrserver.com/v1/create-qr-code/?qzone=1&size=%dx%d&data=%s";
+	private final String playerURL = "https://hvz.gatech.edu/api/player/%s";
+	private final String killsURL = "https://hvz.gatech.edu/api/player/%s/kills";
+	private final String factionURL = "https://hvz.gatech.edu/api/faction/%s";
+	private final String qrCodeURL = "http://api.qrserver.com/v1/create-qr-code/?qzone=1&size=%dx%d&data=%s";
 	
 	
 	public PlayerDataSource()

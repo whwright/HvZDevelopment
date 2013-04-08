@@ -137,6 +137,8 @@ public class MessagingActivity extends Activity {
 
 	private class MessagesAdapter extends ArrayAdapter<Message>
 	{
+		
+		private final int PREVIEW_CHARACTER_LENGTH = 40;
 
 		public MessagesAdapter(Context context, int textViewResourceId) {
 			super(context, textViewResourceId);
@@ -176,7 +178,11 @@ public class MessagingActivity extends Activity {
 				if( bodyTextView != null )
 				{
 					String preview = m.getMessage();
-					//if( preview.length() >)
+					if( preview.length() > PREVIEW_CHARACTER_LENGTH )
+					{
+						preview = preview.substring(0, PREVIEW_CHARACTER_LENGTH);
+						preview += " ... ";
+					}
 					bodyTextView.setText( preview );
 				}
 				

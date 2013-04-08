@@ -7,7 +7,7 @@ import edu.gatech.hvz.entities.Email;
 
 public class EmailDataSource {
 	
-	private String emailURL = "https://hvz.gatech.edu/api/email";
+	private final String emailURL = "https://hvz.gatech.edu/api/email";
 
 	public void postEmail(Email email)
 	{

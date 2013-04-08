@@ -43,12 +43,14 @@
             android:id="@+id/messageview_reply_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1.02"
             android:text="@string/messageview_reply_string" />
 
         <Button
             android:id="@+id/messageview_delete_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.84"
             android:text="@string/messageview_delete_string" />
 
     </LinearLayout>
