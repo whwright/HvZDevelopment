@@ -121,7 +121,7 @@ public class ZombieSearchActivity extends Activity {
 				TextView feedTextView = (TextView) v.findViewById(R.id.zombielistitem_zombiefeedtime_textview);
 				if( feedTextView != null )
 				{
-					feedTextView.setText( zombie.getStarveTime() );
+					feedTextView.setText( zombie.getStarveTimeFormatted() );
 				}
 			}
 			
