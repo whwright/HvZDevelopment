@@ -42,10 +42,18 @@ http://hvz.gatech.edu/api
 
     Fetches a list of of players that belong to {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
     
-* **/messages**
+* **/messages/new**
 
-    Fetches all of the messages to the currently logged in player
+    Fetches only new messages for currently logged in player.
 
-* **/messages/new?to={gt_name}&message={message_content}**
+* **/messages?count={count}&offset={offset}**
+
+    Fetches only old messages for currently logged in player.  {count} messages are fetched starting at {offset}, 0 being the most recently retrieved message.
+
+* **/messages/sent**
+
+    Fetches all sent messages from the currently logged in player.
+
+* **/messages/compose?to={gt_name}&message={message_content}**
 
     Creates a new message to the given {gt_name} with the provided {message_content}
