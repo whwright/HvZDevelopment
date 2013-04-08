@@ -49,6 +49,7 @@ http://hvz.gatech.edu/api
 * **/messages?count={count}&offset={offset}**
 
     Fetches only old messages for currently logged in player.  {count} messages are fetched starting at {offset}, 0 being the most recently retrieved message.
+    {count} defaults to 10, {offset} defaults to 0
 
 * **/messages/sent**
 
