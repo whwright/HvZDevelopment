@@ -84,7 +84,7 @@ public class MessagingActivity extends Activity {
 
 		@Override
 		protected Boolean doInBackground(Void... params) {
-			messages = ResourceManager.getResourceManager().getDataManager().getMessages();
+			messages = ResourceManager.getResourceManager().getDataManager().getOldMessages(100, 0);
 			if( messages != null )
 			{
 				return true;

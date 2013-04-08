@@ -68,7 +68,36 @@ public interface IDataSourceManager {
 	
 	public void postEmail(Email email);
 	
-	public void postMessage(Message messageToSend);
 	
-	public List<Message> getMessages();
+	/**
+	 * Retrieve old messages that have already been retrieved at least once.
+	 * 
+	 * @param count The number of messages you want to retrieve
+	 * @param offset The offset into the messages to start at (newest is 0)
+	 * @return A list of messages, or null if no messages.
+	 */
+	public List<Message> getOldMessages(int count, int offset);
+
+	/**
+	 * Retrieve only new messages that have never been seen before.
+	 * 
+	 * @return A list of messages, or null if no messages.
+	 */
+	public List<Message> getNewMessages();
+	
+	/**
+	 * Retrieve all sent messages.
+	 * 
+	 * @return A list of messages, or null if no messages.
+	 */	
+	public List<Message> getSentMessages();
+	
+	
+	/**
+	 * Send a new message to another player.
+	 * 
+	 * @param message The message that is to be sent.
+	 */
+	public void postMessage(Message message) ;
+
 }

@@ -1,7 +1,12 @@
 package edu.gatech.hvz.datasource;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import com.google.gson.Gson;
+
+import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Message;
@@ -66,12 +71,20 @@ public class DataSourceManager implements IDataSourceManager
 		emailDataSource.postEmail(email);
 	}
 
-	@Override
-	public List<Message> getMessages() {
-		return messageDataSource.getMessage();
+	public List<Message> getOldMessages(int count, int offset) {
+		return messageDataSource.getOldMessages(count, offset);
+	}
+	
+	public List<Message> getNewMessages() {
+		return messageDataSource.getNewMessages();
+	}
+	
+	public List<Message> getSentMessages() {
+		return messageDataSource.getSentMessages();
 	}
 
-	public void postMessage(Message message) {
+	public void postMessage(Message message) 
+	{
 		messageDataSource.postMessage(message);
 	}
 

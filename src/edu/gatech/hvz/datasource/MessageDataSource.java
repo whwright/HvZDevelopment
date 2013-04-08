@@ -11,17 +11,30 @@ import edu.gatech.hvz.entities.Message;
 
 public class MessageDataSource {
 	
-	private final String messageUrl = "https://hvz.gatech.edu/api/messages";
-	private final String messageComposeUrl = "https://hvz.gatech.edu/api/messages/new?to=%s&message=%s";
+	private final String oldMessagesUrl = "https://hvz.gatech.edu/api/messages";
+	private final String newMessagesUrl = "https://hvz.gatech.edu/api/messages/new";
+	private final String sentMessagesUrl = "https://hvz.gatech.edu/api/messages/sent";
+	private final String composeMessageUrl = "https://hvz.gatech.edu/api/messages/create?to=%s&message=%s";
 
-	public List<Message> getMessage() {
-		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(messageUrl);
+	public List<Message> getOldMessages(int count, int offset) {
+		String[] params = {"count", "" + count, "offset", "" + offset};
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(oldMessagesUrl, params);
+		return new ArrayList<Message>(Arrays.asList(new Gson().fromJson(json, Message[].class)));
+	}
+	
+	public List<Message> getNewMessages() {
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(newMessagesUrl);
+		return new ArrayList<Message>(Arrays.asList(new Gson().fromJson(json, Message[].class)));
+	}
+	
+	public List<Message> getSentMessages() {
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(sentMessagesUrl);
 		return new ArrayList<Message>(Arrays.asList(new Gson().fromJson(json, Message[].class)));
 	}
 
 	public void postMessage(Message message) 
 	{
-		String requestString = String.format(messageComposeUrl, message.getUserTo(), message.getMessage());
+		String requestString = String.format(composeMessageUrl, message.getUserTo(), message.getMessage());
 		ResourceManager.getResourceManager().getNetworkManager().makeRequest(requestString);	
 	}
 	
