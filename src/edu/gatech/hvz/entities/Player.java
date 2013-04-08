@@ -19,6 +19,7 @@ public class Player implements Parcelable {
 	private String fname, lname;
 	private String faction;
 	private String slogan;
+	private String avatar;
 	private String starve_time;
 	private int kills;
 	
