@@ -17,8 +17,7 @@
         <TextView android:id="@android:id/empty"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="No items."/>
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
     </FrameLayout>
 
 </LinearLayout>

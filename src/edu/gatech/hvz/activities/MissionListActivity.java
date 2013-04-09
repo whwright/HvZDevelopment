@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView.FindListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TabHost.TabSpec;
@@ -162,6 +163,7 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 		@Override
 		public void onActivityCreated(Bundle savedInstanceState) {
 			super.onActivityCreated(savedInstanceState);
+			((TextView) getListView().getEmptyView()).setText("Loading...");
 		}
 		
 		@Override
@@ -229,6 +231,9 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 				if (missions != null) {
 					Log.i("MissionTask", "Some missions retrieved");
 					setAdapter(missions);
+				} else {
+					TextView empty = (TextView)ArrayListFragment.this.getListView().getEmptyView();
+					empty.setText("No missions.");
 				}
 			}
 		}
