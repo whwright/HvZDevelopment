@@ -1,19 +1,27 @@
 package edu.gatech.hvz.activities;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import edu.gatech.hvz.entities.*;
-import edu.gatech.hvz.R;
-import edu.gatech.hvz.ResourceManager;
-import android.os.AsyncTask;
-import android.os.Bundle;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
+import edu.gatech.hvz.R;
+import edu.gatech.hvz.ResourceManager;
+import edu.gatech.hvz.entities.Kill;
+import edu.gatech.hvz.entities.Player;
 
 public class ReportKillActivity extends Activity {
 	
@@ -97,8 +105,8 @@ public class ReportKillActivity extends Activity {
 	
 	private void doCaptureQr()
 	{
-		Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE); 
-        startActivityForResult(cameraIntent, CAMERA_REQUEST);
+		IntentIntegrator integrator = new IntentIntegrator(this);
+		integrator.initiateScan();
 	}
 	
 	private void searchZombie(String zombieNumber) 
@@ -128,7 +136,11 @@ public class ReportKillActivity extends Activity {
 	 */
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
-		if( requestCode == ZOMBIE_SEARCH_REQUEST )
+		IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+		if (scanResult != null) {
+			//TODO what happens on kill
+		}
+		else if( requestCode == ZOMBIE_SEARCH_REQUEST )
 		{
 			if( resultCode == RESULT_OK )
 			{
@@ -151,9 +163,8 @@ public class ReportKillActivity extends Activity {
 			}
 			else if( resultCode == RESULT_CANCELED )
 			{
-				
+
 			}
-			
 		}
 	}
 
