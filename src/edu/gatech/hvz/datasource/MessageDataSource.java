@@ -1,5 +1,6 @@
 package edu.gatech.hvz.datasource;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,7 +35,7 @@ public class MessageDataSource {
 
 	public void postMessage(Message message) 
 	{
-		String requestString = String.format(composeMessageUrl, message.getUserTo(), message.getMessage());
+		String requestString = String.format(composeMessageUrl, message.getUserTo(), message.getEncodedMessage());
 		ResourceManager.getResourceManager().getNetworkManager().makeRequest(requestString);	
 	}
 	

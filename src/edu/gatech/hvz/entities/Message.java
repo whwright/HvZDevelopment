@@ -1,5 +1,8 @@
 package edu.gatech.hvz.entities;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -51,6 +54,13 @@ public class Message implements Parcelable {
 	}
 	public String getMessage() {
 		return message;
+	}
+	public String getEncodedMessage() {
+		try {
+		return URLEncoder.encode(message, "UTF-8");
+		} catch (UnsupportedEncodingException uee) {
+			return message;
+		}
 	}
 	public void setMessage(String message) {
 		this.message = message;
