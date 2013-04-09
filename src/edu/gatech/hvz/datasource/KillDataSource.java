@@ -1,7 +1,5 @@
 package edu.gatech.hvz.datasource;
 
-import com.google.gson.Gson;
-
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Kill;
 
@@ -15,8 +13,12 @@ public class KillDataSource {
 	 */
 	public void postKill(Kill kill) 
 	{
-		String json = new Gson().toJson(kill);
-		String[] params = { "json", json };
+		String[] params = {"playerCode", kill.getPlayerCode(),
+						   "feed1", kill.getFeed1(),
+						   "feed2", kill.getFeed2(),
+						   "lat", "" + kill.getLat(),
+						   "lng", "" + kill.getLng()
+						  };
 		ResourceManager.getResourceManager().getNetworkManager().makeRequest(killURL, params);
 	}
 

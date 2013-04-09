@@ -14,6 +14,26 @@ public class Kill {
 		this.lng = lng;
 	}
 
+	public String getPlayerCode() {
+		return playerCode;
+	}
+
+	public String getFeed1() {
+		return feed1;
+	}
+
+	public String getFeed2() {
+		return feed2;
+	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public double getLng() {
+		return lng;
+	}
+
 	@Override
 	public String toString() {
 		return "Kill [playerCode=" + playerCode + ", feed1=" + feed1
