@@ -11,6 +11,7 @@ import org.joda.time.format.PeriodFormatterBuilder;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.Html;
 
 public class Player implements Parcelable {
 	private int id;
@@ -113,6 +114,10 @@ public class Player implements Parcelable {
 	
 	public String getGTName() {
 		return gt_name;
+	}
+	
+	public String getSlogan() {
+		return slogan;
 	}
 
 	@Override
