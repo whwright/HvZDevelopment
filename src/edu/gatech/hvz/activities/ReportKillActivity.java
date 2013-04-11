@@ -138,7 +138,7 @@ public class ReportKillActivity extends Activity {
 	{
 		IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 		if (scanResult != null) {
-			//TODO what happens on kill
+			((EditText)findViewById(R.id.reportkill_playercode_edittext)).setText(scanResult.getContents());
 		}
 		else if( requestCode == ZOMBIE_SEARCH_REQUEST )
 		{
