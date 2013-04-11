@@ -22,11 +22,10 @@
             android:src="@android:drawable/btn_star" />
 
         <TextView
-            android:id="@+id/profile_name"
+            android:id="@+id/profileactivity_name_textview"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="Name - Faction"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
     </LinearLayout>
@@ -43,9 +42,9 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/profileactivity_slogan_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Slogan"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText

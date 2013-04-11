@@ -1,16 +1,25 @@
 package edu.gatech.hvz.activities;
 
 import edu.gatech.hvz.R;
+import edu.gatech.hvz.ResourceManager;
+import edu.gatech.hvz.entities.Player;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class ProfileActivity extends Activity {
 
+	private Player player;
+	private ResourceManager resources;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
+		resources = ResourceManager.getResourceManager();
+		player = resources.getPlayer();
+		((TextView)findViewById(R.id.profileactivity_name_textview)).setText(player.getPlayerName());		
+		((TextView)findViewById(R.id.profileactivity_slogan_textview)).setText(player.getSlogan());
 	}
 
 	@Override
