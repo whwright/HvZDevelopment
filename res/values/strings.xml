@@ -53,5 +53,7 @@
     <string name="messagecompose_todetail_string">Separate multiple usernames with commas</string>
     <string name="messageview_delete_string">Delete</string>
     <string name="search_hint">Search Stuff</string>
+    <string name="title_activity_message_list">MessageListActivity</string>
+    <string name="messagelist_compose_string">Compose</string>
 
 </resources>

@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MessageViewActivity" >
+    tools:context=".MessageDetailActivity" >
 
     <TextView
         android:id="@+id/messageview_from_textview"
@@ -45,13 +45,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.02"
             android:text="@string/messageview_reply_string" />
-
-        <Button
-            android:id="@+id/messageview_delete_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.84"
-            android:text="@string/messageview_delete_string" />
 
     </LinearLayout>
 

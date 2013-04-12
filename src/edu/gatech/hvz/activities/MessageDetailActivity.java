@@ -1,7 +1,9 @@
 package edu.gatech.hvz.activities;
 
 import edu.gatech.hvz.R;
+import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Message;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,15 +13,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MessageViewActivity extends Activity 
+public class MessageDetailActivity extends Activity 
 {
 	private Message messageBeingViewed;
-	private Button replyButton;
+	private Button replyButton, deleteButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_message_view);
+		setContentView(R.layout.activity_message_detail);
 		
 		//get message passed from MessagingActivity
 		messageBeingViewed = getIntent().getParcelableExtra("SelectedMessage");
@@ -42,6 +44,7 @@ public class MessageViewActivity extends Activity
 				doReply();
 			}
 		});
+	
 	}
 
 	@Override
@@ -53,7 +56,7 @@ public class MessageViewActivity extends Activity
 	
 	private void doReply() 
 	{
-		Intent returnIntent = new Intent(MessageViewActivity.this, MessageComposeActivity.class);
+		Intent returnIntent = new Intent(MessageDetailActivity.this, MessageComposeActivity.class);
 		returnIntent.putExtra("MessageToReply", messageBeingViewed);
 		startActivity(returnIntent);
 	}

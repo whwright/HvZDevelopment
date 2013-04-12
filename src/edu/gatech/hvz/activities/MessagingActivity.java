@@ -102,7 +102,7 @@ public class MessagingActivity extends Activity {
 	    	if( success )
 	    	{
 	    		//if success add adapter and onclick
-	    		messageList.setAdapter( new MessagesAdapter(MessagingActivity.this, R.layout.activity_messaging_list_item, messages) );
+	    		messageList.setAdapter( new MessagesAdapter(MessagingActivity.this, R.layout.activity_message_list_item, messages) );
 	    		messageList.setOnItemClickListener(new OnItemClickListener()
 	    		{
 					@Override
@@ -112,7 +112,7 @@ public class MessagingActivity extends Activity {
 						
 						if( msg != null )
 						{
-							Intent returnIntent = new Intent(MessagingActivity.this, MessageViewActivity.class);
+							Intent returnIntent = new Intent(MessagingActivity.this, MessageDetailActivity.class);
 							returnIntent.putExtra("SelectedMessage", msg);
 							startActivity(returnIntent);
 						}
@@ -137,7 +137,6 @@ public class MessagingActivity extends Activity {
 
 	private class MessagesAdapter extends ArrayAdapter<Message>
 	{
-		
 		private final int PREVIEW_CHARACTER_LENGTH = 40;
 
 		public MessagesAdapter(Context context, int textViewResourceId) {
@@ -161,7 +160,7 @@ public class MessagingActivity extends Activity {
 			if( v == null )
 			{
 				LayoutInflater inflator = LayoutInflater.from(getContext());
-				v = inflator.inflate(R.layout.activity_messaging_list_item, null);
+				v = inflator.inflate(R.layout.activity_message_list_item, null);
 			}
 			
 			Message m = messages.get(position);

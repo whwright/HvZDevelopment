@@ -106,7 +106,7 @@ public class LandingPageActivity extends Activity {
 				startActivity(lineIntent);
 				return true;
 			case 1:
-				Intent messages = new Intent(LandingPageActivity.this, MessagingActivity.class);
+				Intent messages = new Intent(LandingPageActivity.this, MessageListActivity.class);
 				startActivity(messages);
 				return true;
 			case 2:
