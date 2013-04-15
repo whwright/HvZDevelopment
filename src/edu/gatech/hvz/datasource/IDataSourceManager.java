@@ -103,10 +103,16 @@ public interface IDataSourceManager {
 	public void postMessage(Message message) ;
 
 	/**
-	 * Returns the given players player emblem as a Drawable
+	 * Returns the given players player emblem as a Drawable ID number 
 	 * 
 	 * @param player the player whos icon Nick wants
 	 */
-	public Drawable getPlayerIcon(Player player);
+	public int getPlayerIcon(Player player);
+
+	/**
+	 * Returns the humans to Nick
+	 * 
+	 */
+	public List<Player> getHumans();
 
 }

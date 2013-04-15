@@ -2,6 +2,7 @@ package edu.gatech.hvz.datasource;
 
 import java.util.List;
 
+import android.R;
 import android.graphics.drawable.Drawable;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.Kill;
@@ -85,7 +86,13 @@ public class DataSourceManager implements IDataSourceManager
 	}
 
 	@Override
-	public Drawable getPlayerIcon(Player player) {
+	public int getPlayerIcon(Player player) {
+		// TODO Auto-generated method stub
+		return R.drawable.ic_menu_gallery;
+	}
+
+	@Override
+	public List<Player> getHumans() {
 		// TODO Auto-generated method stub
 		return null;
 	}
