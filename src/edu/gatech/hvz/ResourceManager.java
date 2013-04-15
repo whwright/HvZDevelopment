@@ -2,6 +2,7 @@ package edu.gatech.hvz;
 
 import edu.gatech.hvz.datasource.CacheDataSource;
 import edu.gatech.hvz.datasource.DataSourceManager;
+import edu.gatech.hvz.datasource.IDataSourceManager;
 import edu.gatech.hvz.entities.Player;
 import edu.gatech.hvz.networking.NetworkManager;
 
@@ -9,7 +10,7 @@ public class ResourceManager {
 	
 	private static ResourceManager resourceManager;
 	private NetworkManager networkManager;
-	private DataSourceManager dataManager;
+	private IDataSourceManager dataManager;
 	private CacheDataSource cache;
 	private Player player;
 	
@@ -31,7 +32,7 @@ public class ResourceManager {
 		return networkManager;
 	}
 	
-	public DataSourceManager getDataManager() {
+	public IDataSourceManager getDataManager() {
 		return dataManager;
 	}
 	
