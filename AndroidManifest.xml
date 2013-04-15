@@ -80,9 +80,6 @@
             android:name="edu.gatech.hvz.activities.MessagingActivity"
             android:label="@string/title_activity_messaging" />
         <activity
-            android:name="edu.gatech.hvz.activities.ComposeMessageActivity"
-            android:label="@string/title_activity_compose_message" />
-        <activity
             android:name="edu.gatech.hvz.activities.MessageDetailActivity"
             android:label="@string/title_activity_message_view" />
         <activity
