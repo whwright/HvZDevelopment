@@ -48,7 +48,12 @@ public class LandingPageActivity extends Activity {
 			reportKillButton.setOnClickListener(new Button.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent(LandingPageActivity.this, ReportKillActivity.class));
+					if(resources.getPlayer().getFaction().equals("ZOMBIE")){
+						startActivity(new Intent(LandingPageActivity.this, ReportKillActivity.class));
+					}
+					else{
+						startActivity(new Intent(LandingPageActivity.this, ShowMyCodeActivity.class));
+					}
 				}
 			});
 			
