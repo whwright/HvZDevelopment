@@ -93,6 +93,10 @@ public class ReportKillActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.report_kill, menu);
+		menu.removeItem(menu.getItem(0).getItemId());
+		menu.add(Menu.NONE, 0, 0,"Contact Admin");
+		menu.add(Menu.NONE, 1, 1, "Messages");
+		menu.add(Menu.NONE, 2, 2, "Logout");
 		return true;
 	}
 	

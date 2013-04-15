@@ -9,7 +9,6 @@
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
     tools:context=".LandingPageActivity" >
-
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"

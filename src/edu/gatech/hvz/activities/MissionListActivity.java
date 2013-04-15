@@ -16,6 +16,7 @@ import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
@@ -237,5 +238,16 @@ public class MissionListActivity extends FragmentActivity implements TabHost.OnT
 				}
 			}
 		}
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_mission_list, menu);
+		menu.removeItem(menu.getItem(0).getItemId());
+		menu.add(Menu.NONE, 0, 0,"Contact Admin");
+		menu.add(Menu.NONE, 1, 1, "Messages");
+		menu.add(Menu.NONE, 2, 2, "Logout");
+		return true;
 	}
 }

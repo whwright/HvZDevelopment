@@ -43,13 +43,6 @@ public class LoginActivity extends Activity {
 		userNameEditText = (EditText) findViewById(R.id.edittext_username);
 		userNameEditText.setText(getSharedPreferences("HvZGaTechSettings",0).getString("gt_name", ""));
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_login, menu);
-		return true;
-	}
 	
 	@Override
 	protected void onPause() {
