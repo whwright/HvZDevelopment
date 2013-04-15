@@ -1,12 +1,8 @@
 package edu.gatech.hvz.datasource;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import com.google.gson.Gson;
-
-import edu.gatech.hvz.ResourceManager;
+import android.graphics.drawable.Drawable;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Message;
@@ -86,6 +82,12 @@ public class DataSourceManager implements IDataSourceManager
 	public void postMessage(Message message) 
 	{
 		messageDataSource.postMessage(message);
+	}
+
+	@Override
+	public Drawable getPlayerIcon(Player player) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

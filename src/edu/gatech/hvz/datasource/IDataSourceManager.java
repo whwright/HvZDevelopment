@@ -2,6 +2,8 @@ package edu.gatech.hvz.datasource;
 
 import java.util.List;
 
+import android.graphics.drawable.Drawable;
+
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Message;
@@ -99,5 +101,12 @@ public interface IDataSourceManager {
 	 * @param message The message that is to be sent.
 	 */
 	public void postMessage(Message message) ;
+
+	/**
+	 * Returns the given players player emblem as a Drawable
+	 * 
+	 * @param player the player whos icon Nick wants
+	 */
+	public Drawable getPlayerIcon(Player player);
 
 }
