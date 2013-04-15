@@ -29,7 +29,7 @@ public class ReportKillActivity extends Activity {
     private static final int ZOMBIE_SEARCH_REQUEST = 9270; 
     	
 	private Button reportKillButton, captureQrButton;
-	private ImageButton zombieOneButton, zombieTwoButton;
+//	private ImageButton zombieOneButton, zombieTwoButton;
 	
 	private ArrayList<Player> zombies;
 	private Player zombie1;
@@ -66,7 +66,7 @@ public class ReportKillActivity extends Activity {
 			}
 		});
 		
-		zombieOneButton = (ImageButton) findViewById(R.id.reportkill_zombie1_imagebutton);
+/*		zombieOneButton = (ImageButton) findViewById(R.id.reportkill_zombie1_imagebutton);
 		zombieOneButton.setOnClickListener(new ImageButton.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -80,8 +80,24 @@ public class ReportKillActivity extends Activity {
 			public void onClick(View v) {
 				searchZombie("two");
 			}			
+		});*/
+		
+		EditText zombie1 = (EditText)findViewById(R.id.reportkill_zombie1_edittext);
+		zombie1.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				searchZombie("one");
+			}
 		});
 		
+		EditText zombie2 = (EditText)findViewById(R.id.reportkill_zombie2_edittext);
+		zombie2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				searchZombie("two");
+			}
+		});
 	}
 
 	private void setZombieFieldsToClosestToDeath() {

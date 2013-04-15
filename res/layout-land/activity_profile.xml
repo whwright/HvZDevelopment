@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
-	tools:context=".ProfileActivity" >
+    tools:context=".ProfileActivity" >
 	
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,12 +13,12 @@
         android:layout_weight="1"
         android:paddingTop="15dp" >
 
-        <ImageButton
-            android:id="@+id/ImageButton03"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+        <ImageView
+            android:id="@+id/profileactivity_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:src="@android:drawable/btn_star" />
+            android:src="@drawable/logo_landscape" />
 
         <TextView
             android:id="@+id/profileactivity_name_textview"
@@ -56,21 +56,21 @@
         android:layout_weight="0.5" >
 
         <ImageButton
-            android:id="@+id/ImageButton04"
+            android:id="@+id/profileactivity_achievements"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="2"
             android:src="@android:drawable/btn_star" />
 
         <ImageButton
-            android:id="@+id/ImageButton02"
+            android:id="@+id/profileactivity_friends"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="2"
             android:src="@android:drawable/btn_star" />
 
         <ImageButton
-            android:id="@+id/ImageButton01"
+            android:id="@+id/profileactivity_messages"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="2"
