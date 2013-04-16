@@ -52,7 +52,12 @@ public class DataSourceManager implements IDataSourceManager
 	public List<Player> getZombies(String orderByParam) {
 		return playerDataSource.getZombies(orderByParam);
 	}
-
+	
+	@Override
+	public List<Player> getHumans() {
+		return playerDataSource.getHumans();
+	}
+	
 	@Override
 	public void postKill(Kill kill) {
 		killDataSource.postKill(kill);
@@ -90,11 +95,4 @@ public class DataSourceManager implements IDataSourceManager
 		// TODO Auto-generated method stub
 		return R.drawable.ic_menu_gallery;
 	}
-
-	@Override
-	public List<Player> getHumans() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

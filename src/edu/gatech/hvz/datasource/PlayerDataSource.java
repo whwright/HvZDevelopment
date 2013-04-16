@@ -54,7 +54,12 @@ public class PlayerDataSource {
 
 	public List<Player> getZombies(String orderByParam) {
 		String[] params = { "order", orderByParam };
-		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(String.format(factionURL, "zombie"), params);		
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(String.format(factionURL, "zombie"), params);
+		return new ArrayList<Player>(Arrays.asList( new Gson().fromJson(json, Player[].class)));
+	}
+	
+	public List<Player> getHumans() {
+		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(String.format(factionURL, "human"));
 		return new ArrayList<Player>(Arrays.asList( new Gson().fromJson(json, Player[].class)));
 	}
 

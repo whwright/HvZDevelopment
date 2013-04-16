@@ -33,6 +33,12 @@ public interface IDataSourceManager {
 	public List<Player> getZombies(String orderByParam);
 	
 	/**
+	 * Returns the humans to Nick
+	 * 
+	 */
+	public List<Player> getHumans();
+	
+	/**
 	 * Fetch all of the players that have been killed by
 	 * a certain player.
 	 * @param player The player who we are interested in
@@ -108,11 +114,5 @@ public interface IDataSourceManager {
 	 * @param player the player whos icon Nick wants
 	 */
 	public int getPlayerIcon(Player player);
-
-	/**
-	 * Returns the humans to Nick
-	 * 
-	 */
-	public List<Player> getHumans();
 
 }
