@@ -3,7 +3,6 @@ package edu.gatech.hvz.datasource;
 import java.util.List;
 
 import android.R;
-import android.graphics.drawable.Drawable;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Message;
@@ -31,11 +30,6 @@ public class DataSourceManager implements IDataSourceManager
 	@Override
 	public Player getPlayerByName(String name) {
 		return playerDataSource.getPlayerByName(name);
-	}
-	
-	@Override
-	public Player getPlayerByCode(String code) {
-		return playerDataSource.getPlayerByCode(code);
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package edu.gatech.hvz.datasource;
 
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

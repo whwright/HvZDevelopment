@@ -18,23 +18,17 @@ public interface IDataSourceManager {
 	 * @return The player object associated with the GT Name, or null if no player
 	 */
 	public Player getPlayerByName(String name);
-	
+
 	/**
-	 * 
-	 * @param code
-	 * @return
-	 */
-	public Player getPlayerByCode(String code);
-	
-	/**
-	 * 
-	 * @return
+	 * Returns a list of Players that are currently Zombies
+	 * @param orderByParam Sort by the strings lname or starve_time
+	 * @return Zombie players
 	 */
 	public List<Player> getZombies(String orderByParam);
 	
 	/**
-	 * Returns the humans to Nick
-	 * 
+	 * Returns a list of Players that are currently Humans
+	 * @return Humans players
 	 */
 	public List<Player> getHumans();
 	
