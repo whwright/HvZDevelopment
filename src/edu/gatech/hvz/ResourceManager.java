@@ -16,9 +16,7 @@ public class ResourceManager {
 	
 	private ResourceManager()
 	{
-		this.networkManager = new NetworkManager();
-		this.dataManager = new DataSourceManager();
-		this.cache = new CacheDataSource();
+		resetData();
 	}
 	
 	public static ResourceManager getResourceManager() {
@@ -49,8 +47,10 @@ public class ResourceManager {
 	}
 	
 	public void resetData() {
+		this.networkManager = new NetworkManager();
+		this.dataManager = new DataSourceManager();
+		this.cache = new CacheDataSource();
 		this.player = null;
-		networkManager.setCookies(null);
 	}
 	
 
