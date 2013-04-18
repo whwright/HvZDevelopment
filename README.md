@@ -48,7 +48,7 @@ http://hvz.gatech.edu/api
     
 * **/chat/{id}**
 
-    Fetches all the chat messages starting after the chat message with id of {id}
+    Fetches all the chat messages starting after the chat message with id of {id}.  {id} = -1 for all messages.
     
 * **/messages/new**
 
