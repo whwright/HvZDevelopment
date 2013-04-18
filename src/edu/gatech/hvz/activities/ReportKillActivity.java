@@ -208,17 +208,17 @@ public class ReportKillActivity extends Activity {
 			}
 						
 			//CHECKING VICTIM ON SERVER
-			Player victim = resources.getDataManager().getPlayerByCode( victimPlayerCode );
-			if( victim == null )
-			{
-				errorMessage = "Invalid player code! Try again.  If the problem persits, contact the admins.";
-				return false;
-			}
-			else if( victim.getFaction() != "HUMAN" )
-			{
-				errorMessage = "That human's a spy! (The code you entered does not belong to an active human)";
-				return false;
-			}
+//			Player victim = resources.getDataManager().getPlayerByCode( victimPlayerCode );
+//			if( victim == null )
+//			{
+//				errorMessage = "Invalid player code! Try again.  If the problem persits, contact the admins.";
+//				return false;
+//			}
+//			else if( victim.getFaction() != "HUMAN" )
+//			{
+//				errorMessage = "That human's a spy! (The code you entered does not belong to an active human)";
+//				return false;
+//			}
 			
 			
 			//get gps data
