@@ -3,6 +3,8 @@ package edu.gatech.hvz.datasource;
 import java.util.List;
 
 import android.R;
+import edu.gatech.hvz.entities.Achievement;
+import edu.gatech.hvz.entities.ChatMessage;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Message;
@@ -17,6 +19,8 @@ public class DataSourceManager implements IDataSourceManager
 	private KillDataSource killDataSource;
 	private EmailDataSource emailDataSource;
 	private MessageDataSource messageDataSource;
+	private ChatDataSource chatDataSource;
+	private AchievementDataSource achievementDataSource;
 	
 	public DataSourceManager()
 	{
@@ -25,6 +29,8 @@ public class DataSourceManager implements IDataSourceManager
 		this.killDataSource = new KillDataSource();
 		this.emailDataSource = new EmailDataSource();
 		this.messageDataSource = new MessageDataSource();
+		this.chatDataSource = new ChatDataSource();
+		this.achievementDataSource = new AchievementDataSource();
 	}
 	
 	@Override
@@ -88,5 +94,15 @@ public class DataSourceManager implements IDataSourceManager
 	public int getPlayerIcon(Player player) {
 		// TODO Auto-generated method stub
 		return R.drawable.ic_menu_gallery;
+	}
+	
+	@Override
+	public List<ChatMessage> getChatMessages(int id) {
+		return chatDataSource.getChatMessages(id);
+	}
+	
+	@Override
+	public Achievement[] getAchievements() {
+		return achievementDataSource.getAchievements();
 	}
 }
