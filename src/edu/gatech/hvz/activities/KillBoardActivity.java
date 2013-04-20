@@ -3,6 +3,7 @@ package edu.gatech.hvz.activities;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -194,7 +195,9 @@ public class KillBoardActivity extends FragmentActivity implements TabHost.OnTab
 				TextView name = (TextView) convertView.findViewById(R.id.killboardactivityitem_name_textview);
 				name.setText(player.getPlayerName());
 				//TODO the drawable
-				name.setCompoundDrawables(getResources().getDrawable(resources.getDataManager().getPlayerIcon(player)), null, null, null);
+				Drawable ico = getResources().getDrawable(resources.getDataManager().getPlayerIcon(player));
+				ico.setBounds(0, 0, 50, 50);
+				name.setCompoundDrawables(ico, null, null, null);
 				return convertView;
 			}
 		}
