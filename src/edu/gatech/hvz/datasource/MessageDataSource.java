@@ -7,6 +7,7 @@ import java.util.List;
 import com.google.gson.Gson;
 
 import edu.gatech.hvz.ResourceManager;
+import edu.gatech.hvz.entities.EntityUtils;
 import edu.gatech.hvz.entities.Message;
 
 public class MessageDataSource {
@@ -32,9 +33,9 @@ public class MessageDataSource {
 		return new ArrayList<Message>(Arrays.asList(new Gson().fromJson(json, Message[].class)));
 	}
 
-	public void postMessage(Message message) 
-	{
-		String requestString = String.format(composeMessageUrl, message.getUserTo(), message.getEncodedMessage());
+	public void postMessage(Message message) {
+		String messageText = EntityUtils.getEncodedText(message.getMessage());
+		String requestString = String.format(composeMessageUrl, message.getUserTo(), messageText);
 		ResourceManager.getResourceManager().getNetworkManager().makeRequest(requestString);	
 	}
 	
