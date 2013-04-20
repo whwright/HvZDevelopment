@@ -1,18 +1,15 @@
 package edu.gatech.hvz.activities;
 
 import java.util.Arrays;
-import java.util.Map;
+
 
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Achievement;
-import edu.gatech.hvz.entities.Player;
-import edu.gatech.hvz.networking.CASAuthenticator;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences.Editor;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
