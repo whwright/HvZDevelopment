@@ -11,10 +11,12 @@ import com.google.gson.JsonParseException;
 
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.ChatMessage;
+import edu.gatech.hvz.entities.EntityUtils;
 
 public class ChatDataSource {
 	
 	private String chatURL = "https://hvz.gatech.edu/api/chat/%d";
+	private String postURL = "https://hvz.gatech.edu/api/chat/post?message=%s";
 	
 	public List<ChatMessage> getChatMessages(int id) {
 		String url = String.format(chatURL, id);
@@ -33,6 +35,12 @@ public class ChatDataSource {
 			Log.e("ChatDataSource", "Horrible error getting chat messages.\n" + Log.getStackTraceString(e));
 			return null;
 		}
+	}
+	
+	public void postChatMessage(String message) {
+		message = EntityUtils.getEncodedText(message);
+		String requestString = String.format(postURL, message);
+		ResourceManager.getResourceManager().getNetworkManager().makeRequest(requestString);
 	}
 	
 }

@@ -7,6 +7,7 @@ public class ChatMessage implements Serializable {
 	private static final long serialVersionUID = 2738625505328994550L;
 	
 	private int id;
+	private String audience;
 	private String user;
 	private String timestamp;
 	private String comment;
@@ -19,6 +20,10 @@ public class ChatMessage implements Serializable {
 		return id;
 	}
 
+	public String getAudience() {
+		return audience;
+	}
+
 	public String getUser() {
 		return user;
 	}
@@ -26,14 +31,15 @@ public class ChatMessage implements Serializable {
 	public String getTimestamp() {
 		return timestamp;
 	}
-
+	
 	public String getComment() {
 		return comment;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "ChatMessage [id=" + id + ", user=" + user + ", timestamp="
-				+ timestamp + ", comment=" + comment + "]";
+		return "ChatMessage [id=" + id + ", audience=" + audience + ", user="
+				+ user + ", timestamp=" + timestamp + ", comment=" + comment
+				+ "]";
 	}
 }
