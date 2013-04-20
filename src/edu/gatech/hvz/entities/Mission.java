@@ -1,10 +1,6 @@
 package edu.gatech.hvz.entities;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class Mission implements Serializable{
 
@@ -47,18 +43,6 @@ public class Mission implements Serializable{
 		return description;
 	}
 	
-	public Date getStartDate() {
-		return stringToDate(start_datetime);
-	}
-	
-	public Date getEndDate() {
-		return stringToDate(end_datetime);
-	}
-	
-	public Date getReleaseDate() {
-		return stringToDate(release_datetime);
-	}
-	
 	@Override
 	public String toString() {
 		return "Mission [id=" + id + ", name=" + name + ", start_datetime="
@@ -67,13 +51,5 @@ public class Mission implements Serializable{
 				+ ", release_datetime=" + release_datetime
 				+ ", hide_by_default=" + hide_by_default + ", description="
 				+ description + "]";
-	}
-	
-	private Date stringToDate(String date) {
-		try {
-			return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).parse(date);
-		} catch (ParseException pe) {
-			return new Date(0);
-		}
 	}
 }

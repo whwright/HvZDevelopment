@@ -1,22 +1,18 @@
 package edu.gatech.hvz.activities;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.text.Html;
 import android.view.Menu;
 import android.widget.TextView;
 import edu.gatech.hvz.R;
+import edu.gatech.hvz.entities.EntityUtils;
 import edu.gatech.hvz.entities.Mission;
 
 public class MissionDetailActivity extends Activity {
 
 	private Mission mission;
 	private TextView name, faction, location, time, description;
-	Format formatter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +26,11 @@ public class MissionDetailActivity extends Activity {
 		time = (TextView) findViewById(R.id.missiondetailactivity_time_textview);
 		description = (TextView) findViewById(R.id.missiondetailactivity_description_textview);
 
-		formatter = new SimpleDateFormat("EEE hh:mm aa", Locale.US);
-
 		name.setText(mission.getName());
 		faction.setText("Faction: " + mission.getFaction());
 		location.setText("Location: " + mission.getLocation());
-		time.setText("Time: " + formatter.format(mission.getStartDate()) + 
-				" to " + formatter.format(mission.getEndDate()));
+		time.setText("Time: " + EntityUtils.stringToFormattedDate(mission.getStart()) + 
+				" to " + EntityUtils.stringToFormattedDate(mission.getEnd()));
 		description.setText(Html.fromHtml(mission.getDescription()));
 	}
 

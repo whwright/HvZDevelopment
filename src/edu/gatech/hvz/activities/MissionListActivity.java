@@ -1,9 +1,5 @@
 package edu.gatech.hvz.activities;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -25,6 +21,7 @@ import com.actionbarsherlock.view.MenuItem;
 
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
+import edu.gatech.hvz.entities.EntityUtils;
 import edu.gatech.hvz.entities.Mission;
 
 public class MissionListActivity extends SherlockFragmentActivity {
@@ -156,12 +153,10 @@ public class MissionListActivity extends SherlockFragmentActivity {
 		public class MissionAdapter extends ArrayAdapter<Mission> {
 
 			private LayoutInflater inflater;
-			private Format formatter;
 
 			public MissionAdapter(Context context, int textViewResourceId,
 					Mission[] objects) {
 				super(context, textViewResourceId, objects);
-				formatter = new SimpleDateFormat("EEE hh:mm aa", Locale.US);
 				inflater = (LayoutInflater) context
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			}
@@ -182,8 +177,8 @@ public class MissionListActivity extends SherlockFragmentActivity {
 						.findViewById(R.id.missionlistactivityitem_time_textview);
 				name.setText(mission.getName());
 				location.setText(mission.getLocation());
-				time.setText(formatter.format(mission.getStartDate()) + " to "
-						+ formatter.format(mission.getEndDate()));
+				time.setText(EntityUtils.stringToFormattedDate(mission.getStart()) + " to "
+						+ EntityUtils.stringToFormattedDate(mission.getEnd()));
 
 				return convertView;
 			}
