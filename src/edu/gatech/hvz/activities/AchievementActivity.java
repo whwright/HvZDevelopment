@@ -8,6 +8,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.app.SherlockListFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.androidhive.imagefromurl.ImageLoader;
 
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
@@ -22,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import android.widget.Toast;
@@ -119,12 +121,14 @@ public class AchievementActivity extends SherlockFragmentActivity {
 		public class AchievementAdapter extends ArrayAdapter<Achievement> {
 
 			private LayoutInflater inflater;
+			private ImageLoader imgLoader;
 
 			public AchievementAdapter(Context context, int textViewResourceId,
 					List<Achievement> objects) {
 				super(context, textViewResourceId, objects);
 				inflater = (LayoutInflater) context
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				imgLoader = new ImageLoader(getActivity());
 			}
 
 			@Override
@@ -137,9 +141,10 @@ public class AchievementActivity extends SherlockFragmentActivity {
 				Achievement achievement = this.getItem(position);
 				TextView name = (TextView) convertView.findViewById(R.id.achievementlistactivityitem_name_textview);
 				TextView description = (TextView) convertView.findViewById(R.id.achievementlistactivityitem_description_textview);
-				
+				ImageView avatar = (ImageView) convertView.findViewById(R.id.achievementlistactivityitem_avatar_imageview);
 				name.setText(achievement.getName());
 				description.setText(achievement.getDescription());
+				imgLoader.DisplayImage(achievement.getAvatarURL(), R.drawable.ic_launcher, avatar);
 				
 				return convertView;
 			}

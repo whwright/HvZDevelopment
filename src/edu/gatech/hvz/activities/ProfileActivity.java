@@ -4,6 +4,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.androidhive.imagefromurl.ImageLoader;
 
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
@@ -20,6 +21,7 @@ public class ProfileActivity extends SherlockActivity {
 
 	private Player player;
 	private ResourceManager resources;
+	private ImageLoader imgLoader;
 	private ImageView avatar;
 	private ImageButton achievements_button;
 	private ImageButton messages_button;
@@ -31,6 +33,7 @@ public class ProfileActivity extends SherlockActivity {
 		setContentView(R.layout.activity_profile);
 		resources = ResourceManager.getResourceManager();
 		player = resources.getPlayer();
+		imgLoader = new ImageLoader(this);
 		
 		// ActionBar setup
 		ActionBar bar = getSupportActionBar();
@@ -38,7 +41,9 @@ public class ProfileActivity extends SherlockActivity {
 		bar.setDisplayHomeAsUpEnabled(true);
 		bar.setTitle("Profile");
 		
-		//avatar = (ImageView)findViewById(R.id.profileactivity_avatar);
+		avatar = (ImageView)findViewById(R.id.profileactivity_avatar);
+		imgLoader.DisplayImage(resources.getDataManager().getPlayerAvatar(player), R.drawable.ic_launcher, avatar);
+		
 		
 		achievements_button = (ImageButton)findViewById(R.id.profileactivity_achievements);
 		achievements_button.setOnClickListener(new Button.OnClickListener(){
