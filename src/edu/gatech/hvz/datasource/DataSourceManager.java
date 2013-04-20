@@ -102,6 +102,11 @@ public class DataSourceManager implements IDataSourceManager
 	}
 	
 	@Override
+	public void postChatMessage(String message) {
+		chatDataSource.postChatMessage(message);
+	}
+	
+	@Override
 	public Achievement[] getAchievements() {
 		return achievementDataSource.getAchievements();
 	}

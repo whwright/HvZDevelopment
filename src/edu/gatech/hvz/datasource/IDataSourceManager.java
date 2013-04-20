@@ -118,6 +118,13 @@ public interface IDataSourceManager {
 	 */
 	public List<ChatMessage> getChatMessages(int id);
 
+
+	/**
+	 * Post a new message to the chat room
+	 * @param message The message body to send
+	 */
+	public void postChatMessage(String message);
+	
 	/**
 	 * Get a list of achievements that the player has earned.
 	 * @return A list of the player's current achievements

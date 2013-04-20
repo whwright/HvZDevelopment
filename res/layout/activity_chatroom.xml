@@ -7,22 +7,21 @@
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dip"
         android:layout_weight="1"
         android:drawSelectorOnTop="false" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:focusable="true" >
 
         <EditText
             android:id="@+id/chatroomactivity_message_edittext"
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" >
-
-            <requestFocus />
         </EditText>
 
         <Button
@@ -30,7 +29,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Post" />
-
     </LinearLayout>
 
 </LinearLayout>

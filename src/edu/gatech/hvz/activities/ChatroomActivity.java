@@ -1,28 +1,26 @@
 package edu.gatech.hvz.activities;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
+
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.ChatMessage;
 import edu.gatech.hvz.entities.EntityUtils;
-import edu.gatech.hvz.entities.Mission;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,6 +33,7 @@ public class ChatroomActivity extends SherlockListActivity {
 	private AsyncTask<Void, Void, Boolean> postTask;
 	private List<ChatMessage> messages;
 	private ChatMessageAdapter adapter;
+	private TextView post;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +46,19 @@ public class ChatroomActivity extends SherlockListActivity {
 		bar.setDisplayHomeAsUpEnabled(true);
 		bar.setTitle("Chat");
 		
+		//Grab Views 
+		post = (TextView) findViewById(R.id.chatroomactivity_message_edittext);
+		
 		//Button listeners
 		Button button = (Button) findViewById(R.id.chatroomactivity_post_button);
 		button.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				postTask = new PostChatTask().execute();
+				if (post.getText().toString().trim().length() > 0) {
+					postTask = new PostChatTask().execute();
+				}
 			}
 		});
-		
-		
 		
 		//Get any old messages
 		resources = ResourceManager.getResourceManager();
@@ -82,6 +84,16 @@ public class ChatroomActivity extends SherlockListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getSupportMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()){
+			case android.R.id.home:
+				finish();
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 	
 	protected void onPause() {
@@ -134,10 +146,11 @@ public class ChatroomActivity extends SherlockListActivity {
 	
 	/* Task posts a new message and then refreshes the chat */
 	private class PostChatTask extends AsyncTask<Void, Void, Boolean> {
+
 		protected Boolean doInBackground(Void ... voids) {
 			try {
-				TextView post = (TextView) findViewById(R.id.chatroomactivity_message_edittext);
 				String text = post.getText().toString().trim();
+				resources.getDataManager().postChatMessage(text);
 				return true;
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -146,13 +159,16 @@ public class ChatroomActivity extends SherlockListActivity {
 		}	
 		protected void onPostExecute(Boolean success) {
 			if (success) {
+				//Hide the keyboard and reset the message
+				InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); 
+				inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+				post.setText("");
 				getTask = new ChatTask().execute();
 			} else {
-				Toast.makeText(ChatroomActivity.this, "There was an error fetching the chats", Toast.LENGTH_LONG).show();
+				Toast.makeText(ChatroomActivity.this, "There was an error posting your message.", Toast.LENGTH_LONG).show();
 			}
 		}
 	}
-	
 	
 	/* Task grabs all the new messages on the server */
 	private class ChatTask extends AsyncTask<Void, Void, Boolean> {
@@ -164,7 +180,6 @@ public class ChatroomActivity extends SherlockListActivity {
 				if (messages.size() > 0) {
 					start = messages.get(messages.size()-1).getId();
 				}
-				Log.i("ChatroomActivity", "Getting messages starting at " + start);
 				newMessages = resources.getDataManager().getChatMessages(start);
 				return true;
 			} catch (Exception e) {
