@@ -96,26 +96,21 @@ public class LandingPageActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.landing_page, menu);
-		menu.removeItem(menu.getItem(0).getItemId());
-		menu.add(Menu.NONE, 0, 0,"Contact Admin");
-		menu.add(Menu.NONE, 1, 1, "Messages");
-		menu.add(Menu.NONE, 2, 2, "Logout");
+		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
 	
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
-			case 0:
+			case R.id.menu_contact:
 				Intent lineIntent = new Intent(LandingPageActivity.this, ContactAdminsActivity.class);
 				startActivity(lineIntent);
 				return true;
-			case 1:
+			case R.id.menu_messages:
 				Intent messages = new Intent(LandingPageActivity.this, MessageListActivity.class);
 				startActivity(messages);
 				return true;
-			case 2:
+			case R.id.menu_logout:
 				resources.resetData();
 				Intent login = new Intent(LandingPageActivity.this, LoginActivity.class);
 				startActivity(login);

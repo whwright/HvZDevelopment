@@ -244,12 +244,7 @@ public class KillBoardActivity extends FragmentActivity implements TabHost.OnTab
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_kill_board, menu);
-		menu.removeItem(menu.getItem(0).getItemId());
-		menu.add(Menu.NONE, 0, 0,"Contact Admin");
-		menu.add(Menu.NONE, 1, 1, "Messages");
-		menu.add(Menu.NONE, 2, 2, "Logout");
+		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
 }

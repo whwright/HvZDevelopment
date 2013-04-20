@@ -30,13 +30,15 @@ public class NetworkManager {
 		this.casCookies = cookies;
 		//Convert cookies into a CookieStore
 		this.cookieStore = new BasicCookieStore();
-		for (String key : casCookies.keySet()) {
-			BasicClientCookie cookie = new BasicClientCookie(key, casCookies.get(key));
-			cookie.setVersion(0);
-			cookie.setPath("/cas");
-			cookie.setDomain(".gatech.edu");
-			cookie.setSecure(true);
-			cookieStore.addCookie(cookie);
+		if (casCookies != null) {
+			for (String key : casCookies.keySet()) {
+				BasicClientCookie cookie = new BasicClientCookie(key, casCookies.get(key));
+				cookie.setVersion(0);
+				cookie.setPath("/cas");
+				cookie.setDomain(".gatech.edu");
+				cookie.setSecure(true);
+				cookieStore.addCookie(cookie);
+			}
 		}
 		
 	}

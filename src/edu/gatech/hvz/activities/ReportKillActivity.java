@@ -107,12 +107,7 @@ public class ReportKillActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.report_kill, menu);
-		menu.removeItem(menu.getItem(0).getItemId());
-		menu.add(Menu.NONE, 0, 0,"Contact Admin");
-		menu.add(Menu.NONE, 1, 1, "Messages");
-		menu.add(Menu.NONE, 2, 2, "Logout");
+		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
 	
@@ -208,17 +203,17 @@ public class ReportKillActivity extends Activity {
 			}
 						
 			//CHECKING VICTIM ON SERVER
-			Player victim = resources.getDataManager().getPlayerByCode( victimPlayerCode );
-			if( victim == null )
-			{
-				errorMessage = "Invalid player code! Try again.  If the problem persits, contact the admins.";
-				return false;
-			}
-			else if( victim.getFaction() != "HUMAN" )
-			{
-				errorMessage = "That human's a spy! (The code you entered does not belong to an active human)";
-				return false;
-			}
+//			Player victim = resources.getDataManager().getPlayerByCode( victimPlayerCode );
+//			if( victim == null )
+//			{
+//				errorMessage = "Invalid player code! Try again.  If the problem persits, contact the admins.";
+//				return false;
+//			}
+//			else if( victim.getFaction() != "HUMAN" )
+//			{
+//				errorMessage = "That human's a spy! (The code you entered does not belong to an active human)";
+//				return false;
+//			}
 			
 			
 			//get gps data

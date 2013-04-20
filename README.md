@@ -42,6 +42,14 @@ http://hvz.gatech.edu/api
 
     Fetches a list of of players that belong to {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
     
+* **/achievements**
+
+    Fetches a list of all achievements earned by the logged in player
+    
+* **/chat/{id}**
+
+    Fetches all the chat messages starting after the chat message with id of {id}.  {id} = -1 for all messages.
+    
 * **/messages/new**
 
     Fetches only new messages for currently logged in player.

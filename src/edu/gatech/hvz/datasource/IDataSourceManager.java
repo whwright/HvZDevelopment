@@ -4,6 +4,8 @@ import java.util.List;
 
 import android.graphics.drawable.Drawable;
 
+import edu.gatech.hvz.entities.Achievement;
+import edu.gatech.hvz.entities.ChatMessage;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Message;
@@ -18,19 +20,19 @@ public interface IDataSourceManager {
 	 * @return The player object associated with the GT Name, or null if no player
 	 */
 	public Player getPlayerByName(String name);
-	
+
 	/**
-	 * 
-	 * @param code
-	 * @return
-	 */
-	public Player getPlayerByCode(String code);
-	
-	/**
-	 * 
-	 * @return
+	 * Returns a list of Players that are currently Zombies
+	 * @param orderByParam Sort by the strings lname or starve_time
+	 * @return Zombie players
 	 */
 	public List<Player> getZombies(String orderByParam);
+	
+	/**
+	 * Returns a list of Players that are currently Humans
+	 * @return Humans players
+	 */
+	public List<Player> getHumans();
 	
 	/**
 	 * Fetch all of the players that have been killed by
@@ -108,11 +110,17 @@ public interface IDataSourceManager {
 	 * @param player the player whos icon Nick wants
 	 */
 	public int getPlayerIcon(Player player);
+	
+	/**
+	 * Get a list of chat messages.
+	 * @param id The id of the latest message you have received (0 to get all messages).
+	 * @return An array of chat message objects
+	 */
+	public List<ChatMessage> getChatMessages(int id);
 
 	/**
-	 * Returns the humans to Nick
-	 * 
+	 * Get a list of achievements that the player has earned.
+	 * @return A list of the player's current achievements
 	 */
-	public List<Player> getHumans();
-
+	public Achievement[] getAchievements();
 }

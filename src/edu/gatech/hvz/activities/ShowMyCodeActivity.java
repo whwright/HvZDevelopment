@@ -45,12 +45,7 @@ public class ShowMyCodeActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.show_my_code, menu);
-		menu.removeItem(menu.getItem(0).getItemId());
-		menu.add(Menu.NONE, 0, 0,"Contact Admin");
-		menu.add(Menu.NONE, 1, 1, "Messages");
-		menu.add(Menu.NONE, 2, 2, "Logout");
+		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
 	
