@@ -1,9 +1,5 @@
 package edu.gatech.hvz.entities;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.format.PeriodFormatter;
@@ -11,7 +7,6 @@ import org.joda.time.format.PeriodFormatterBuilder;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.Html;
 
 public class Player implements Parcelable {
 	private int id;
