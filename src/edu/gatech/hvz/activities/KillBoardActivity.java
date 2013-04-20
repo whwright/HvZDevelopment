@@ -195,7 +195,7 @@ public class KillBoardActivity extends FragmentActivity implements TabHost.OnTab
 				TextView name = (TextView) convertView.findViewById(R.id.killboardactivityitem_name_textview);
 				name.setText(player.getPlayerName());
 				//TODO the drawable
-				Drawable ico = getResources().getDrawable(resources.getDataManager().getPlayerIcon(player));
+				Drawable ico = getResources().getDrawable(R.drawable.ic_launcher);
 				ico.setBounds(0, 0, 50, 50);
 				name.setCompoundDrawables(ico, null, null, null);
 				return convertView;
