@@ -129,5 +129,10 @@ public interface IDataSourceManager {
 	 * Get a list of achievements that the player has earned.
 	 * @return A list of the player's current achievements
 	 */
-	public Achievement[] getAchievements();
+	/**
+	 * Get a list of achievements that the player has earned.
+	 * @param type Either the string "LOCKED" or "UNLOCKED"
+	 * @return A list of the player's current achievements
+	 */
+	public List<Achievement> getAchievements(String type);
 }

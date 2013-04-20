@@ -107,7 +107,7 @@ public class DataSourceManager implements IDataSourceManager
 	}
 	
 	@Override
-	public Achievement[] getAchievements() {
-		return achievementDataSource.getAchievements();
+	public List<Achievement> getAchievements(String type) {
+		return achievementDataSource.getAchievements(type);
 	}
 }
