@@ -150,6 +150,13 @@ public class Player implements Parcelable {
 		dest.writeInt(kills);
 	}
 	
+	/**
+	 * @return the avatar
+	 */
+	public String getAvatar() {
+		return avatar;
+	}
+
 	public static final Parcelable.Creator<Player> CREATOR = new Parcelable.Creator<Player>()
 	{
 		public Player createFromParcel(Parcel in)

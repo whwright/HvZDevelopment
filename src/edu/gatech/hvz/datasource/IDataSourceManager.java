@@ -2,8 +2,6 @@ package edu.gatech.hvz.datasource;
 
 import java.util.List;
 
-import android.graphics.drawable.Drawable;
-
 import edu.gatech.hvz.entities.Achievement;
 import edu.gatech.hvz.entities.ChatMessage;
 import edu.gatech.hvz.entities.Email;
@@ -105,11 +103,11 @@ public interface IDataSourceManager {
 	public void postMessage(Message message) ;
 
 	/**
-	 * Returns the given players player emblem as a Drawable ID number 
+	 * Returns the given players player emblem as a String URL
 	 * 
-	 * @param player the player whos icon Nick wants
+	 * @param player The player who's avatar we want
 	 */
-	public int getPlayerIcon(Player player);
+	public String getPlayerAvatar(Player player);
 	
 	/**
 	 * Get a list of chat messages.

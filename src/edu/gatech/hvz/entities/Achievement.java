@@ -7,6 +7,8 @@ public class Achievement implements Serializable {
 
 	private static final long serialVersionUID = 8642753786296032809L;
 	
+	private static final String URL = "https://hvz.gatech.edu/images/avatars/";
+	
 	private String name;
 	private String category;
 	private String avatar;
@@ -39,6 +41,10 @@ public class Achievement implements Serializable {
 
 	public String getTime() {
 		return time;
+	}
+	
+	public String getAvatarURL() {
+		return URL + avatar;
 	}
 
 	@Override

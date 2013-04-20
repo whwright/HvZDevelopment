@@ -2,7 +2,6 @@ package edu.gatech.hvz.datasource;
 
 import java.util.List;
 
-import edu.gatech.hvz.R;
 import edu.gatech.hvz.entities.Achievement;
 import edu.gatech.hvz.entities.ChatMessage;
 import edu.gatech.hvz.entities.Email;
@@ -91,9 +90,8 @@ public class DataSourceManager implements IDataSourceManager
 	}
 
 	@Override
-	public int getPlayerIcon(Player player) {
-		// TODO Auto-generated method stub
-		return R.drawable.ic_launcher;
+	public String getPlayerAvatar(Player player) {
+		return playerDataSource.getPlayerAvatar(player);
 	}
 	
 	@Override
