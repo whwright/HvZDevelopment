@@ -16,7 +16,6 @@ import edu.gatech.hvz.entities.EntityUtils;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +34,7 @@ public class ChatroomActivity extends SherlockListActivity {
 	private ChatMessageAdapter adapter;
 	private TextView post;
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

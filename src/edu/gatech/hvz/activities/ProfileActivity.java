@@ -1,19 +1,22 @@
 package edu.gatech.hvz.activities;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Player;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ProfileActivity extends Activity {
+public class ProfileActivity extends SherlockActivity {
 
 	private Player player;
 	private ResourceManager resources;
@@ -28,6 +31,12 @@ public class ProfileActivity extends Activity {
 		setContentView(R.layout.activity_profile);
 		resources = ResourceManager.getResourceManager();
 		player = resources.getPlayer();
+		
+		// ActionBar setup
+		ActionBar bar = getSupportActionBar();
+		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		bar.setDisplayHomeAsUpEnabled(true);
+		bar.setTitle("Profile");
 		
 		//avatar = (ImageView)findViewById(R.id.profileactivity_avatar);
 		
@@ -63,8 +72,18 @@ public class ProfileActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main_menu, menu);
+		getSupportMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()){
+			case android.R.id.home:
+				finish();
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 
 }

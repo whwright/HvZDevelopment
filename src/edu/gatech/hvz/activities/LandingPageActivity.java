@@ -1,19 +1,21 @@
 package edu.gatech.hvz.activities;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class LandingPageActivity extends Activity {
+public class LandingPageActivity extends SherlockActivity {
 
 	private ResourceManager resources;
 	private ImageButton missionListButton,reportKillButton,profileButton,chatroomButton,killBoardButton,killMapButton;
@@ -24,6 +26,11 @@ public class LandingPageActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_landing_page);
+		
+		// ActionBar setup
+		ActionBar bar = getSupportActionBar();
+		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		bar.setTitle("Humans Vs. Zombies");
 		
 		resources = ResourceManager.getResourceManager();
 		
@@ -96,7 +103,7 @@ public class LandingPageActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main_menu, menu);
+		getSupportMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
 	
