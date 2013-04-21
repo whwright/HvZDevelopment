@@ -93,7 +93,7 @@ public class AchievementActivity extends SherlockFragmentActivity {
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
-			
+			this.setRetainInstance(true);
 			resources = ResourceManager.getResourceManager();
 			achievementType = getArguments() != null ? getArguments().getString("achievementType") : "UNLOCKED";
 			achievementList = new LinkedList<Achievement>();

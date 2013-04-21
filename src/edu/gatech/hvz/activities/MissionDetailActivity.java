@@ -40,7 +40,7 @@ public class MissionDetailActivity extends SherlockActivity {
 		location.setText("Location: " + mission.getLocation());
 		time.setText("Time: " + EntityUtils.stringToFormattedDate(mission.getStart()) + 
 				" to " + EntityUtils.stringToFormattedDate(mission.getEnd()));
-		description.setText(Html.fromHtml(mission.getDescription()));
+		description.setText(mission.getDescription());
 	}
 
 	@Override

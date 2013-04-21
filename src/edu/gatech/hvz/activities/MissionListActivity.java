@@ -30,7 +30,7 @@ public class MissionListActivity extends SherlockFragmentActivity {
 	static final int CLOSED = 2;
 
 	private ViewPager mPager;
-	TabsAdapter mTabsAdapter;
+	private TabsAdapter mTabsAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +96,7 @@ public class MissionListActivity extends SherlockFragmentActivity {
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
+			this.setRetainInstance(true);
 			missionType = getArguments() != null ? getArguments().getInt("type") : 0;
 			resources = ResourceManager.getResourceManager();
 		}
