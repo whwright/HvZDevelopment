@@ -3,6 +3,7 @@ package edu.gatech.hvz.activities;
 import java.util.ArrayList;
 import java.util.List;
 import edu.gatech.hvz.R;
+import edu.gatech.hvz.entities.EntityUtils;
 import edu.gatech.hvz.entities.Player;
 import android.os.Bundle;
 import android.app.Activity;
@@ -82,12 +83,6 @@ public class ZombieSearchActivity extends Activity {
 	 */
 	private class ZombieAdapter extends ArrayAdapter<Player>
 	{
-		public ZombieAdapter(Context context, int textViewResourceId)
-		{
-			super(context, textViewResourceId);
-			// TODO Auto-generated constructor stub
-		}
-		
 		private List<Player> zombies;
 		
 		public ZombieAdapter(Context context, int resource, List<Player> zombies)
@@ -98,33 +93,24 @@ public class ZombieSearchActivity extends Activity {
 		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent)
-		{
-			View v = convertView;
-			
-			if( v == null )
+		{		
+			if( convertView == null )
 			{
 				LayoutInflater inflator = LayoutInflater.from(getContext());
-				v = inflator.inflate(R.layout.activity_zombie_search_list_item, null);
+				convertView = inflator.inflate(R.layout.activity_zombie_search_list_item, null);
 			}
 			
 			Player zombie = zombies.get(position);
 			
-			if( zombie != null )
-			{
-				TextView nameTextView = (TextView) v.findViewById(R.id.zombielistitem_zombiename_textview);
-				if( nameTextView != null )
-				{
-					nameTextView.setText( zombie.getPlayerName() );
-				}
-				
-				TextView feedTextView = (TextView) v.findViewById(R.id.zombielistitem_zombiefeedtime_textview);
-				if( feedTextView != null )
-				{
-					feedTextView.setText( zombie.getStarveTimeFormatted() );
-				}
-			}
+			TextView nameTextView = (TextView) convertView.findViewById(R.id.zombielistitem_zombiename_textview);
+			nameTextView.setText( zombie.getPlayerName() );
+
+			String starveString = "Starves: " + EntityUtils.stringToFormattedDate(zombie.getStarveTime());
+			starveString += ", " + zombie.getKills() + " " + ((zombie.getKills() == 1) ? "kill" : "kills");
+			TextView feedTextView = (TextView) convertView.findViewById(R.id.zombielistitem_zombiefeedtime_textview);
+			feedTextView.setText(starveString);
 			
-			return v;
+			return convertView;
 		}
 		
 	}
