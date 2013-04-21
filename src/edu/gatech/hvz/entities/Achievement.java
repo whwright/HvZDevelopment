@@ -2,6 +2,8 @@ package edu.gatech.hvz.entities;
 
 import java.io.Serializable;
 
+import android.text.Html;
+
 public class Achievement implements Serializable {
 	
 
@@ -24,7 +26,7 @@ public class Achievement implements Serializable {
 	}
 
 	public String getName() {
-		return name;
+		return Html.fromHtml(name).toString();
 	}
 
 	public String getCategory() {
@@ -36,7 +38,7 @@ public class Achievement implements Serializable {
 	}
 
 	public String getDescription() {
-		return description;
+		return (description != null) ? Html.fromHtml(description).toString() : "";
 	}
 
 	public String getTime() {

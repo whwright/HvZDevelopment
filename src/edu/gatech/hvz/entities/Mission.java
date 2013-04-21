@@ -2,6 +2,8 @@ package edu.gatech.hvz.entities;
 
 import java.io.Serializable;
 
+import android.text.Html;
+
 public class Mission implements Serializable{
 
 	private static final long serialVersionUID = -3595817016895659759L;
@@ -40,7 +42,7 @@ public class Mission implements Serializable{
 		return release_datetime;
 	}
 	public String getDescription() {
-		return description;
+		return (description != null) ? Html.fromHtml(description).toString() : "";
 	}
 	
 	@Override

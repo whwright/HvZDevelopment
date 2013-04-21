@@ -2,6 +2,8 @@ package edu.gatech.hvz.entities;
 
 import java.io.Serializable;
 
+import android.text.Html;
+
 public class ChatMessage implements Serializable {
 
 	private static final long serialVersionUID = 2738625505328994550L;
@@ -33,7 +35,7 @@ public class ChatMessage implements Serializable {
 	}
 	
 	public String getComment() {
-		return comment;
+		return (comment != null) ? Html.fromHtml(comment).toString() : "";
 	}
 	
 	@Override

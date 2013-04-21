@@ -1,7 +1,10 @@
 package edu.gatech.hvz.entities;
 
+import java.net.URLDecoder;
+
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.Html;
 
 public class Player implements Parcelable {
 	private int id;
@@ -35,7 +38,7 @@ public class Player implements Parcelable {
 	}
 
 	public String getSlogan() {
-		return slogan;
+		return (slogan != null) ? Html.fromHtml(slogan).toString() : "";
 	}
 
 	public String getAvatar() {
