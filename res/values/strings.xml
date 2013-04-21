@@ -55,9 +55,9 @@
     <string name="search_hint">Search Stuff</string>
     <string name="title_activity_message_list">MessageListActivity</string>
     <string name="messagelist_compose_string">Compose</string>
-
-    
     <string name="menu_contact">Contact Admins</string>
     <string name="menu_messages">Messages</string>
     <string name="menu_logout">Logout</string>
+    <string name="title_activity_report_kill_map">ReportKillMapActivity</string>
+
 </resources>
