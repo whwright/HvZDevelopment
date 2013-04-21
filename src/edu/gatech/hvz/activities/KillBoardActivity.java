@@ -1,151 +1,115 @@
 package edu.gatech.hvz.activities;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TabHost;
-import android.widget.TabHost.TabContentFactory;
-import android.widget.TabHost.TabSpec;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.app.SherlockListFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.androidhive.imagefromurl.ImageLoader;
+
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
+import edu.gatech.hvz.entities.EntityUtils;
+import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Player;
 
-public class KillBoardActivity extends FragmentActivity implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
-	static final int ZOMBIE = 0;
-	static final int HUMAN = 1;
-	static final int NUM_TABS = 2;
+public class KillBoardActivity extends SherlockFragmentActivity {
+	static final int ZOMBIE = 1;
+	static final int HUMAN = 2;
 
-	private MyAdapter mAdapter;
 	private ViewPager mPager;
-
-	private TabHost mTabHost;
+	private TabsAdapter mTabsAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_kill_board);
-		//Pages setup
-		mAdapter = new MyAdapter(getSupportFragmentManager());
-		mPager = (ViewPager)findViewById(R.id.killboardactivity_pager);
-		mPager.setAdapter(mAdapter);
-		mPager.setOnPageChangeListener(this);
-
-		//Tab setup
-		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
-		mTabHost.setup();
-		makeTab("ACTIVE", "Zombie");
-		makeTab("ACTIVE", "Human");
-		mTabHost.setOnTabChangedListener(this);
-	}
-
-	private void makeTab(String tag, String text) {
-		TabSpec tab = mTabHost.newTabSpec(tag);
-		tab.setIndicator(text);
-		tab.setContent(new TabFactory(this));
-		mTabHost.addTab(tab);
-	}
-	@Override
-	public void onTabChanged(String tabId) {
-		int pos = this.mTabHost.getCurrentTab();
-		this.mPager.setCurrentItem(pos);
-	}
-
-	@Override
-	public void onPageScrollStateChanged(int state) {
-	}
-
-	@Override
-	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {		
-	}
-
-	@Override
-	public void onPageSelected(int position) {
-		mTabHost.setCurrentTab(position);
-	}
-
-	public static class TabFactory implements TabContentFactory {
-
-		private final Context mContext;
-
-		public TabFactory(Context context) {
-			mContext = context;
-		}
-
-		public View createTabContent(String tag) {
-			View v = new View(mContext);
-			v.setMinimumWidth(0);
-			v.setMinimumHeight(0);
-			return v;
-		}
-
-	}
-
-	//Adapter for the pager
-	public static class MyAdapter extends FragmentPagerAdapter {
-		private Fragment[] playerFragments;
 		
-		public MyAdapter(FragmentManager fm) {
-			super(fm);
-			playerFragments = new Fragment[NUM_TABS];
-		}
+		// ActionBar setup
+		ActionBar bar = getSupportActionBar();
+		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		bar.setDisplayHomeAsUpEnabled(true);
+		bar.setTitle("Kill Board");
 
-		@Override
-		public int getCount() {
-			return NUM_TABS;
-		}
+		// Pages setup
+		mPager = (ViewPager) findViewById(R.id.killboardactivity_pager);
+		mTabsAdapter = new TabsAdapter(this, bar, mPager);
+		
+		//Add the tabs
+		Bundle bundle = new Bundle();
+		bundle.putInt("type", HUMAN);
+		mTabsAdapter.addTab(bar.newTab().setText("Humans"), ArrayListFragment.class, bundle);
+		bundle = new Bundle();
+		bundle.putInt("type", ZOMBIE);
+		mTabsAdapter.addTab(bar.newTab().setText("Zombies"), ArrayListFragment.class, bundle);
 
-		@Override
-		public Fragment getItem(int position) {
-			if (playerFragments[position] == null) {
-				playerFragments[position] = ArrayListFragment.newInstance(position);
-			}
-			return playerFragments[position];
+		if (savedInstanceState != null) {
+			bar.setSelectedNavigationItem(savedInstanceState.getInt("tab"));
+		}
+	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putInt("tab", getSupportActionBar().getSelectedNavigationIndex());
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getSupportMenuInflater().inflate(R.menu.main_menu, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()){
+			case android.R.id.home:
+				finish();
+			default:
+				return super.onOptionsItemSelected(item);
 		}
 	}
 
 	//Fragment for each player list
-	public static class ArrayListFragment extends ListFragment {
-		int mNum;
+	public static class ArrayListFragment extends SherlockListFragment {
+		
+		int type;
 		ResourceManager resources;
-		Player[] players;
-		/**
-		 * Create a new instance of CountingFragment, providing "num"
-		 * as an argument.
-		 */
-		public static ArrayListFragment newInstance(int num) {
-			ArrayListFragment f = new ArrayListFragment();
-
-			// Supply num input as an argument.
-			Bundle args = new Bundle();
-			args.putInt("num", num);
-			f.setArguments(args);
-			f.setRetainInstance(true);
-			return f;
-		}
-
-
+		PlayerAdapter adapter;
+		List<Player> players;
+		AsyncTask<Integer, Void, List<Player>> task;
+		
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
-			mNum = getArguments() != null ? getArguments().getInt("num") : 1;
+			this.setRetainInstance(true);
+			type = getArguments() != null ? getArguments().getInt("type") : 1;
 			resources = ResourceManager.getResourceManager();
-			new PeopleGetTask().execute(mNum);
+
+			//Set up the ListFragment backing
+			players = new LinkedList<Player>();
+			adapter = new PlayerAdapter(getActivity(), android.R.layout.simple_list_item_1, players);
+			setListAdapter(adapter);
+			
+			//Grab the players
+			task = new PeopleGetTask().execute(type);
 		}
 
 
@@ -159,6 +123,7 @@ public class KillBoardActivity extends FragmentActivity implements TabHost.OnTab
 		public void onActivityCreated(Bundle savedInstanceState) {
 			super.onActivityCreated(savedInstanceState);
 		}
+		
 		//TODO on click expand
 		/* maybe cant click
 		@Override
@@ -170,19 +135,27 @@ public class KillBoardActivity extends FragmentActivity implements TabHost.OnTab
 			startActivity(i);
 		}
 		*/
-		private void setAdapter(Player[] players) {
-			this.players = players;
-			setListAdapter(new PlayerAdapter(getActivity(), android.R.layout.simple_list_item_1, players));
+
+		@Override
+		public void onPause() {
+			super.onPause();
+			if (task != null && task.getStatus() == AsyncTask.Status.RUNNING) {
+				task.cancel(true);
+			}
 		}
+		
 		
 		//ArrayAdapter for custom Player views
 		public class PlayerAdapter extends ArrayAdapter<Player> {
 
 			private LayoutInflater inflater;
-
-			public PlayerAdapter(Context context, int textViewResourceId, Player[] objects) {
+			private ImageLoader imgLoader;
+			RelativeLayout.LayoutParams lp; 
+			public PlayerAdapter(Context context, int textViewResourceId, List<Player> objects) {
 				super(context, textViewResourceId, objects);
 				inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				imgLoader = new ImageLoader(getActivity());
+				lp = new RelativeLayout.LayoutParams(100, 100);
 			}
 
 			@Override
@@ -192,47 +165,45 @@ public class KillBoardActivity extends FragmentActivity implements TabHost.OnTab
 				}
 
 				Player player = this.getItem(position);
-				TextView name = (TextView) convertView.findViewById(R.id.killboardactivityitem_name_textview);
+				
+				ImageView avatar = (ImageView) convertView.findViewById(R.id.killboardlistactivityitem_avatar_imageview);
+				TextView name = (TextView) convertView.findViewById(R.id.killboardlistactivityitem_name_textview);
+				TextView slogan = (TextView) convertView.findViewById(R.id.killboardlistactivityitem_slogan_textview);
+				TextView starvetime = (TextView) convertView.findViewById(R.id.killboardlistactivityitem_starvetime_textview);
+				avatar.setLayoutParams(lp);
+				imgLoader.DisplayImage(resources.getDataManager().getPlayerAvatar(player), R.drawable.ic_launcher, avatar);
 				name.setText(player.getPlayerName());
-				//TODO the drawable
-				Drawable ico = getResources().getDrawable(R.drawable.ic_launcher);
-				ico.setBounds(0, 0, 50, 50);
-				name.setCompoundDrawables(ico, null, null, null);
+				slogan.setText(player.getSlogan());
+				if (player.getFaction().equals(FactionType.ZOMBIE.name())) {
+					String starveString = "Starves: " + EntityUtils.stringToFormattedDate(player.getStarveTime());
+					starveString += ", " + player.getKills() + " " + ((player.getKills() == 1) ? "kill" : "kills");
+					starvetime.setText(starveString);
+				}
 				return convertView;
 			}
 		}
 
-
 		//AsyncTask to grab Players
-		private class PeopleGetTask extends AsyncTask<Integer, Void, Player[]> {
-			protected Player[] doInBackground(Integer ... status) {
+		private class PeopleGetTask extends AsyncTask<Integer, Void, List<Player>> {
+			protected List<Player> doInBackground(Integer ... status) {
 				Log.i("PeopleGetTask", "Trying to fetch people: " + status[0]);
+				List<Player> playerlist = null;
 				switch (status[0]) {
 				case HUMAN:
-				{
-					List<Player> playerlist = resources.getDataManager().getHumans();
-					if(playerlist == null){
-						return null;
-					}
-					return playerlist.toArray(new Player[0]);
-				}
+					playerlist = resources.getDataManager().getHumans();
+					break;
 				case ZOMBIE:
-				{
-					List<Player> playerlist = resources.getDataManager().getZombies("gt_name");
-					if(playerlist == null){
-						return null;
-					}
-					return playerlist.toArray(new Player[0]);
+					playerlist = resources.getDataManager().getZombies("starve_time");
+					break;
 				}
-				default:
-					return null;
-				}
+				return playerlist;
 			}
 
-			protected void onPostExecute(Player[] players) {
-				if (players != null) {
+			protected void onPostExecute(List<Player> playerlist) {
+				if (playerlist != null && playerlist.size() > 0) {
 					Log.i("PeopleGetTask", "Some people retrieved");
-					setAdapter(players);
+					players.addAll(playerlist);
+					adapter.notifyDataSetChanged();
 				} else {
 					Log.i("PeopleGetTask", "None people retrieved");
 					TextView empty = (TextView)ArrayListFragment.this.getListView().getEmptyView();
@@ -240,11 +211,5 @@ public class KillBoardActivity extends FragmentActivity implements TabHost.OnTab
 				}
 			}
 		}
-	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main_menu, menu);
-		return true;
 	}
 }
