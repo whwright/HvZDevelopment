@@ -18,9 +18,9 @@ public class PlayerDataSource {
 	private final String factionURL = "https://hvz.gatech.edu/api/faction/%s";
 	private final String qrCodeURL = "http://api.qrserver.com/v1/create-qr-code/?qzone=1&size=%dx%d&data=%s";
 	private final String avatarURL = "https://hvz.gatech.edu/images/avatars/";
-	private final String humanAvatarURL = "https://hvz.gatech.edu/images/avatars/human.png";
-	private final String zombieAvatarURL = "https://hvz.gatech.edu/images/avatars/zombie.png";
-	private final String adminAvatarURL = "https://hvz.gatech.edu/images/avatars/admin.png";
+	private final String humanAvatarURL = "https://hvz.gatech.edu/images/avatars/tiny_human.png";
+	private final String zombieAvatarURL = "https://hvz.gatech.edu/images/avatars/tiny_zombie.png";
+	private final String adminAvatarURL = "https://hvz.gatech.edu/images/avatars/tiny_admin.png";
 	
 	public PlayerDataSource()
 	{
