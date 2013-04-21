@@ -16,7 +16,7 @@ import edu.gatech.hvz.entities.EntityUtils;
 public class ChatDataSource {
 	
 	private String chatURL = "https://hvz.gatech.edu/api/chat/%d";
-	private String postURL = "https://hvz.gatech.edu/api/chat/post?message=%s";
+	private String postURL = "https://hvz.gatech.edu/api/chat/post";
 	
 	public List<ChatMessage> getChatMessages(int id) {
 		String url = String.format(chatURL, id);
@@ -38,9 +38,7 @@ public class ChatDataSource {
 	}
 	
 	public void postChatMessage(String message) {
-		message = EntityUtils.getEncodedText(message);
-		String requestString = String.format(postURL, message);
-		ResourceManager.getResourceManager().getNetworkManager().makeRequest(requestString);
+		ResourceManager.getResourceManager().getNetworkManager().makeRequest(postURL, "message", message);
 	}
 	
 }
