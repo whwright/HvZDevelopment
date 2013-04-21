@@ -6,7 +6,6 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 import android.os.Bundle;
-import android.text.Html;
 import android.widget.TextView;
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.entities.EntityUtils;
