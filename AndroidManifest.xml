@@ -61,9 +61,6 @@
             android:name="edu.gatech.hvz.activities.AchievementActivity"
             android:label="@string/title_activity_achievement" />
         <activity
-            android:name="edu.gatech.hvz.activities.FriendListActivity"
-            android:label="@string/title_activity_friend_list" />
-        <activity
             android:name="edu.gatech.hvz.activities.KillBoardActivity"
             android:label="@string/title_activity_kill_board" />
         <activity

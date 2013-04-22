@@ -61,14 +61,6 @@ public class ProfileActivity extends SherlockActivity {
 			}
 		});
 		
-		friend_list_button = (ImageButton)findViewById(R.id.profileactivity_friends);
-		friend_list_button.setOnClickListener(new Button.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(ProfileActivity.this, FriendListActivity.class));
-			}
-		});
-		
 		String user = "";
 		user+=player.getPlayerName()+" - "+player.getFaction();
 		((TextView)findViewById(R.id.profileactivity_name_textview)).setText(user);		

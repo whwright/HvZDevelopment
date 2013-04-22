@@ -27,7 +27,6 @@
     <string name="title_activity_zombie_search">ZombieSearchActivity</string>
     <string name="title_activity_profile">Profile</string>
     <string name="title_activity_achievement">Achievement</string>
-    <string name="title_activity_friend_list">FriendList</string>
     <string name="title_activity_kill_board">KillBoard</string>
     <string name="title_activity_contact">Contact</string>
     <string name="title_activity_mission_list">MissionList</string>

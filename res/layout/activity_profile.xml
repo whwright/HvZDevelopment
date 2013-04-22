@@ -53,14 +53,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="2"
             android:src="@android:drawable/btn_star" />
-
-        <ImageButton
-            android:id="@+id/profileactivity_friends"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:src="@android:drawable/btn_star" />
-
+        
         <ImageButton
             android:id="@+id/profileactivity_messages"
             android:layout_width="fill_parent"
