@@ -3,6 +3,7 @@ package edu.gatech.hvz.datasource;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -19,7 +20,7 @@ public class AchievementDataSource {
 			type = "UNLOCKED";
 		}
 		
-		String url = String.format(achievementURL, type.toLowerCase());
+		String url = String.format(achievementURL, type.toLowerCase(Locale.ENGLISH));
 		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(url);
 		
 		try {

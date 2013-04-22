@@ -30,12 +30,5 @@
             android:layout_height="wrap_content"
             android:text="Post" />
     </LinearLayout>
-    
-    <LinearLayout
-		android:layout_width="0dip"
-		android:layout_height="0dip"
-		android:focusable="true"
-		android:focusableInTouchMode="true">
-	</LinearLayout>
 
 </LinearLayout>

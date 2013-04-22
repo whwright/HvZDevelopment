@@ -105,7 +105,7 @@ public class AchievementActivity extends SherlockFragmentActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			return inflater.inflate(R.layout.activity_mission_list_fragment,
+			return inflater.inflate(R.layout.activity_achievement_list_fragment,
 					container, false);
 		}
 		

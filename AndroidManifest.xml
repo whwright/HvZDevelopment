@@ -18,7 +18,9 @@
         android:theme="@style/Theme.Sherlock" >
         <activity
             android:name="edu.gatech.hvz.activities.LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="stateHidden"/>
+        
         <activity
             android:name="edu.gatech.hvz.activities.LandingPageActivity"
             android:label="@string/title_activity_landing_page" >
@@ -30,7 +32,8 @@
         </activity>
         <activity
             android:name="edu.gatech.hvz.activities.ReportKillActivity"
-            android:label="@string/title_activity_report_kill" />
+            android:label="@string/title_activity_report_kill"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="edu.gatech.hvz.activities.ShowMyCodeActivity"
             android:label="@string/title_activity_show_my_code" />
@@ -71,24 +74,11 @@
             android:label="@string/title_activity_kill_map" />
         <activity
             android:name="edu.gatech.hvz.activities.ContactAdminsActivity"
-            android:label="@string/title_activity_contact_admins" />
-        <activity
-            android:name="edu.gatech.hvz.activities.MessagingActivity"
-            android:label="@string/title_activity_messaging" />
-        <activity
-            android:name="edu.gatech.hvz.activities.MessageDetailActivity"
-            android:label="@string/title_activity_message_view" />
-        <activity
-            android:name="edu.gatech.hvz.activities.MessageComposeActivity"
-            android:label="@string/title_activity_message_compose" />
-        <activity
-            android:name="edu.gatech.hvz.activities.MessageListActivity"
-            android:label="@string/title_activity_message_list" >
-        </activity>
+            android:label="@string/title_activity_contact_admins"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="edu.gatech.hvz.activities.ReportKillMapActivity"
-            android:label="@string/title_activity_report_kill_map" >
-        </activity>
+            android:label="@string/title_activity_report_kill_map" />
     </application>
 
 </manifest>

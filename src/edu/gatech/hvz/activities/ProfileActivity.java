@@ -24,7 +24,6 @@ public class ProfileActivity extends SherlockActivity {
 	private ImageLoader imgLoader;
 	private ImageView avatar;
 	private ImageButton achievements_button;
-	private ImageButton messages_button;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,15 +50,7 @@ public class ProfileActivity extends SherlockActivity {
 				startActivity(new Intent(ProfileActivity.this, AchievementActivity.class));
 			}
 		});
-		
-		messages_button = (ImageButton)findViewById(R.id.profileactivity_messages);
-		messages_button.setOnClickListener(new Button.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(ProfileActivity.this, MessagingActivity.class));
-			}
-		});
-		
+				
 		String user = "";
 		user+=player.getPlayerName()+" - "+player.getFaction();
 		((TextView)findViewById(R.id.profileactivity_name_textview)).setText(user);		

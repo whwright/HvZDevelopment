@@ -97,13 +97,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Report Kill" />
-    
-    <LinearLayout
-		android:layout_width="0dip"
-		android:layout_height="0dip"
-		android:focusable="false"
-		android:focusableInTouchMode="false">
-		</LinearLayout>
    
     </LinearLayout>
    	

@@ -113,10 +113,6 @@ public class LandingPageActivity extends SherlockActivity {
 				Intent lineIntent = new Intent(LandingPageActivity.this, ContactAdminsActivity.class);
 				startActivity(lineIntent);
 				return true;
-			case R.id.menu_messages:
-				Intent messages = new Intent(LandingPageActivity.this, MessageListActivity.class);
-				startActivity(messages);
-				return true;
 			case R.id.menu_logout:
 				resources.resetData();
 				Intent login = new Intent(LandingPageActivity.this, LoginActivity.class);

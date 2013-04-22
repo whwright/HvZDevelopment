@@ -6,7 +6,6 @@ import edu.gatech.hvz.entities.Achievement;
 import edu.gatech.hvz.entities.ChatMessage;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.Kill;
-import edu.gatech.hvz.entities.Message;
 import edu.gatech.hvz.entities.Mission;
 import edu.gatech.hvz.entities.Mission.Status;
 import edu.gatech.hvz.entities.Player;
@@ -17,7 +16,6 @@ public class DataSourceManager implements IDataSourceManager
 	private MissionDataSource missionDataSource;
 	private KillDataSource killDataSource;
 	private EmailDataSource emailDataSource;
-	private MessageDataSource messageDataSource;
 	private ChatDataSource chatDataSource;
 	private AchievementDataSource achievementDataSource;
 	
@@ -27,7 +25,6 @@ public class DataSourceManager implements IDataSourceManager
 		this.missionDataSource = new MissionDataSource();
 		this.killDataSource = new KillDataSource();
 		this.emailDataSource = new EmailDataSource();
-		this.messageDataSource = new MessageDataSource();
 		this.chatDataSource = new ChatDataSource();
 		this.achievementDataSource = new AchievementDataSource();
 	}
@@ -70,23 +67,6 @@ public class DataSourceManager implements IDataSourceManager
 	@Override
 	public void postEmail(Email email) {
 		emailDataSource.postEmail(email);
-	}
-
-	public List<Message> getOldMessages(int count, int offset) {
-		return messageDataSource.getOldMessages(count, offset);
-	}
-	
-	public List<Message> getNewMessages() {
-		return messageDataSource.getNewMessages();
-	}
-	
-	public List<Message> getSentMessages() {
-		return messageDataSource.getSentMessages();
-	}
-
-	public void postMessage(Message message) 
-	{
-		messageDataSource.postMessage(message);
 	}
 
 	@Override

@@ -6,7 +6,6 @@ import edu.gatech.hvz.entities.Achievement;
 import edu.gatech.hvz.entities.ChatMessage;
 import edu.gatech.hvz.entities.Email;
 import edu.gatech.hvz.entities.Kill;
-import edu.gatech.hvz.entities.Message;
 import edu.gatech.hvz.entities.Mission;
 import edu.gatech.hvz.entities.Player;
 
@@ -69,38 +68,6 @@ public interface IDataSourceManager {
 	public void postKill(Kill kill);
 	
 	public void postEmail(Email email);
-	
-	
-	/**
-	 * Retrieve old messages that have already been retrieved at least once.
-	 * 
-	 * @param count The number of messages you want to retrieve
-	 * @param offset The offset into the messages to start at (newest is 0)
-	 * @return A list of messages, or null if no messages.
-	 */
-	public List<Message> getOldMessages(int count, int offset);
-
-	/**
-	 * Retrieve only new messages that have never been seen before.
-	 * 
-	 * @return A list of messages, or null if no messages.
-	 */
-	public List<Message> getNewMessages();
-	
-	/**
-	 * Retrieve all sent messages.
-	 * 
-	 * @return A list of messages, or null if no messages.
-	 */	
-	public List<Message> getSentMessages();
-	
-	
-	/**
-	 * Send a new message to another player.
-	 * 
-	 * @param message The message that is to be sent.
-	 */
-	public void postMessage(Message message) ;
 
 	/**
 	 * Returns the given players player emblem as a String URL
