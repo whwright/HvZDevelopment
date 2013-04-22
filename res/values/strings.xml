@@ -28,7 +28,6 @@
     <string name="title_activity_profile">Profile</string>
     <string name="title_activity_achievement">Achievement</string>
     <string name="title_activity_kill_board">KillBoard</string>
-    <string name="title_activity_contact">Contact</string>
     <string name="title_activity_mission_list">MissionList</string>
     <string name="title_activity_kill_map">KillMap</string>
     <string name="landingpage_contactadmins_string">Contact Admins</string>

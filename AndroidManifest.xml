@@ -64,9 +64,6 @@
             android:name="edu.gatech.hvz.activities.KillBoardActivity"
             android:label="@string/title_activity_kill_board" />
         <activity
-            android:name="edu.gatech.hvz.activities.ContactActivity"
-            android:label="@string/title_activity_contact" />
-        <activity
             android:name="edu.gatech.hvz.activities.MissionListActivity"
             android:label="@string/title_activity_mission_list" />
         <activity

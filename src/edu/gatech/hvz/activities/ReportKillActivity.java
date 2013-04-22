@@ -2,19 +2,21 @@ package edu.gatech.hvz.activities;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -23,7 +25,7 @@ import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Player;
 
-public class ReportKillActivity extends Activity {
+public class ReportKillActivity extends SherlockActivity {
 	
     private static final int CAMERA_REQUEST = 1888;
     private static final int ZOMBIE_SEARCH_REQUEST = 9270;
@@ -48,6 +50,13 @@ public class ReportKillActivity extends Activity {
 		setContentView(R.layout.activity_report_kill);
 		
 		resources = ResourceManager.getResourceManager();
+		
+		// ActionBar setup
+		ActionBar bar = getSupportActionBar();
+		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		bar.setDisplayHomeAsUpEnabled(true);
+		bar.setTitle("Report Kill");
+		
 		new ZombieRequest().execute();
 		
 		loadingDialog = ProgressDialog.show(this, "Loading...", "Fetching Zombie names", false);
@@ -118,8 +127,18 @@ public class ReportKillActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main_menu, menu);
+		getSupportMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()){
+			case android.R.id.home:
+				finish();
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 	
 	private void doReportKill()
