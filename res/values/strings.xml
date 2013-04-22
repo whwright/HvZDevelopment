@@ -15,7 +15,7 @@
     <string name="reportkill_playercode_string">Player Code:</string>
     <string name="reportkill_qrpicture_string">Capture QR Code</string>
     <string name="reportkill_reportkill_string">Report Kill</string>
-    <string name="reportkill_reportkillprogress_string">Reporting kill...</string>
+    <string name="reportkill_reportkillprogress_string">Reporting kill&#8320;</string>
     <string name="reportkill_feed_string">Zombies to Feed:</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="title_activity_show_my_code">My Code</string>
@@ -58,5 +58,10 @@
     <string name="menu_messages">Messages</string>
     <string name="menu_logout">Logout</string>
     <string name="title_activity_report_kill_map">ReportKillMapActivity</string>
-
+    
+    <string name="content_description_avatar">Player Avatar</string>
+    <string name="content_description_campus_map">Campus Map</string>
+    <string name="content_description_kill_crosshair">Kill Location</string>
+	<string name="content_description_achievements">Achievements</string>
+	<string name="content_description_messages">Messagess</string>
 </resources>

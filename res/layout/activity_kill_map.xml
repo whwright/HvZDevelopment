@@ -17,6 +17,7 @@
             android:adjustViewBounds="true"
             android:focusable="true"
        		android:focusableInTouchMode="true"
+       		android:contentDescription="@string/content_description_campus_map"
             android:src="@drawable/gatech_map" />
         
         <ImageView
@@ -24,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/content_description_kill_crosshair"
             android:src="@drawable/cross" />
         
     </FrameLayout>

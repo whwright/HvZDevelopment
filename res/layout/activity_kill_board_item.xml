@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:padding="5dip"
+        android:contentDescription="@string/content_description_avatar"
         android:src="@drawable/ic_launcher" />
 
     <LinearLayout
@@ -24,18 +25,21 @@
             android:id="@+id/killboardlistactivityitem_name_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textIsSelectable="true"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/killboardlistactivityitem_slogan_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textIsSelectable="true"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@+id/killboardlistactivityitem_starvetime_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textIsSelectable="true"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </LinearLayout>	
 

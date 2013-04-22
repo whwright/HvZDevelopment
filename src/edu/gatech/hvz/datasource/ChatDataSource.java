@@ -11,7 +11,6 @@ import com.google.gson.JsonParseException;
 
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.ChatMessage;
-import edu.gatech.hvz.entities.EntityUtils;
 
 public class ChatDataSource {
 	

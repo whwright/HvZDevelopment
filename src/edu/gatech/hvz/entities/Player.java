@@ -1,7 +1,5 @@
 package edu.gatech.hvz.entities;
 
-import java.net.URLDecoder;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.Html;

@@ -25,7 +25,6 @@ public class ProfileActivity extends SherlockActivity {
 	private ImageView avatar;
 	private ImageButton achievements_button;
 	private ImageButton messages_button;
-	private ImageButton friend_list_button;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

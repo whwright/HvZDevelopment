@@ -3,6 +3,7 @@ package edu.gatech.hvz.datasource;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import com.google.gson.Gson;
 
@@ -46,7 +47,7 @@ public class PlayerDataSource {
 	}
 	
 	public String getQRCode(String data, int w, int h) {
-		return String.format(qrCodeURL, w, h, data);
+		return String.format(Locale.ENGLISH, qrCodeURL, w, h, data);
 	}
 
 	public String getPlayerAvatar(Player player) {
