@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.4"
-        android:src="@drawable/logo_landscape" />
+        android:src="@drawable/logo_landscape" android:contentDescription="Logo"/>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -27,7 +27,7 @@
             android:id="@+id/landing_welcome_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome"
+            android:text="@string/string_welcome"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ImageButton

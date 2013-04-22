@@ -28,7 +28,7 @@
             android:id="@+id/textview_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username" />
+            android:text="@string/string_username" />
 
         <EditText
             android:id="@+id/edittext_username"
@@ -44,7 +44,7 @@
             android:id="@+id/textview_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password" />
+            android:text="@string/string_password" />
 
         <EditText
             android:id="@+id/edittext_password"

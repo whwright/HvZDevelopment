@@ -30,7 +30,7 @@
 
         <EditText
             android:id="@+id/messagecompose_to_edittext"
-            android:layout_width="match_parent"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" />
@@ -53,7 +53,7 @@
     <EditText
         android:id="@+id/messagecompose_body_edittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:layout_weight="0.33"
         android:ems="10"
         android:gravity="center_vertical|top"

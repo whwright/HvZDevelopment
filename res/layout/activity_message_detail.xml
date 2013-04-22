@@ -29,7 +29,7 @@
     <TextView
         android:id="@+id/messageview_body_textfield"
         android:layout_width="match_parent"
-        android:layout_height="315dp"
+        android:layout_height="0dip"
         android:layout_weight="0.10"
         android:padding="3dp"
         android:text=""
@@ -41,7 +41,7 @@
 
         <Button
             android:id="@+id/messageview_reply_button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1.02"
             android:text="@string/messageview_reply_string" />

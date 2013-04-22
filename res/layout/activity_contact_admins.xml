@@ -47,7 +47,7 @@
     <EditText
         android:id="@+id/contactadmins_body_edittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:layout_weight="0.18"
         android:ems="10"
         android:gravity="center_vertical|top"

@@ -27,12 +27,10 @@ import edu.gatech.hvz.entities.Player;
 
 public class ReportKillActivity extends SherlockActivity {
 	
-    private static final int CAMERA_REQUEST = 1888;
     private static final int ZOMBIE_SEARCH_REQUEST = 9270;
     private static final int KILL_LOCATION_REQUEST = 9271;
 	
 	private Button reportKillButton, killLocationButton, captureQrButton;
-//	private ImageButton zombieOneButton, zombieTwoButton;
 	private int mapX = -1, mapY = -1;
 	
 	private ArrayList<Player> zombies;
@@ -85,22 +83,6 @@ public class ReportKillActivity extends SherlockActivity {
 				doReportKill();
 			}
 		});
-		
-/*		zombieOneButton = (ImageButton) findViewById(R.id.reportkill_zombie1_imagebutton);
-		zombieOneButton.setOnClickListener(new ImageButton.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				searchZombie("one");
-			}			
-		});
-		
-		zombieTwoButton = (ImageButton) findViewById(R.id.reportkill_zombie2_imagebutton);
-		zombieTwoButton.setOnClickListener(new ImageButton.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				searchZombie("two");
-			}			
-		});*/
 		
 		EditText zombie1 = (EditText)findViewById(R.id.reportkill_zombie1_edittext);
 		zombie1.setOnClickListener(new View.OnClickListener() {
