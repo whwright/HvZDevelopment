@@ -33,6 +33,10 @@ http://hvz.gatech.edu/api
 * **/player/{gt_name}/kills**
 
     Fetches the kills by player {gt_name}
+    
+* **/kill?playerCode={code}&feed1={gt_name}&feed2={gt_name}&lat={lat}&lng={lng}**
+
+    Tries to register a kill.  Needs a special {code} from a human, two Zombie {gt_name}'s, and integer {lat},{lng} as the current website uses.
 
 * **/mission/{status}**
 
@@ -42,9 +46,9 @@ http://hvz.gatech.edu/api
 
     Fetches a list of of players that belong to {faction} where faction is one of [HUMAN, ZOMBIE, ADMIN, ALL]
     
-* **/achievements**
+* **/achievements/{type}**
 
-    Fetches a list of all achievements earned by the logged in player
+    Fetches a list of achievements of where {type} is one of [locked, unlocked]
     
 * **/chat/{id}**
 
