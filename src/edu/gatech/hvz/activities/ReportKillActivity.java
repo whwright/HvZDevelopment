@@ -7,11 +7,18 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,11 +32,13 @@ import edu.gatech.hvz.entities.Player;
 
 public class ReportKillActivity extends Activity {
 	
-    private static final int CAMERA_REQUEST = 1888; 
-    private static final int ZOMBIE_SEARCH_REQUEST = 9270; 
-    	
-	private Button reportKillButton, captureQrButton;
+    private static final int CAMERA_REQUEST = 1888;
+    private static final int ZOMBIE_SEARCH_REQUEST = 9270;
+    private static final int KILL_LOCATION_REQUEST = 9271;
+	
+	private Button reportKillButton, killLocationButton, captureQrButton;
 //	private ImageButton zombieOneButton, zombieTwoButton;
+	private int mapX = -1, mapY = -1;
 	
 	private ArrayList<Player> zombies;
 	private Player zombie1;
@@ -49,7 +58,7 @@ public class ReportKillActivity extends Activity {
 		new ZombieRequest().execute();
 		
 		loadingDialog = ProgressDialog.show(this, "Loading...", "Fetching Zombie names", false);
-		
+				
 		captureQrButton = (Button) findViewById(R.id.reportkill_qrpicture_button);
 		captureQrButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
@@ -57,6 +66,15 @@ public class ReportKillActivity extends Activity {
 				doCaptureQr();
 			}
 		});
+		
+		killLocationButton = (Button) findViewById(R.id.reportkill_map_button);
+		killLocationButton.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(ReportKillActivity.this, ReportKillMapActivity.class);
+				startActivityForResult(i, KILL_LOCATION_REQUEST);
+			}
+		});	
 		
 		reportKillButton = (Button) findViewById(R.id.reportkill_reportkill_button);
 		reportKillButton.setOnClickListener(new Button.OnClickListener() {
@@ -180,6 +198,9 @@ public class ReportKillActivity extends Activity {
 			{
 
 			}
+		} else if (requestCode == KILL_LOCATION_REQUEST && resultCode == RESULT_OK) {
+			mapX = data.getIntExtra("mapX", 0);
+			mapY = data.getIntExtra("mapY", 0);
 		}
 	}
 
@@ -201,34 +222,19 @@ public class ReportKillActivity extends Activity {
 				errorMessage = "The player code of your victim is required.";
 				return false;
 			}
-						
-			//CHECKING VICTIM ON SERVER
-//			Player victim = resources.getDataManager().getPlayerByCode( victimPlayerCode );
-//			if( victim == null )
-//			{
-//				errorMessage = "Invalid player code! Try again.  If the problem persits, contact the admins.";
-//				return false;
-//			}
-//			else if( victim.getFaction() != "HUMAN" )
-//			{
-//				errorMessage = "That human's a spy! (The code you entered does not belong to an active human)";
-//				return false;
-//			}
 			
-			
-			//get gps data
-			
-			
-			//using bad GPS data for now
-			Kill kill = new Kill(victimPlayerCode, zombie1.getGTName(), zombie2.getGTName(), -1, -1);
-			resources.getDataManager().postKill(kill);			
+			//Check if coordinates have been picked
+			if (mapX == -1 || mapY == -1) {
+				errorMessage = "Please select your kill location.";
+				return false;
+			}
+
+			Kill kill = new Kill(victimPlayerCode, zombie1.getGTName(), zombie2.getGTName(), mapX, mapY);
+			Log.i("ReportKillActivity", kill.toString());
+			resources.getDataManager().postKill(kill);
 			return true;
 		}
-		
-		protected void onProgressUpdate(Void ... stuff) {
 
-		}
-		
 		protected void onPostExecute(Boolean success) {
 			if( success )
 			{

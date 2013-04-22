@@ -3,9 +3,9 @@ package edu.gatech.hvz.entities;
 public class Kill {
 	private String playerCode;
 	private String feed1, feed2;
-	private double lat, lng;
+	private int lat, lng;
 	
-	public Kill(String playerCode, String feed1, String feed2, double lat, double lng)
+	public Kill(String playerCode, String feed1, String feed2, int lat, int lng)
 	{
 		this.playerCode = playerCode;
 		this.feed1 = feed1;
@@ -26,11 +26,11 @@ public class Kill {
 		return feed2;
 	}
 
-	public double getLat() {
+	public int getLat() {
 		return lat;
 	}
 
-	public double getLng() {
+	public int getLng() {
 		return lng;
 	}
 
