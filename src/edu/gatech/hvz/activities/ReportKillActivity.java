@@ -1,7 +1,6 @@
 package edu.gatech.hvz.activities;
 
 import java.util.ArrayList;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,27 +11,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Player;
 
-public class ReportKillActivity extends SherlockActivity {
-	
-    private static final int CAMERA_REQUEST = 1888;
+public class ReportKillActivity extends SherlockActivity 
+{	
     private static final int ZOMBIE_SEARCH_REQUEST = 9270;
     private static final int KILL_LOCATION_REQUEST = 9271;
 	
 	private Button reportKillButton, killLocationButton, captureQrButton;
-//	private ImageButton zombieOneButton, zombieTwoButton;
 	private int mapX = -1, mapY = -1;
 	
 	private ArrayList<Player> zombies;
@@ -51,14 +46,14 @@ public class ReportKillActivity extends SherlockActivity {
 		
 		resources = ResourceManager.getResourceManager();
 		
-		// ActionBar setup
+		//ActionBar setup
 		ActionBar bar = getSupportActionBar();
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		bar.setDisplayHomeAsUpEnabled(true);
 		bar.setTitle("Report Kill");
 		
+		//get list of zombies
 		new ZombieRequest().execute();
-		
 		loadingDialog = ProgressDialog.show(this, "Loading...", "Fetching Zombie names", false);
 				
 		captureQrButton = (Button) findViewById(R.id.reportkill_qrpicture_button);
@@ -86,25 +81,8 @@ public class ReportKillActivity extends SherlockActivity {
 			}
 		});
 		
-/*		zombieOneButton = (ImageButton) findViewById(R.id.reportkill_zombie1_imagebutton);
-		zombieOneButton.setOnClickListener(new ImageButton.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				searchZombie("one");
-			}			
-		});
-		
-		zombieTwoButton = (ImageButton) findViewById(R.id.reportkill_zombie2_imagebutton);
-		zombieTwoButton.setOnClickListener(new ImageButton.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				searchZombie("two");
-			}			
-		});*/
-		
 		EditText zombie1 = (EditText)findViewById(R.id.reportkill_zombie1_edittext);
 		zombie1.setOnClickListener(new View.OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				searchZombie("one");
@@ -120,9 +98,12 @@ public class ReportKillActivity extends SherlockActivity {
 		});
 	}
 
+	/**
+	 * Sets the 2 zombies that are closest to death.
+	 */
 	private void setZombieFieldsToClosestToDeath() {
-		setZombie1(zombies.get(0));
-		setZombie2(zombies.get(1));
+		setZombie(1, zombies.get(0));
+		setZombie(2, zombies.get(1));
 	}
 
 	@Override
@@ -141,6 +122,9 @@ public class ReportKillActivity extends SherlockActivity {
 		}
 	}
 	
+	/**
+	 * Sends the kill to the server to be reported via KillRequest task.
+	 */
 	private void doReportKill()
 	{
 		reportKillButton.setEnabled(false);
@@ -148,12 +132,19 @@ public class ReportKillActivity extends SherlockActivity {
 		new KillRequest().execute();
 	}
 	
+	/**
+	 * 
+	 */
 	private void doCaptureQr()
 	{
 		IntentIntegrator integrator = new IntentIntegrator(this);
 		integrator.initiateScan();
 	}
 	
+	/**
+	 * Starts the ZombieSearchActivity for a result, and remembers which zombie it should change on return.
+	 * @param zombieNumber
+	 */
 	private void searchZombie(String zombieNumber) 
 	{
 		zombieToChange = zombieNumber;
@@ -162,22 +153,34 @@ public class ReportKillActivity extends SherlockActivity {
 		startActivityForResult(i, ZOMBIE_SEARCH_REQUEST);
 	}
 	
-	private void setZombie1(Player zombie)
+	/**
+	 * Sets the zombie 1 or 2, based on zombieNumber, to the Player object passed in. Also set's the
+	 * corresponding text field that Player's name;
+	 * @param zombieNumber
+	 * @param zombie
+	 */
+	private void setZombie(int zombieNumber, Player zombie)
 	{
-		zombie1 = zombie;
-		EditText textToChange = (EditText) findViewById(R.id.reportkill_zombie1_edittext);
-		textToChange.setText( zombie.getPlayerName(), TextView.BufferType.EDITABLE);
-	}
-	
-	private void setZombie2(Player zombie)
-	{
-		zombie2 = zombie;
-		EditText textToChange = (EditText) findViewById(R.id.reportkill_zombie2_edittext);
-		textToChange.setText( zombie.getPlayerName(), TextView.BufferType.EDITABLE);
+		EditText textToChange;
+		switch( zombieNumber ) {
+			case 1:
+				zombie1 = zombie;
+				textToChange = (EditText) findViewById(R.id.reportkill_zombie1_edittext);
+				textToChange.setText( zombie.getPlayerName(), TextView.BufferType.EDITABLE);
+				break;
+			case 2:
+				zombie2 = zombie;
+				textToChange = (EditText) findViewById(R.id.reportkill_zombie2_edittext);
+				textToChange.setText( zombie.getPlayerName(), TextView.BufferType.EDITABLE);
+				break;
+			default:
+				break;
+		}
 	}
 	
 	/**
-	 * This method handles the result of startActivityForResult
+	 * This method handles the result of startActivityForResult, which is called when the user launches ZombieSearchAcitivty,
+	 * and chooses a Zombie.
 	 */
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
@@ -198,11 +201,13 @@ public class ReportKillActivity extends SherlockActivity {
 				{
 					if( zombieToChange.equals("one") )
 					{
-						setZombie1(zombie);
+						//setZombie1(zombie);
+						setZombie(1, zombie);
 					}
 					else if( zombieToChange.equals("two") )
 					{
-						setZombie2(zombie);
+						//setZombie2(zombie);
+						setZombie(2, zombie);
 					}
 				}
 			}
@@ -217,7 +222,7 @@ public class ReportKillActivity extends SherlockActivity {
 	}
 
 	/**
-	 * Async class that handles sending kills to the server
+	 * Asynchronous task that handles will send a kill to the server.
 	 * @author whwright
 	 *
 	 */
@@ -267,9 +272,8 @@ public class ReportKillActivity extends SherlockActivity {
 	}
 	
 	/**
-	 * Async class that handles getting the list of active Zombies
+	 * Asynchronous task that gets the list of active Zombies sorted by starve time.
 	 * @author whwright
-	 *
 	 */
 	private class ZombieRequest extends AsyncTask<Void, Void, Boolean>
 	{

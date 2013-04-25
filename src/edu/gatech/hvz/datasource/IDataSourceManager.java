@@ -51,7 +51,6 @@ public interface IDataSourceManager {
 	 */
 	public Mission[] getMissions(Mission.Status status);
 
-	
 	/**
 	 * Used to get a URL to an image that contains a QR code.
 	 * @param data The data you want to encode
@@ -61,15 +60,17 @@ public interface IDataSourceManager {
 	 */
 	public String getQRCode(String data, int w, int h);
 	
-	
 	/**
-	 * 
-	 * @return
+	 * Post a kill to the server to be reported.
+	 * @param Kill
 	 */
 	public void postKill(Kill kill);
 	
+	/**
+	 * Send an Email object to the server to be sent server-side.
+	 * @param Email
+	 */
 	public void postEmail(Email email);
-	
 	
 	/**
 	 * Retrieve old messages that have already been retrieved at least once.
@@ -116,17 +117,12 @@ public interface IDataSourceManager {
 	 */
 	public List<ChatMessage> getChatMessages(int id);
 
-
 	/**
 	 * Post a new message to the chat room
 	 * @param message The message body to send
 	 */
 	public void postChatMessage(String message);
 	
-	/**
-	 * Get a list of achievements that the player has earned.
-	 * @return A list of the player's current achievements
-	 */
 	/**
 	 * Get a list of achievements that the player has earned.
 	 * @param type Either the string "LOCKED" or "UNLOCKED"
