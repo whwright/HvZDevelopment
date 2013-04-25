@@ -33,11 +33,11 @@ public class ReportKillActivity extends SherlockActivity
 	private ArrayList<Player> zombies;
 	private Player zombie1;
 	private Player zombie2;
-	
 	private String zombieToChange;
 
 	private ProgressDialog loadingDialog;
 	private ResourceManager resources;
+	AsyncTask<Void, Void, Boolean> zombieTask;
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class ReportKillActivity extends SherlockActivity
 		bar.setTitle("Report Kill");
 		
 		//get list of zombies
-		new ZombieRequest().execute();
+		zombieTask = new ZombieRequest().execute();
 		loadingDialog = ProgressDialog.show(this, "Loading...", "Fetching Zombie names", false);
 				
 		captureQrButton = (Button) findViewById(R.id.reportkill_qrpicture_button);
@@ -96,6 +96,19 @@ public class ReportKillActivity extends SherlockActivity
 				searchZombie("two");
 			}
 		});
+	}
+	
+	@Override
+	public void onPause()
+	{
+		super.onPause();
+		if( zombieTask != null && zombieTask.getStatus() == AsyncTask.Status.RUNNING )
+		{
+			zombieTask.cancel(true);
+			if( loadingDialog.isShowing() ) {
+				loadingDialog.dismiss();
+			}
+		}
 	}
 
 	/**
