@@ -61,7 +61,8 @@ PHP API
 This is a simple API that interfaces with the current HvZ database.  It is a pure PHP application written for PHP 5.2.15, as this is the current version supported by the HvZ webserver.  All URLs are meant to be accessed with GET requests, and if a route is meant to return data, it returns it as a JSON object.  Each JSON object matches exactly the columns of the database table that the API call refers to.
 
 ### Installation ###
-Simply copy all files into the httpsdocs/api/ folder on the current webserer.
+Simply copy all files into the httpsdocs/api/ folder on the current webserver.
+The file db.php contains database configuration information.  This will need to be filled in for future games.
 
 ### API Base URL ###
 http://hvz.gatech.edu/api
