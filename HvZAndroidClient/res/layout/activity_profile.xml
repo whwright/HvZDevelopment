@@ -8,43 +8,52 @@
     android:paddingTop="20dp"
     tools:context=".ProfileActivity" >
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/profileactivity_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="@string/content_description_avatar"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/profileactivity_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textIsSelectable="true" />
+
+    <TextView
+        android:id="@+id/profileactivity_faction_textview"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:paddingTop="15dp" >
-
-        <ImageView
-            android:id="@+id/profileactivity_avatar"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/content_description_avatar"
-            android:src="@drawable/ic_launcher" />
-
-        <TextView
-            android:id="@+id/profileactivity_name_textview"
-            android:layout_width="0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:textIsSelectable="true"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    </LinearLayout>
-
-    <LinearLayout
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="true" />    
+    
+    <TextView
+        android:id="@+id/profileactivity_slogan_textview"
         android:layout_width="match_parent"
-        android:layout_height="86dp"
-        android:layout_weight="5"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="true" />
 
-        <TextView
-            android:id="@+id/profileactivity_slogan_textview"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:paddingTop="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textIsSelectable="true" />
+    <TextView
+        android:id="@+id/profileactivity_starve_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="true" />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/profileactivity_kills_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textIsSelectable="true" />
 
 </LinearLayout>

@@ -8,12 +8,9 @@ import com.androidhive.imagefromurl.ImageLoader;
 
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
+import edu.gatech.hvz.entities.EntityUtils;
 import edu.gatech.hvz.entities.Player;
 import android.os.Bundle;
-import android.content.Intent;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,10 +38,13 @@ public class ProfileActivity extends SherlockActivity {
 		avatar = (ImageView)findViewById(R.id.profileactivity_avatar);
 		imgLoader.DisplayImage(resources.getDataManager().getPlayerAvatar(player), R.drawable.ic_launcher, avatar);
 						
-		String user = "";
-		user+=player.getPlayerName()+" - "+player.getFaction();
-		((TextView)findViewById(R.id.profileactivity_name_textview)).setText(user);		
+		((TextView)findViewById(R.id.profileactivity_name_textview)).setText(player.getPlayerName());		
 		((TextView)findViewById(R.id.profileactivity_slogan_textview)).setText(player.getSlogan());
+		((TextView)findViewById(R.id.profileactivity_faction_textview)).setText(player.getFaction());
+		if (player.getFaction().equals("ZOMBIE")) {
+			((TextView)findViewById(R.id.profileactivity_starve_textview)).setText("Starves: " + EntityUtils.stringToFormattedDate(player.getStarveTime()));
+			((TextView)findViewById(R.id.profileactivity_kills_textview)).setText(player.getKills() + " " + ((player.getKills() == 1) ? "kill" : "kills"));
+		}
 	}
 
 	@Override
