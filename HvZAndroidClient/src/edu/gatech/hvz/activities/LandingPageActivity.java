@@ -18,7 +18,7 @@ import android.widget.TextView;
 public class LandingPageActivity extends SherlockActivity {
 
 	private ResourceManager resources;
-	private ImageButton missionListButton,reportKillButton,profileButton,chatroomButton,killBoardButton,killMapButton;
+	private ImageButton missionListButton,reportKillButton,profileButton,chatroomButton,killBoardButton,achievementsButton;
 	
 	private TextView welcomeTV;
 	
@@ -88,11 +88,11 @@ public class LandingPageActivity extends SherlockActivity {
 				}
 			});
 			
-			killMapButton = (ImageButton) findViewById(R.id.landing_killmap);
-			killMapButton.setOnClickListener(new Button.OnClickListener() {
+			achievementsButton = (ImageButton) findViewById(R.id.landing_achievements);
+			achievementsButton.setOnClickListener(new Button.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent(LandingPageActivity.this, KillMapActivity.class));
+					startActivity(new Intent(LandingPageActivity.this, AchievementActivity.class));
 				}
 			});
 		

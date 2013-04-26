@@ -23,7 +23,6 @@ public class ProfileActivity extends SherlockActivity {
 	private ResourceManager resources;
 	private ImageLoader imgLoader;
 	private ImageView avatar;
-	private ImageButton achievements_button;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +40,7 @@ public class ProfileActivity extends SherlockActivity {
 		
 		avatar = (ImageView)findViewById(R.id.profileactivity_avatar);
 		imgLoader.DisplayImage(resources.getDataManager().getPlayerAvatar(player), R.drawable.ic_launcher, avatar);
-		
-		
-		achievements_button = (ImageButton)findViewById(R.id.profileactivity_achievements);
-		achievements_button.setOnClickListener(new Button.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(ProfileActivity.this, AchievementActivity.class));
-			}
-		});
-				
+						
 		String user = "";
 		user+=player.getPlayerName()+" - "+player.getFaction();
 		((TextView)findViewById(R.id.profileactivity_name_textview)).setText(user);		
