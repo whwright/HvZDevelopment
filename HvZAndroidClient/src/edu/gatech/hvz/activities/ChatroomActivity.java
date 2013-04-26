@@ -196,7 +196,7 @@ public class ChatroomActivity extends SherlockListActivity {
 					setSelection(adapter.getCount() - 1);
 				}
 			} else {
-				Toast.makeText(ChatroomActivity.this, "There was an error fetching the chats", Toast.LENGTH_LONG).show();
+				//Toast.makeText(ChatroomActivity.this, "There was an error fetching the chats", Toast.LENGTH_LONG).show();
 			}
 		}
 	}
