@@ -5,7 +5,7 @@ class Player {
 	public static
 	function get($gt_name) {
 		$DBH = InstanceHolder::getInstance('DB');
-		$STH = $DBH->prepare("SELECT id, gt_name, fname, lname, player_code, faction, slogan, avatar, kills  FROM users WHERE gt_name=?");
+		$STH = $DBH->prepare("SELECT id, gt_name, fname, lname, player_code, faction, slogan, avatar, kills, starve_time FROM users WHERE gt_name=?");
 		$STH->bindParam(1, $gt_name);
 		$STH->execute();
 		
