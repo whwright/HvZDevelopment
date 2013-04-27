@@ -6,8 +6,8 @@ import java.util.Map;
 /**
  * A simple container class that serves as a temporary cache
  * for the lifetime of the application.  Keys are Strings, values are Objects.
+ * All methods map to Java's Map class.
  * 
- * @author Jeremy
  */
 public class CacheDataSource {
 	private Map<String, Object> cache;

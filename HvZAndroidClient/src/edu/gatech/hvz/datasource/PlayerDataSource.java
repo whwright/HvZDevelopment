@@ -23,11 +23,6 @@ public class PlayerDataSource {
 	private final String zombieAvatarURL = "https://hvz.gatech.edu/images/avatars/tiny_zombie.png";
 	private final String adminAvatarURL = "https://hvz.gatech.edu/images/avatars/tiny_admin.png";
 	
-	public PlayerDataSource()
-	{
-
-	}
-	
 	public Player getPlayerByName(String name)
 	{
 		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(String.format(playerURL, name));

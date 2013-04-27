@@ -9,6 +9,13 @@ import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Mission;
 import edu.gatech.hvz.entities.Player;
 
+/**
+ * An interface for all of the remote data calls needed for the
+ * Android application.  Calls are implemented in various Data Source
+ * classes, and the implemented DataSourceManager delegates these calls
+ * to the appropriate class.
+ *
+ */
 public interface IDataSourceManager {
 
 	/**
