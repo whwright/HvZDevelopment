@@ -6,6 +6,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 import edu.gatech.hvz.R;
+import edu.gatech.hvz.ResourceManager;
 import android.os.Bundle;
 import android.content.Intent;
 import android.util.TypedValue;
@@ -26,11 +27,13 @@ public class ReportKillMapActivity extends SherlockActivity implements OnTouchLi
 	ImageView map, cross;
 	int mapX, mapY;
 	int scaledX, scaledY;
+	private ResourceManager resources;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_report_kill_map);
+		resources = ResourceManager.getResourceManager();
 		
 		// ActionBar setup
 		ActionBar bar = getSupportActionBar();
@@ -70,19 +73,24 @@ public class ReportKillMapActivity extends SherlockActivity implements OnTouchLi
 		return true;
 	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
-			case android.R.id.home:
-				Intent i = new Intent();
-				i.putExtra("mapX", mapX);
-				i.putExtra("mapY", mapY);
-				setResult(RESULT_OK, i);
-				finish();
-			default:
-				return super.onOptionsItemSelected(item);
+		case R.id.menu_contact:
+			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
+			startActivity(lineIntent);
+			return true;
+		case R.id.menu_about:
+			Intent aboutintent = new Intent(this, AboutActivity.class);
+			startActivity(aboutintent);
+			return true;
+		case R.id.menu_logout:
+			resources.resetData();
+			Intent login = new Intent(this, LoginActivity.class);
+			startActivity(login);
+			finish();
+			return true;
 		}
-
+		return false;
 	}
 	
 	@Override

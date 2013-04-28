@@ -109,16 +109,20 @@ public class LandingPageActivity extends SherlockActivity {
 	
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
-			case R.id.menu_contact:
-				Intent lineIntent = new Intent(LandingPageActivity.this, ContactAdminsActivity.class);
-				startActivity(lineIntent);
-				return true;
-			case R.id.menu_logout:
-				resources.resetData();
-				Intent login = new Intent(LandingPageActivity.this, LoginActivity.class);
-				startActivity(login);
-				finish();
-				return true;
+		case R.id.menu_contact:
+			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
+			startActivity(lineIntent);
+			return true;
+		case R.id.menu_about:
+			Intent aboutintent = new Intent(this, AboutActivity.class);
+			startActivity(aboutintent);
+			return true;
+		case R.id.menu_logout:
+			resources.resetData();
+			Intent login = new Intent(this, LoginActivity.class);
+			startActivity(login);
+			finish();
+			return true;
 		}
 		return false;
 	}

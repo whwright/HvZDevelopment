@@ -46,6 +46,10 @@ This project is currently being built with the following options:
 
     For authenticating with the GaTech CAS servers.
 
+* **zxing**
+
+    For scanning 2-D barcodes.
+
 ### Installation ###
 
 1.  Install Eclipse Juno, as well as the latest Android SDK (currently 4.2.2).
