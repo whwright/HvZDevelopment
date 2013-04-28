@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.gatech.hvz"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Sherlock" >
+        <activity
+            android:name="edu.gatech.hvz.activities.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="stateHidden"/>
+        
+        <activity
+            android:name="edu.gatech.hvz.activities.LandingPageActivity"
+            android:label="@string/title_activity_landing_page" >
+            <intent-filter android:label="@string/app_name" >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.ReportKillActivity"
+            android:label="@string/title_activity_report_kill"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="edu.gatech.hvz.activities.ShowMyCodeActivity"
+            android:label="@string/title_activity_show_my_code" />
+        <activity
+            android:name="edu.gatech.hvz.activities.MissionDetailActivity"
+            android:label="@string/title_activity_mission_detail" />
+        <activity
+            android:name="edu.gatech.hvz.activities.ChatroomActivity"
+            android:label="@string/title_activity_chatroom"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- Zombie Search Activity -->
+        <activity
+            android:name="edu.gatech.hvz.activities.ZombieSearchActivity"
+            android:label="@string/title_activity_zombie_search" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="edu.gatech.hvz.activities.ProfileActivity"
+            android:label="@string/title_activity_profile" />
+        <activity
+            android:name="edu.gatech.hvz.activities.AchievementActivity"
+            android:label="@string/title_activity_achievement" />
+        <activity
+            android:name="edu.gatech.hvz.activities.KillBoardActivity"
+            android:label="@string/title_activity_kill_board" />
+        <activity
+            android:name="edu.gatech.hvz.activities.MissionListActivity"
+            android:label="@string/title_activity_mission_list" />
+        <activity
+            android:name="edu.gatech.hvz.activities.KillMapActivity"
+            android:label="@string/title_activity_kill_map" />
+        <activity
+            android:name="edu.gatech.hvz.activities.ContactAdminsActivity"
+            android:label="@string/title_activity_contact_admins"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="edu.gatech.hvz.activities.ReportKillMapActivity"
+            android:label="@string/title_activity_report_kill_map" />
+    </application>
+
+</manifest>
