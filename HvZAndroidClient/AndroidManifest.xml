@@ -19,8 +19,7 @@
         <activity
             android:name="edu.gatech.hvz.activities.LoginActivity"
             android:label="@string/title_activity_login"
-            android:windowSoftInputMode="stateHidden"/>
-        
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="edu.gatech.hvz.activities.LandingPageActivity"
             android:label="@string/title_activity_landing_page" >
@@ -79,6 +78,10 @@
         <activity
             android:name="edu.gatech.hvz.activities.ReportKillMapActivity"
             android:label="@string/title_activity_report_kill_map" />
+        <activity
+            android:name="edu.gatech.hvz.activities.AboutActivity"
+            android:label="@string/title_activity_about" >
+        </activity>
     </application>
 
 </manifest>
