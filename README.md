@@ -59,6 +59,14 @@ This project is currently being built with the following options:
 5.  Build and run by selecting Run > Run, and launch to either an attached Android device or a previously created Android Emulator using the AVD Manager included with the Android SDK.
 
 
+### Unimplement Features/ TODO ###
+
+1.  Chat has no support for choosing your audience.  Currently it just posts to your current faction's audience.
+2.  Server side e-mail code does not yet exist, though the screen is in the Android application.
+3.  Artwork should be replaced.  All icons and logos are temporary and should not be published.
+4.  Better server side error messages and client side display would help user feedback.
+5.  Application is not currently hosted on the Play Store.
+
 PHP API
 -------------
 
