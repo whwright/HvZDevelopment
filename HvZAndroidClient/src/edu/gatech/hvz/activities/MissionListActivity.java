@@ -24,6 +24,11 @@ import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.EntityUtils;
 import edu.gatech.hvz.entities.Mission;
 
+/**
+ * An activity for viewing the list of all missions.
+ * The user can view different tabs to see active, issued, and closed
+ * missions. These missions can be clicked to go to mission detail screen.
+ */
 public class MissionListActivity extends SherlockFragmentActivity {
 	static final int ACTIVE = 0;
 	static final int ISSUED = 1;

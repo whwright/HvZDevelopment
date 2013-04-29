@@ -22,6 +22,12 @@ import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Player;
 
+/**
+ * This is an activity for kill reporting. Only a zombie can
+ * access this page. A zombie has the option to manually type the
+ * player code, or to scan the QR code. This page also allows
+ * the zombie to feed zombies so that they do not starve to death.
+ */
 public class ReportKillActivity extends SherlockActivity {
 
     private static final int ZOMBIE_SEARCH_REQUEST = 9270;

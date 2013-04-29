@@ -26,6 +26,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * An activity to interface with the HvZ website's chatroom.
+ * The user can view and post new messages to the chatroom from this view.
+ */
 public class ChatroomActivity extends SherlockListActivity {
 
 	private ResourceManager resources;

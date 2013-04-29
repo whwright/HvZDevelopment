@@ -17,6 +17,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * A simple activity for contacting the HvZ admins through email.
+ * The user can file disputes and report rule violations through this page.
+ */
 public class ContactAdminsActivity extends SherlockActivity {
 	
 	//Strings for loading dialog

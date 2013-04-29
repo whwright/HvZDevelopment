@@ -17,6 +17,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * An activity for viewing the campus map and where the danger zone is.
+ * This functionality is integrated with the HvZ website.
+ */
 public class KillMapActivity extends Activity implements OnTouchListener {
 	
 	TextView coords;

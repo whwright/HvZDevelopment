@@ -13,6 +13,10 @@ import android.support.v4.view.ViewPager;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 
+/**
+ * Adapter class for allowing multi-tabbed views for achievements
+ * and kill board.
+ */
 public class TabsAdapter extends FragmentPagerAdapter implements
 		ViewPager.OnPageChangeListener, ActionBar.TabListener {
 	private final Context mContext;

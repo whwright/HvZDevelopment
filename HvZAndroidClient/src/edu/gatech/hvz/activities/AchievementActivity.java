@@ -29,6 +29,10 @@ import android.widget.TextView;
 
 import android.widget.Toast;
 
+/**
+ * An activity for allowing the user to view achievements.
+ * In this activity, the user can view both unlocked and locked achievements.
+ */
 public class AchievementActivity extends SherlockFragmentActivity {
 	
 	private ViewPager mPager;

@@ -24,6 +24,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * Activity for searching another zombie to feed. This
+ * page can be accessed through kill reporting activity.
+ * The zombie player can select another zombie to feed in this
+ * screen.
+ */
 public class ZombieSearchActivity extends SherlockActivity {
 	
 	private ListView zombieList;

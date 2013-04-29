@@ -30,6 +30,9 @@ import edu.gatech.hvz.entities.EntityUtils;
 import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Player;
 
+/**
+ * An activity for viewing every player's name, faction, and slogan.
+ */
 public class KillBoardActivity extends SherlockFragmentActivity {
 	static final int ZOMBIE = 1;
 	static final int HUMAN = 2;

@@ -12,6 +12,11 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.TextView;
 
+/**
+ * This is an activity only visible to a human. This page
+ * becomes obsolete for a zombie since they cannot be killed again.
+ * The human must present this page to the zombie player upon getting tagged.
+ */
 public class ShowMyCodeActivity extends SherlockActivity {
 
 	private final static String html = "<html><body style=\"background-color: " +

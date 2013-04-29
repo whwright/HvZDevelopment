@@ -15,6 +15,11 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * Activity for viewing the user's current status.
+ * This page is a read-only page that lets the user see their
+ * name, avatar, and slogan.
+ */
 public class ProfileActivity extends SherlockActivity {
 
 	private Player player;

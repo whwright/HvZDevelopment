@@ -13,6 +13,11 @@ import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.EntityUtils;
 import edu.gatech.hvz.entities.Mission;
 
+/**
+ * A simple activity for viewing the mission detail.
+ * The user can see the name, location, time, and description of the
+ * mission from this activity.
+ */
 public class MissionDetailActivity extends SherlockActivity {
 
 	private Mission mission;
