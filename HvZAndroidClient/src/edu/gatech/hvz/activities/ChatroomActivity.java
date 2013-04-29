@@ -81,7 +81,7 @@ public class ChatroomActivity extends SherlockListActivity {
 			setSelection(adapter.getCount() - 1);
 		}
 		
-		
+		//Start trying to fetch new messages
 		getTask = new ChatTask().execute();
 	}
 
@@ -111,6 +111,7 @@ public class ChatroomActivity extends SherlockListActivity {
 		return false;
 	}
 	
+	@Override
 	protected void onPause() {
 		super.onPause();
 		if (getTask != null && getTask.getStatus() == AsyncTask.Status.RUNNING) {
@@ -159,7 +160,9 @@ public class ChatroomActivity extends SherlockListActivity {
 		}
 	}
 	
-	/* Task posts a new message and then refreshes the chat */
+	/**
+	 * Task posts a new message and then refreshes the chat
+	 */
 	private class PostChatTask extends AsyncTask<Void, Void, Boolean> {
 
 		protected Boolean doInBackground(Void ... voids) {
@@ -185,7 +188,8 @@ public class ChatroomActivity extends SherlockListActivity {
 		}
 	}
 	
-	/* Task grabs all the new messages on the server */
+	/** Task grabs all the new messages on the server
+	 */
 	private class ChatTask extends AsyncTask<Void, Void, Boolean> {
 		private List<ChatMessage> newMessages;
 

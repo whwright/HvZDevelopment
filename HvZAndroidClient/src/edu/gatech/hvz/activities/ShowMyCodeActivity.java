@@ -19,6 +19,7 @@ import android.widget.TextView;
  */
 public class ShowMyCodeActivity extends SherlockActivity {
 
+	//HTML for the WebView where we will inject the QR code image
 	private final static String html = "<html><body style=\"background-color: " +
 			"black;\"><div style=\"text-align: center;\"><img src=\"%s\" />" +
 			"</div></body></html>";
@@ -84,6 +85,9 @@ public class ShowMyCodeActivity extends SherlockActivity {
 		return false;
 	}
 	
+	/**
+	 * Get the URL of the QR code, and show it inside a WebView
+	 */
 	private void fetchQRCode() {
 		String code = resources.getPlayer().getPlayerCode();
 		int x = Math.min((int)(qrCodeWebView.getWidth()*.6), (int)(qrCodeWebView.getHeight()*.6));

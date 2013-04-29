@@ -18,14 +18,22 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+/**
+ * An activity that displays a map of the Georgia Tech campus.
+ * It allows the user to touch the map to set a location where
+ * a tag took place.
+ */
 public class ReportKillMapActivity extends SherlockActivity implements OnTouchListener {
 	
+	//Original image size in pixels
 	int MAP_HEIGHT = 294;
 	int MAP_WIDTH = 401;
 	
 	Button confirm;
 	ImageView map, cross;
+	//The actual coordinates that will be sent to the server
 	int mapX, mapY;
+	//The scaled coordinates that are scaled for the displayed image on the phone
 	int scaledX, scaledY;
 	private ResourceManager resources;
 	
@@ -45,6 +53,7 @@ public class ReportKillMapActivity extends SherlockActivity implements OnTouchLi
 		cross = (ImageView) findViewById(R.id.reportkillmapactivity_cross_imageview);
 		confirm = (Button) findViewById(R.id.reportkillmapactivity_confirm_button);
 		
+		//Listener that returns the location to the ReportKillActivity
 		confirm.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -58,6 +67,7 @@ public class ReportKillMapActivity extends SherlockActivity implements OnTouchLi
 		
 		map.setOnTouchListener(this);
 		
+		//Save coordinates for rotation
 		if (savedInstanceState != null) {
 			mapX = savedInstanceState.getInt("mapX");
 			mapY = savedInstanceState.getInt("mapY");
@@ -142,8 +152,13 @@ public class ReportKillMapActivity extends SherlockActivity implements OnTouchLi
 	    super.onBackPressed();
 	}
 	
+	/**
+	 * Draw a marker on the map where the user is pressing.
+	 */
 	private void drawCross() {
+		//Convert from pixels to DP
 		int crossSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+		//Set the marker at the place the user pressed
 		ViewGroup.MarginLayoutParams mlp = new ViewGroup.MarginLayoutParams(crossSize, crossSize);
 		mlp.setMargins(scaledX-crossSize/2, scaledY-crossSize/2, 0, 0);
 		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(mlp);

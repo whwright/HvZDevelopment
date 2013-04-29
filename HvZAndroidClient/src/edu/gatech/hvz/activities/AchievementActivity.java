@@ -19,7 +19,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,6 +99,10 @@ public class AchievementActivity extends SherlockFragmentActivity {
 		return false;
 	}
 		
+	/**
+	 * The actual fragment that displays either LOCKED or UNLOCKED
+	 * achievements.
+	 */
 	public static class AchievementFragment extends SherlockListFragment {
 		private String achievementType;
 		private AchievementAdapter adapter;
@@ -112,6 +115,7 @@ public class AchievementActivity extends SherlockFragmentActivity {
 			super.onCreate(savedInstanceState);
 			this.setRetainInstance(true);
 			resources = ResourceManager.getResourceManager();
+			//Get the achievement type of this fragment,  default UNLOCKED
 			achievementType = getArguments() != null ? getArguments().getString("achievementType") : "UNLOCKED";
 			achievementList = new LinkedList<Achievement>();
 			adapter = new AchievementAdapter(getActivity(),	android.R.layout.simple_list_item_1, achievementList);
@@ -167,12 +171,14 @@ public class AchievementActivity extends SherlockFragmentActivity {
 			}
 		}
 		
+		/**
+		 * AsyncTask for grabbing missions
+		 */
 		private class AchievementTask extends AsyncTask<Void, Void, Boolean> {
 			private List<Achievement> achievements;
 			
 			protected Boolean doInBackground(Void ... voids) {
 				try {
-					Log.i("AchievementTask", "Getting achievements of type: " + achievementType);
 					achievements = resources.getDataManager().getAchievements(achievementType);
 					return true;
 				} catch (Exception e) {
@@ -181,9 +187,11 @@ public class AchievementActivity extends SherlockFragmentActivity {
 			}
 
 			protected void onPostExecute(Boolean success) {
+				//Fetched some missions
 				if (success) {
 					achievementList.addAll(achievements);
 					adapter.notifyDataSetChanged();
+				//Exception
 				} else {
 					Toast.makeText(getActivity(), "There was an error fetching your achievements.", Toast.LENGTH_LONG).show();
 				}

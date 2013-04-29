@@ -103,7 +103,9 @@ public class KillBoardActivity extends SherlockFragmentActivity {
 		return false;
 	}
 
-	//Fragment for each player list
+	/**
+	 * A fragment for each player list, either Human or Zombie.
+	 */
 	public static class ArrayListFragment extends SherlockListFragment {
 		
 		int type;
@@ -116,6 +118,8 @@ public class KillBoardActivity extends SherlockFragmentActivity {
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			this.setRetainInstance(true);
+			
+			//Get the type of the fragment, either "HUMAN" or "ZOMBIE"
 			type = getArguments() != null ? getArguments().getInt("type") : 1;
 			resources = ResourceManager.getResourceManager();
 
@@ -139,18 +143,6 @@ public class KillBoardActivity extends SherlockFragmentActivity {
 		public void onActivityCreated(Bundle savedInstanceState) {
 			super.onActivityCreated(savedInstanceState);
 		}
-		
-		//TODO on click expand
-		/* maybe cant click
-		@Override
-		public void onListItemClick(ListView l, View v, int position, long id) {
-			Mission m = (Mission) getListAdapter().getItem(position);
-			Log.i("MissionListActivity", "Trying to go to mission " + m.getName());
-			Intent i = new Intent(this.getActivity(), MissionDetailActivity.class);
-			i.putExtra("mission", m);
-			startActivity(i);
-		}
-		*/
 
 		@Override
 		public void onPause() {
@@ -190,6 +182,7 @@ public class KillBoardActivity extends SherlockFragmentActivity {
 				imgLoader.DisplayImage(resources.getDataManager().getPlayerAvatar(player), R.drawable.ic_launcher, avatar);
 				name.setText(player.getPlayerName());
 				slogan.setText(player.getSlogan());
+				//Set extra data if player is a Zombie
 				if (player.getFaction().equals(FactionType.ZOMBIE.name())) {
 					String starveString = "Starves: " + EntityUtils.stringToFormattedDate(player.getStarveTime());
 					starveString += ", " + player.getKills() + " " + ((player.getKills() == 1) ? "kill" : "kills");

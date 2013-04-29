@@ -41,6 +41,7 @@ public class LoginActivity extends SherlockActivity {
 
 		resources = ResourceManager.getResourceManager();
 
+		//Login button listener
 		loginButton = (Button) findViewById(R.id.button_login);
 		loginButton.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View v) {
@@ -61,6 +62,9 @@ public class LoginActivity extends SherlockActivity {
 		}
 	}
 
+	/**
+	 * Attempt to login with username and password entered in textfields.
+	 */
 	public void doLogin() {
 		dialog = ProgressDialog.show(this, "Logging in", "Logging in and loading your data", true, false);
 		String user, pass;

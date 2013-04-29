@@ -61,7 +61,8 @@ public class ReportKillActivity extends SherlockActivity {
 		//get list of zombies
 		zombieTask = new ZombieRequest().execute();
 		loadingDialog = ProgressDialog.show(this, "Loading...", "Fetching Zombie names", false);
-				
+		
+		//Button listeners
 		captureQrButton = (Button) findViewById(R.id.reportkill_qrpicture_button);
 		captureQrButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
@@ -162,7 +163,7 @@ public class ReportKillActivity extends SherlockActivity {
 	}
 	
 	/**
-	 * 
+	 * Launch an Intent to scan a QR code
 	 */
 	private void doCaptureQr()
 	{

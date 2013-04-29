@@ -22,6 +22,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
  
+/**
+ * Utility classes to automatically load images from a URL.
+ * Source: http://www.androidhive.info/2012/07/android-loading-image-from-url-http/
+ */
 public class ImageLoader {
  
     MemoryCache memoryCache=new MemoryCache();

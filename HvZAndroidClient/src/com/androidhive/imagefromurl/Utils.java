@@ -3,6 +3,10 @@ package com.androidhive.imagefromurl;
 import java.io.InputStream;
 import java.io.OutputStream;
  
+/**
+ * Utility classes to automatically load images from a URL.
+ * Source: http://www.androidhive.info/2012/07/android-loading-image-from-url-http/
+ */
 public class Utils {
     public static void CopyStream(InputStream is, OutputStream os)
     {

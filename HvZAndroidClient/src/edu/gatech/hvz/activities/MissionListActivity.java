@@ -65,6 +65,7 @@ public class MissionListActivity extends SherlockFragmentActivity {
 		bundle.putInt("type", Mission.Status.CLOSED.ordinal());
 		mTabsAdapter.addTab(bar.newTab().setText("Closed"), ArrayListFragment.class, bundle);
 		
+		//Get saved tab number
 		if (savedInstanceState != null) {
 			bar.setSelectedNavigationItem(savedInstanceState.getInt("tab"));
 		}

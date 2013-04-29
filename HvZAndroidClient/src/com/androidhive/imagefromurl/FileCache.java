@@ -3,6 +3,10 @@ package com.androidhive.imagefromurl;
 import java.io.File;
 import android.content.Context;
  
+/**
+ * Utility classes to automatically load images from a URL.
+ * Source: http://www.androidhive.info/2012/07/android-loading-image-from-url-http/
+ */
 public class FileCache {
  
     private File cacheDir;

@@ -51,6 +51,7 @@ public class ContactAdminsActivity extends SherlockActivity {
 		EditText nameEditText = (EditText) findViewById(R.id.contactadmins_name_edittext);
 		nameEditText.setText( ResourceManager.getResourceManager().getPlayer().getPlayerName() );
 		
+		//Listener that will send the message on button click
 		sendButton = (Button) findViewById(R.id.contactadmins_send_button);
 		sendButton.setOnClickListener(new Button.OnClickListener() {
 			@Override
@@ -60,6 +61,10 @@ public class ContactAdminsActivity extends SherlockActivity {
 		});
 	}
 	
+	/**
+	 * Execute the send of the typed in e-mail.
+	 * Show dialog, disable buttons, etc.
+	 */
 	private void doContactAdmins() {
 		sendButton.setEnabled(false);
 		loadingDialog = ProgressDialog.show(ContactAdminsActivity.this, loadingDialogTitle, loadingDialogMessage, false);
@@ -94,6 +99,10 @@ public class ContactAdminsActivity extends SherlockActivity {
 		return false;
 	}
 	
+	/**
+	 * Task to send an e-mail.  Does various error handling, making sure the
+	 * user actually filled in fields.
+	 */
 	private class ContactRequest extends AsyncTask<Void, Void, Boolean>
 	{
 		private String errorMessage;
