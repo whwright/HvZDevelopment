@@ -118,6 +118,11 @@ public class ReportKillActivity extends SherlockActivity {
 		switch (item.getItemId()){
 			case android.R.id.home:
 				finish();
+			case R.id.menu_help:
+			       Intent intent = (new Intent(this, TopicActivity.class));
+			       intent.putExtra ("text_id", R.string.topic_killrep_section);
+			       startActivity (intent);
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}

@@ -14,6 +14,7 @@ import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.ChatMessage;
 import edu.gatech.hvz.entities.EntityUtils;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -91,6 +92,11 @@ public class ChatroomActivity extends SherlockListActivity {
 		switch (item.getItemId()){
 			case android.R.id.home:
 				finish();
+			case R.id.menu_help:
+			       Intent intent = (new Intent(this, TopicActivity.class));
+			       intent.putExtra ("text_id", R.string.topic_chat_section);
+			       startActivity (intent);
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}

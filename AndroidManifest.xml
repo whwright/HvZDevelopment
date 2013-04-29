@@ -79,6 +79,8 @@
         <activity
             android:name="edu.gatech.hvz.activities.ReportKillMapActivity"
             android:label="@string/title_activity_report_kill_map" />
+        <activity android:label="@string/title_activity_help" android:name="edu.gatech.hvz.activities.HelpActivity"></activity>
+        <activity android:label="@string/title_activity_topic" android:name="edu.gatech.hvz.activities.TopicActivity"></activity>
     </application>
 
 </manifest>

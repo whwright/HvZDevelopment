@@ -4,6 +4,8 @@ import java.util.Map;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.entities.Player;
@@ -49,7 +51,21 @@ public class LoginActivity extends SherlockActivity {
 		userNameEditText = (EditText) findViewById(R.id.edittext_username);
 		userNameEditText.setText(getSharedPreferences("HvZGaTechSettings",0).getString("gt_name", ""));
 	}
-	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getSupportMenuInflater().inflate(R.menu.no_login_menu, menu);
+		return true;
+	}
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch (item.getItemId()){
+			case R.id.no_login_help:
+			       Intent intent = (new Intent(this, TopicActivity.class));
+			       intent.putExtra ("text_id", R.string.topic_login_section);
+			       startActivity (intent);
+				return true;
+		}
+		return false;
+	}
 	@Override
 	protected void onPause() {
 		super.onPause();

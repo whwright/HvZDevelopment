@@ -15,7 +15,7 @@ public class MissionDetailActivity extends SherlockActivity {
 
 	private Mission mission;
 	private TextView name, faction, location, time, description;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

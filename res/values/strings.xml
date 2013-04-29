@@ -20,6 +20,8 @@
     <string name="title_activity_mission_list">MissionList</string>
     <string name="title_activity_kill_map">KillMap</string>
     <string name="title_activity_contact_admins">ContactAdminsActivity</string>
+    <string name="title_activity_help">HvZ Help</string>
+    <string name="title_activity_topic">HvZ Help</string>
     <string name="contactadmins_contactadmins_string">Contact Admins</string>
     <string name="contactadmins_emailaddress_string">Email Address</string>
     <string name="contactadmins_name_string">Name</string>
@@ -39,8 +41,11 @@
     <string name="messagelist_compose_string">Compose</string>
     <string name="menu_contact">Contact Admins</string>
     <string name="menu_messages">Messages</string>
+    <string name="menu_help">Help</string>
     <string name="menu_logout">Logout</string>
+    <string name="back_to_help_menu">Help Home</string>
     <string name="title_activity_report_kill_map">ReportKillMapActivity</string>
+
     
     <string name="content_description_avatar">Player Avatar</string>
     <string name="content_description_campus_map">Campus Map</string>
