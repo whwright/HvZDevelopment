@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="help_page_intro">For information on the different parts of this app, touch one of the images below.</string>
+    <string name="help_page_intro_html">
+    <![CDATA[
+       To access different parts of this help section, touch one of the images below:
+       ]]>
+    </string>
+
+    <string name="help_title_section1">Topics</string>
+    <string name="help_text_section1">
+     View all help topics in the "How do I?" sections. Topics are fit into one scrollable page.
+    </string>
+    <string name="topic_contact_section"><![CDATA[ 
+        <p><b>Contact Admin Page</b> <br><br>
+        This contact admin page can be used to send emails to the HvZ admins.
+         <br><br>
+        </p>
+        <p><br><b><font color="green">How do I send an email to the admins?</font></b><br>
+		1.  Type the subject of your email into the subject line.<br>
+		2.  Type the body of your email into the text box below the "Body" label.<br>
+		3.  If you wish, alter your name and your email address which should be pre-fille 
+		under the textbox containing the body of your email.<br>
+		4. Tap the button at the bottom of the screen that says "Send" to send the email to an admin.
+       </p>
+       <p><b><u>Errors/troubleshooting</u></b><br><br>
+		I receive the message: <br>  <font color ="red"><i>"Unable to send email"</i><br></font><br>
+		<b><u>Possible Cause:</u></b>  <br>
+			<font color = "yellow"> Network connectivity issues</font><br>
+				1. Open a web browser on your mobile device<br>
+				2. Open a new tab on the web browser<br>
+				3. Attempt to access a webpage (e.g. www.google.com)<br>
+				4. If you cannot access a webpage on the internet, try chat again at a later time
+		    when you have internet connectivity.<br>
+				5. If you can access a webpage on the internet, restart the HvZ application on 
+		    your mobile device and try again<br><br>
+        ]]></string>
+    <string name="topic_mission_list_section"><![CDATA[ 
+        <p><b>Mission Listings</b> <br><br>
+        The mission listings page displays all missions currently related to this season\'s match. The missions list
+        is made up of three sublists.<br>
+        Active missions are missions that are still in progress and can be completed by a players at this time.<br> 
+        Issued missions are missions that cannot be completed at this time but will be active in the near future.<br>
+        Closed missions are missions that are no longer active and and cannot be at this time. <br> 
+         <br><br>
+        </p>
+        <p><br><b><font color="green">How do I view mission details?</font></b><br>
+		1.  Scroll through the missions list until you have found a mission you wish to view details for.<br>
+		2.  Tap on the mission and you will be taken to another screen which shows the selected mission\'s details.
+		
+       </p>
+        ]]></string>
+    <string name="topic_killmap_section"><![CDATA[ 
+        <p><b>Kill Map</b> <br><br>
+        The kill map screen is used to view the locations on campus of the most recent kills this season. 
+         <br><br>
+        </p>
+        ]]></string>
+        <string name="topic_killboard_section"><![CDATA[ 
+        <p><b>Kill Board</b> <br><br>
+        The kill board displays the current state of the game by showing the scores of other players. 
+        The kill board is divided into human and zombie sections displaying human and zombie scores respectively. 
+         <br><br>
+        </p>
+        ]]></string>
+	<string name="topic_achivement_section"><![CDATA[
+	    <p><b>Achivements</b> <br><br>
+        This is the achivements screen. You can scroll through lists of achivements you have earned (unlocked)
+        and achivements you have yet to earn (locked). 
+        <br><br>
+        </p>
+		
+       </p>
+	    ]]></string>
+    <string name="topic_profile_section"><![CDATA[ 
+        <p><b>User Profile</b> <br><br>
+        This page is your player profile page. It displays your avatar and slogan 
+        (which can be set on the HvZ website) as well as your stats for the current game. <br><br>
+        </p>
+        <p><b><u>Errors/troubleshooting</u></b><br>
+		The profile on my phone does not match the one on the HvZ game website.<br><br>
+		<b><u>Possible Cause:</u></b>  <br>
+			<font color = "yellow">The profile loaded on your phone has not been updated since the website was updated.</font><br>
+				At this time, you will have to logout of the app and login again to update the profile stats on your mobile device.<br>
+				1. Press the android menu button.  <br>
+				2. Tap the logout option on the menu that appears. The application will return you to the login screen after this step.<br>
+				3. Login to the app using your Gt credentials.<br>
+				4. Return to the profile page which should now be showing the stats and profile information that is on the HvZ website.<br>
+        ]]></string>
+    <string name="topic_killrep_section"><![CDATA[ 
+        <p><b>Kill Reporting</b> <br><br>
+        Players can use this page to report their kills. Your victims’ 
+        player code can be keyed in manually into the Player Code field 
+        at the top or can be scanned via QR code. Zombies can select two
+		 fellow zombies to feed with their kills as well. <br><br>
+        </p>
+       <p><br><b><font color="green">How do I report a kill?</font></b><br>
+		1.  Prompt your victim for his or her player code.<br>
+		2.  Enter the code into "Player Code:" text field.<br>
+		3.  If applicable, specify the zombies you would like to feed int the "Feed1" and "Feed 2"
+		text fields. <br>
+		4. If you wish to record the location of your kill, press the set kill location button.<br>
+		5. Press the "Report Kill" button to finish reporting your kill.<br>
+       </p>
+       <p><br><b><font color="green">How do I specify which zombies to feed?</font></b><br>
+		1.  Tap the text feed to the right of the "Feed1" label. A list of players should appear<br>
+		2.  Scroll through the list to find the player you wish to feed.<br>
+		3.  Tap the name of the player you have found. You should now be taken back to the Report kill screen
+			and the text field next to "Feed1" should show the name of the player you tapped in step 3.
+		4. Repeat steps 1-3, this time for the text field to the right of the "Feed2" label. 
+       </p>
+        <p><b><u>Errors/troubleshooting</u></b><br>
+		I receive the message: <br>  <font color ="red"><i>"Zombie came back null"</i><br></font><br>
+		<b><u>Possible Cause:</u></b>  <br>
+			<font color = "yellow">One or more players you are trying to feed have not been properly inserted into
+			the HvZ database.</font><br>
+				1. Contact an Hvz Admin <br>
+				2. Tell the admin about this message and which player(s) you tried to feed.<br><br>
+      I receive the message: <br>  <font color ="red"><i>"Error fetching Zombie names."</i><br></font><br>
+				<b><u>Possible Cause:</u></b>  <br>
+			<font color = "yellow">You have lost connection to the internet since you logged in.</font><br>
+				1. Open a web browser on your mobile device<br>
+				2. Open a new tab on the web browser<br>
+				3. Attempt to access a webpage (e.g. www.google.com)<br>
+				4. If you cannot access a webpage on the internet, try chat again at a later time
+		    when you have internet connectivity.<br>
+				5. If you can access a webpage on the internet, restart the HvZ application on 
+		    your mobile device and try again<br><br>
+        ]]></string>
+    <string name="topic_chat_section"><![CDATA[
+        <p>
+        <b>HvZ Chat</b> <br><br>
+		The HvZ chat room allows HvZ players to plan, coordinate, and relay information to one
+		another. The chat room is global and anyone signed up for Humans Vs. Zombies this semester
+		can view your messages.<br><br>
+        </p>
+      <p><br><b><font color="green">How do I post a message in the chat room?</font></b><br>
+		1.  Type your message into the textbox at the bottom of the screen.<br>
+		2.  When finished with your message, press the "Post" button to post your message.<br>
+       </p>
+      <p><b><u>Errors/troubleshooting</u></b><br>
+		I receive the message: <br>  <font color ="red"><i>"There was an Error fetching the chats"</i><br></font><br>
+		<b><u>Possible Causes:</u></b>  <br>
+			<font color = "yellow"> Network connectivity issues</font><br>
+				1. Open a web browser on your mobile device<br>
+				2. Open a new tab on the web browser<br>
+				3. Attempt to access a webpage (e.g. www.google.com)<br>
+				4. If you cannot access a webpage on the internet, try chat again at a later time
+		    when you have internet connectivity.<br>
+				5. If you can access a webpage on the internet, restart the HvZ application on 
+		    your mobile device and try again<br><br>
+
+		
+			<font color = "yellow">Chat rooms disabled by HvZ admins</font><br>
+						1. Attempt to join the chat room hosted on the HvZ website 
+      					<a href = https://hvz.gatech.edu/chat/>here</a><br>
+						 2. If chat room is available, attempt to post a message using a the web interface.<br>
+						 3. If a message cannot be posted, consult an HvZ admin about chat room 
+				     restrictions.<br>
+						 4. If a message can be posted, restart the HvZ application on your mobile device 
+				     and try again<br><br>
+				     
+			<font color = "yellow">Chat servers are offline</font><br>
+						1. Attempt to join the chat room hosted on the HvZ website at 
+   							<a href = https://hvz.gatech.edu/chat/>here</a><br>
+						2. If chat room is unavailable, consult an HvZ admin regarding the status of the 
+    						chat room.<br>
+      
+       </p>
+        
+        ]]></string>
+    <string name="topic_ts_aggregate"><![CDATA[
+        <p><b><u>Errors/troubleshooting</u></b><br><br>
+		<font color ="red">I receive the message: <br>  <i>"Unable to send email"</i></font><br>
+		<b><u>Possible Cause:</u></b>  <br>
+			<font color = "yellow"> Network connectivity issues</font><br>
+				1. Open a web browser on your mobile device<br>
+				2. Open a new tab on the web browser<br>
+				3. Attempt to access a webpage (e.g. www.google.com)<br>
+				4. If you cannot access a webpage on the internet, try chat again at a later time
+		    when you have internet connectivity.<br>
+				5. If you can access a webpage on the internet, restart the HvZ application on 
+		    your mobile device and try again<br><br><br>
+
+		<font color ="red">The profile on my phone does not match the one on the HvZ game website.</font><br>
+		<b><u>Possible Cause:</u></b>  <br>
+			<font color = "yellow">The profile loaded on your phone has not been updated since the website was updated.</font><br>
+				At this time, you will have to logout of the app and login again to update the profile stats on your mobile device.<br>
+				1. Press the android menu button.  <br>
+				2. Tap the logout option on the menu that appears. The application will return you to the login screen after this step.<br>
+				3. Login to the app using your Gt credentials.<br>
+				4. Return to the profile page which should now be showing the stats and profile information that is on the HvZ website.<br>
+        	
+		<br><font color ="red">I receive the message: <br><i>"Zombie came back null"</i></font><br>
+		<b><u>Possible Cause:</u></b>  <br>
+			<font color = "yellow">One or more players you are trying to feed have not been properly inserted into
+			the HvZ database.</font><br>
+				1. Contact an Hvz Admin <br>
+				2. Tell the admin about this message and which player(s) you tried to feed.<br><br>
+      <font color ="red">I receive the message: <br><i>"Error fetching Zombie names."</i></font><br>
+				<b><u>Possible Cause:</u></b>  <br>
+			<font color = "yellow">You have lost connection to the internet since you logged in.</font><br>
+				1. Open a web browser on your mobile device<br>
+				2. Open a new tab on the web browser<br>
+				3. Attempt to access a webpage (e.g. www.google.com)<br>
+				4. If you cannot access a webpage on the internet, try chat again at a later time
+		    when you have internet connectivity.<br>
+				5. If you can access a webpage on the internet, restart the HvZ application on 
+		    your mobile device and try again<br><br>
+
+<font color ="red">I receive the message: <br><i>"There was an Error fetching the chats"</i></font><br>
+		<b><u>Possible Causes:</u></b>  <br>
+			<font color = "yellow"> Network connectivity issues</font><br>
+				1. Open a web browser on your mobile device<br>
+				2. Open a new tab on the web browser<br>
+				3. Attempt to access a webpage (e.g. www.google.com)<br>
+				4. If you cannot access a webpage on the internet, try chat again at a later time
+		    when you have internet connectivity.<br>
+				5. If you can access a webpage on the internet, restart the HvZ application on 
+		    your mobile device and try again<br><br>
+
+		
+			<font color = "yellow">Chat rooms disabled by HvZ admins</font><br>
+						1. Attempt to join the chat room hosted on the HvZ website 
+      					<a href = https://hvz.gatech.edu/chat/>here</a><br>
+						 2. If chat room is available, attempt to post a message using a the web interface.<br>
+						 3. If a message cannot be posted, consult an HvZ admin about chat room 
+				     restrictions.<br>
+						 4. If a message can be posted, restart the HvZ application on your mobile device 
+				     and try again<br><br>
+				     
+			<font color = "yellow">Chat servers are offline</font><br>
+						1. Attempt to join the chat room hosted on the HvZ website at 
+   							<a href = https://hvz.gatech.edu/chat/>here</a><br>
+						2. If chat room is unavailable, consult an HvZ admin regarding the status of the 
+    						chat room.<br>
+      
+       </p>
+<font color ="red">I receive the message<br><i>"There was an error logging in to your account"</i></font><br>
+		<b><u>Possible Causes:</u></b>  <br>
+			<font color = "yellow">Incorrect login credentials</font><br>
+				1. Verify your 
+				login credentials by logging into the
+				 Georgia Tech CAS login system at <a href="https://login.gatech.edu/ ">here</a><br>
+				2. Use these credentials to log into HvZ gatech<br><br>
+		
+			<font color = "yellow">Network connectivity issues</font><br>
+						1. Open a web browser on your mobile device<br>
+						2. Open a new tab on the web browser<br>
+						3. Attempt to access a webpage (e.g. www.google.com)<br>
+						4. If you cannot access a webpage on the internet, 
+						try chat again at a later time when you have internet connectivity.<br>
+						5. If you can access a webpage on the internet, restart the HvZ 
+						application on your mobile device and try again <br>
+      
+       </p>
+        ]]>
+        </string>
+    <string name="topic_howdoi_aggregate"> <![CDATA[
+        <p><br><b><font color="green">How do I send an email to the admins?</font></b><br>
+		1.  Type the subject of your email into the subject line.<br>
+		2.  Type the body of your email into the text box below the "Body" label.<br>
+		3.  If you wish, alter your name and your email address which should be pre-fille 
+		under the textbox containing the body of your email.<br>
+		4. Tap the button at the bottom of the screen that says "Send" to send the email to an admin.
+       </p>
+<p><br><b><font color="green">How do I view mission details?</font></b><br>
+		1.  Scroll through the missions list until you have found a mission you wish to view details for.<br>
+		2.  Tap on the mission and you will be taken to another screen which shows the selected mission\'s details.
+		
+       </p>
+ <p><br><b><font color="green">How do I report a kill?</font></b><br>
+		1.  Prompt your victim for his or her player code.<br>
+		2.  Enter the code into "Player Code:" text field.<br>
+		3.  If applicable, specify the zombies you would like to feed int the "Feed1" and "Feed 2"
+		text fields. <br>
+		4. If you wish to record the location of your kill, press the set kill location button.<br>
+		5. Press the "Report Kill" button to finish reporting your kill.<br>
+       </p>
+       <p><br><b><font color="green">How do I specify which zombies to feed?</font></b><br>
+		1.  Tap the text feed to the right of the "Feed1" label. A list of players should appear<br>
+		2.  Scroll through the list to find the player you wish to feed.<br>
+		3.  Tap the name of the player you have found. You should now be taken back to the Report kill screen
+			and the text field next to "Feed1" should show the name of the player you tapped in step 3.<br>
+		4. Repeat steps 1-3, this time for the text field to the right of the "Feed2" label. 
+       </p>
+<p><br><b><font color="green">How do I post a message in the chat room?</font></b><br>
+		1.  Type your message into the textbox at the bottom of the screen.<br>
+		2.  When finished with your message, press the "Post" button to post your message.<br>
+       </p>
+<p><br><b><font color="green">How do I log in to my account?</font></b><br>
+		1. Type your Gt username into the username field (this will be the same username you use
+		to access T-Square).<br>
+		2. Type your GT password into the password field.<br>
+		3. Press the Login button<br>
+       </p>
+        ]]>
+        </string>
+    <string name="topic_login_section">
+    <![CDATA[
+      <p>
+        <b>Login screen</b> <br><br>
+		HvZ players can use this screen to access their HvZ accounts and view game information. 
+		In order to log in, please insure that you have registered for HvZ this semester at
+		<a href="https://hvz.gatech.edu/ ">hvz.gatech.edu</a><br><br>
+        </p>
+      <p><br><b><font color="green">How do I log in to my account?</font></b><br>
+		1. Type your Gt username into the username field (this will be the same username you use
+		to access T-Square).<br>
+		2. Type your GT password into the password field.<br>
+		3. Press the Login button<br>
+       </p>
+      <p><b><u>Errors/troubleshooting</u></b><br>
+		I receive the message<br>  <font color ="red"><i>"There was an error logging in to your account"</i><br></font><br>
+		<b><u>Possible Causes:</u></b>  <br>
+			<font color = "yellow">Incorrect login credentials</font><br>
+				1. Verify your 
+				login credentials by logging into the
+				 Georgia Tech CAS login system at <a href="https://login.gatech.edu/ ">here</a><br>
+				2. Use these credentials to log into HvZ gatech<br><br>
+		
+			<font color = "yellow">Network connectivity issues</font><br>
+						1. Open a web browser on your mobile device<br>
+						2. Open a new tab on the web browser<br>
+						3. Attempt to access a webpage (e.g. www.google.com)<br>
+						4. If you cannot access a webpage on the internet, 
+						try chat again at a later time when you have internet connectivity.<br>
+						5. If you can access a webpage on the internet, restart the HvZ 
+						application on your mobile device and try again <br>
+      
+       </p>
+      ]]>
+    </string>
+	<string name="help_text_section2">
+	    This is the Help Home screen. From here you can freely browse all help topics.
+    </string>
+    <string name="help_text_section3">
+      View all help topics in the "How do I?" sections. Topics are fit into one scrollable page.
+    </string>
+    <string name="help_text_section4">
+        View all troubleshooting topics. Topics are fit into one scrollable page.
+    </string>
+
+
+</resources>

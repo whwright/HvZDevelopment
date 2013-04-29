@@ -82,6 +82,9 @@
             android:name="edu.gatech.hvz.activities.AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
+        <activity android:label="@string/title_activity_help" android:name="edu.gatech.hvz.activities.HelpActivity"></activity>
+        <activity android:label="@string/title_activity_topic" android:name="edu.gatech.hvz.activities.TopicActivity"></activity>
+   
     </application>
 
 </manifest>

@@ -137,6 +137,11 @@ public class ReportKillActivity extends SherlockActivity {
 			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
 			startActivity(lineIntent);
 			return true;
+		case R.id.menu_help:
+		       Intent intent = (new Intent(this, TopicActivity.class));
+		       intent.putExtra ("text_id", R.string.topic_killrep_section);
+		       startActivity (intent);
+			return true;
 		case R.id.menu_about:
 			Intent aboutintent = new Intent(this, AboutActivity.class);
 			startActivity(aboutintent);

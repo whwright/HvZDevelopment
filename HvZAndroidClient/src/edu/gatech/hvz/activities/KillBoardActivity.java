@@ -93,6 +93,11 @@ public class KillBoardActivity extends SherlockFragmentActivity {
 			Intent aboutintent = new Intent(this, AboutActivity.class);
 			startActivity(aboutintent);
 			return true;
+		case R.id.menu_help:
+		       Intent intent = (new Intent(this, TopicActivity.class));
+		       intent.putExtra ("text_id", R.string.topic_killboard_section);
+		       startActivity (intent);
+		       return true;
 		case R.id.menu_logout:
 			resources.resetData();
 			Intent login = new Intent(this, LoginActivity.class);
