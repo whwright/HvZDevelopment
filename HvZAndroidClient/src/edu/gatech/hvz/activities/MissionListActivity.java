@@ -31,11 +31,13 @@ public class MissionListActivity extends SherlockFragmentActivity {
 
 	private ViewPager mPager;
 	private TabsAdapter mTabsAdapter;
+	private ResourceManager resources;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mission_list);
+		resources = ResourceManager.getResourceManager();
 
 		// ActionBar setup
 		ActionBar bar = getSupportActionBar();
@@ -76,14 +78,24 @@ public class MissionListActivity extends SherlockFragmentActivity {
 		return true;
 	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
-			case android.R.id.home:
-				finish();
-			default:
-				return super.onOptionsItemSelected(item);
+		case R.id.menu_contact:
+			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
+			startActivity(lineIntent);
+			return true;
+		case R.id.menu_about:
+			Intent aboutintent = new Intent(this, AboutActivity.class);
+			startActivity(aboutintent);
+			return true;
+		case R.id.menu_logout:
+			resources.resetData();
+			Intent login = new Intent(this, LoginActivity.class);
+			startActivity(login);
+			finish();
+			return true;
 		}
+		return false;
 	}
 
 	// Fragment for each mission list

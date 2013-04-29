@@ -14,6 +14,7 @@ import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.ChatMessage;
 import edu.gatech.hvz.entities.EntityUtils;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -86,14 +87,24 @@ public class ChatroomActivity extends SherlockListActivity {
 		return true;
 	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
-			case android.R.id.home:
-				finish();
-			default:
-				return super.onOptionsItemSelected(item);
+		case R.id.menu_contact:
+			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
+			startActivity(lineIntent);
+			return true;
+		case R.id.menu_about:
+			Intent aboutintent = new Intent(this, AboutActivity.class);
+			startActivity(aboutintent);
+			return true;
+		case R.id.menu_logout:
+			resources.resetData();
+			Intent login = new Intent(this, LoginActivity.class);
+			startActivity(login);
+			finish();
+			return true;
 		}
+		return false;
 	}
 	
 	protected void onPause() {

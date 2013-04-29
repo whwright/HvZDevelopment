@@ -6,6 +6,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 import edu.gatech.hvz.R;
+import edu.gatech.hvz.ResourceManager;
+import android.content.Intent;
 import android.os.Bundle;
 
 /**
@@ -13,11 +15,13 @@ import android.os.Bundle;
  * contact information, as well as licenses for software used.
  */
 public class AboutActivity extends SherlockActivity {
-	
+
+	private ResourceManager resources;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_profile);
+		setContentView(R.layout.activity_about);
+		resources = ResourceManager.getResourceManager();
 		
 		// ActionBar setup
 		ActionBar bar = getSupportActionBar();
@@ -31,14 +35,25 @@ public class AboutActivity extends SherlockActivity {
 		getSupportMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
+
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
-			case android.R.id.home:
-				finish();
-			default:
-				return super.onOptionsItemSelected(item);
+		case R.id.menu_contact:
+			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
+			startActivity(lineIntent);
+			return true;
+		case R.id.menu_about:
+			Intent aboutintent = new Intent(this, AboutActivity.class);
+			startActivity(aboutintent);
+			return true;
+		case R.id.menu_logout:
+			resources.resetData();
+			Intent login = new Intent(this, LoginActivity.class);
+			startActivity(login);
+			finish();
+			return true;
 		}
+		return false;
 	}
 }

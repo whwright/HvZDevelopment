@@ -1,8 +1,12 @@
 package edu.gatech.hvz.activities;
 
+import com.actionbarsherlock.view.MenuItem;
+
 import edu.gatech.hvz.R;
+import edu.gatech.hvz.ResourceManager;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -19,11 +23,13 @@ public class KillMapActivity extends Activity implements OnTouchListener {
 	ImageView map, cross;
 	int MAP_HEIGHT = 294;
 	int MAP_WIDTH = 401;
+	private ResourceManager resources;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_kill_map);
+		resources = ResourceManager.getResourceManager();
 		
 		coords = (TextView) findViewById(R.id.killmapactivity_coords_textview);
 		map = (ImageView) findViewById(R.id.killmapactivity_map_imageview);
@@ -36,6 +42,26 @@ public class KillMapActivity extends Activity implements OnTouchListener {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch (item.getItemId()){
+		case R.id.menu_contact:
+			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
+			startActivity(lineIntent);
+			return true;
+		case R.id.menu_about:
+			Intent aboutintent = new Intent(this, AboutActivity.class);
+			startActivity(aboutintent);
+			return true;
+		case R.id.menu_logout:
+			resources.resetData();
+			Intent login = new Intent(this, LoginActivity.class);
+			startActivity(login);
+			finish();
+			return true;
+		}
+		return false;
 	}
 
 	@Override

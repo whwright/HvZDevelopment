@@ -11,6 +11,7 @@ import edu.gatech.hvz.entities.Email;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,11 +26,13 @@ public class ContactAdminsActivity extends SherlockActivity {
 	
 	private ProgressDialog loadingDialog;
 	private Button sendButton;
+	private ResourceManager resources;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_contact_admins);
+		resources = ResourceManager.getResourceManager();
 		
 		// ActionBar setup
 		ActionBar bar = getSupportActionBar();
@@ -67,14 +70,24 @@ public class ContactAdminsActivity extends SherlockActivity {
 		return true;
 	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
-			case android.R.id.home:
-				finish();
-			default:
-				return super.onOptionsItemSelected(item);
+		case R.id.menu_contact:
+			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
+			startActivity(lineIntent);
+			return true;
+		case R.id.menu_about:
+			Intent aboutintent = new Intent(this, AboutActivity.class);
+			startActivity(aboutintent);
+			return true;
+		case R.id.menu_logout:
+			resources.resetData();
+			Intent login = new Intent(this, LoginActivity.class);
+			startActivity(login);
+			finish();
+			return true;
 		}
+		return false;
 	}
 	
 	private class ContactRequest extends AsyncTask<Void, Void, Boolean>
