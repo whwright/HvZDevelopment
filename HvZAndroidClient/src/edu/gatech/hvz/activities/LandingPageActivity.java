@@ -15,6 +15,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+/**
+ * A landing page activity to let the user navigate to other activities.
+ */
 public class LandingPageActivity extends SherlockActivity {
 
 	private ResourceManager resources;
@@ -33,16 +36,17 @@ public class LandingPageActivity extends SherlockActivity {
 		bar.setTitle("Humans Vs. Zombies");
 		
 		resources = ResourceManager.getResourceManager();
-		
+		//Redirect to the login page if the cookie is outdated or nonexistent
 		if (resources.getPlayer() == null) {
 			Log.e("LandingPageActivity", "Player was null, redirecting to login page");
 			startActivity(new Intent(this, LoginActivity.class));
 			finish();
 		} else {
-		
+			//populate the user's name
 			welcomeTV = (TextView) findViewById(R.id.landing_welcome_text);
 			welcomeTV.setText("Welcome, " + resources.getPlayer().getFName());
 			
+			/*Setup buttons and its listeners*/
 			missionListButton = (ImageButton) findViewById(R.id.landing_mission);
 			missionListButton.setOnClickListener(new Button.OnClickListener(){
 				@Override

@@ -19,6 +19,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * A login screen activity to let the user sign in with their GTID
+ */
 public class LoginActivity extends SherlockActivity {
 
 	private ResourceManager resources;
@@ -67,6 +70,9 @@ public class LoginActivity extends SherlockActivity {
 	}
 
 
+	/*
+	 * Asynchronous Task for making a login request
+	 */
 	private class LoginRequest extends AsyncTask<String, Void, Boolean> {
 
 		protected Boolean doInBackground(String ... info) {
