@@ -2,13 +2,14 @@
 include_once('db.php');
 include_once('player.php');
 class Chat {
+	/* Get all chat messages starting AFTER the chat message with id = $id */
 	/* PATH: /api/chat/{earliest_id} */
 	/* PARAMS: [0] = id */
 	public static
 	function getChat($id) {
 		$faction = Player::getFaction(InstanceHolder::getInstance("gt_name"));
 		$DBH = InstanceHolder::getInstance('DB');
-		$STH = $DBH->prepare("SELECT id, audience, user, timestamp, comment FROM twits WHERE id > :id AND (audience='ALL' OR audience=:faction) ORDER BY timestamp ASC");
+		$STH = $DBH->prepare("SELECT id, audience, user, , comment FROM twits WHERE id > :id AND (audience='ALL' OR audience=:faction) ORDER BY timestamp ASC");
 		$STH->bindParam(':id', $id);
 		$STH->bindParam(':faction', $faction);
 		$STH->execute();
@@ -19,6 +20,7 @@ class Chat {
 		}
 	}
 
+	/* Post a new chat messages as the player that is currently making this function call */
 	public static
 	function newChat() {
 		$faction = Player::getFaction(InstanceHolder::getInstance("gt_name"));

@@ -5,6 +5,9 @@ import com.google.gson.Gson;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Email;
 
+/**
+ * A class that implements posting a message to the HvZ administrators.
+ */
 public class EmailDataSource {
 	
 	private final String emailURL = "https://hvz.gatech.edu/api/email";

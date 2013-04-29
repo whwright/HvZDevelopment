@@ -3,6 +3,9 @@ package edu.gatech.hvz.datasource;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Kill;
 
+/**
+ * A class that attempts to contact the server and register a kill.
+ */
 public class KillDataSource {
 	
 	private String killURL = "https://hvz.gatech.edu/api/kill";

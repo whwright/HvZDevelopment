@@ -19,18 +19,22 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
+/**
+ * A class to handle all network activity for the application.
+ * Supports generic GET request with variable length parameters.
+ */
 public class NetworkManager {
 	
 	private Map<String, String> casCookies;
 	private BasicCookieStore cookieStore;
 	
-	public NetworkManager() {
-	}
-
+	/**
+	 * Set cookies that will be used for the remainder of the session.
+	 * Needs to be a map of cookies in the format <CookieName, CookieValue>,
+	 * both in string format.
+	 * @param cookies A map of the cookies to set
+	 */
 	public void setCookies(Map<String, String> cookies) {
 		this.casCookies = cookies;
 		//Convert cookies into a CookieStore
@@ -48,10 +52,18 @@ public class NetworkManager {
 		
 	}
 	
+	/**
+	 * Make a HTTP GET request to a URL with option parameters
+	 * 
+	 * @param urlString The base URL for the request
+	 * @param data An array of params, where the 0th item is the name of the first param, the 1st item is the value of the first param, the 2nd item is the name of the second param, etc.
+	 * @return
+	 */
 	public String makeRequest(String urlString, String ... data ) {
 		String json = null;
 		try {
 			DefaultHttpClient client = new DefaultHttpClient();
+			//Build the full URL with params
 			HttpGet get = new HttpGet(urlString + paramsToURL(data));
 			
 			//Set the params up
@@ -71,24 +83,10 @@ public class NetworkManager {
 		return json;
 	}
 	
-	public String makePost(String urlString, String ... data ) {
-		String json = null;
-		
-		try {
-			Document doc = Jsoup.connect(urlString).data(data).cookies(casCookies).post();
-			Elements elem = doc.getElementsByTag("body");
-			json = elem.first().ownText();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		return json;
-	}
-	
 	/**
 	 * Builds a URL encoded string for GET parameters
 	 * @param paramArray An array of [key, value, key, value...]
-	 * @return the URL encoded string with a ? prefixed
+	 * @return the URL encoded string with a ? prefixed, if there are params.  Empty string otherwise.
 	 */
 	private String paramsToURL(String ... paramArray) {
 		
@@ -105,6 +103,12 @@ public class NetworkManager {
 		return "?" + URLEncodedUtils.format(params, "utf-8");
 	}
 	
+	/**
+	 * Reads the body of a HTTP response into a string
+	 * @param response The response object from a HTTP request
+	 * @return A string representation of the body of an HTML response
+	 * @throws IOException
+	 */
 	private String getBody(HttpResponse response) throws IOException {
 		InputStream inputStream = response.getEntity().getContent();
 		ByteArrayOutputStream content = new ByteArrayOutputStream();

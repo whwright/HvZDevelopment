@@ -12,6 +12,10 @@ import com.google.gson.JsonParseException;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.ChatMessage;
 
+/**
+ * A class to fetch and post chat messages to the HvZ
+ * website.
+ */
 public class ChatDataSource {
 	
 	private String chatURL = "https://hvz.gatech.edu/api/chat/%d";
@@ -21,6 +25,7 @@ public class ChatDataSource {
 		String url = String.format(chatURL, id);
 		String json = ResourceManager.getResourceManager().getNetworkManager().makeRequest(url);
 		try {
+			//Try to parse the messages, might be null if no messages
 			ChatMessage[] arr = new Gson().fromJson(json, ChatMessage[].class);
 			if (arr == null) {
 				return null;

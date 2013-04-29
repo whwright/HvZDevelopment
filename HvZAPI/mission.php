@@ -1,7 +1,9 @@
 <?php
 include_once('db.php');
 include_once('player.php');
+
 class Mission {
+	/* Get all missions of a certain status */
 	/* PATH: /api/mission/{status} */
 	/* PARAMS: [0] = status */
 	public static

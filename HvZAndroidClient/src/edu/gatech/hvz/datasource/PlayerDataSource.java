@@ -12,6 +12,11 @@ import edu.gatech.hvz.entities.FactionType;
 import edu.gatech.hvz.entities.Kill;
 import edu.gatech.hvz.entities.Player;
 
+/**
+ * A data source that handles various player functionality.  This includes
+ * getting a single player, a faction of players, and also handles obtaining
+ * the correct URL for player avatars.
+ */
 public class PlayerDataSource {
 	
 	private final String playerURL = "https://hvz.gatech.edu/api/player/%s";

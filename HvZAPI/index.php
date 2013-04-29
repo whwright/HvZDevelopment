@@ -31,6 +31,7 @@ class Router {
 	function __construct() {
 	}
 
+	/* Make a new instance of the router */
 	public static
 	function inst() {
 		
@@ -38,13 +39,19 @@ class Router {
 		return self::$r;
 	}
 
-	//all paths will start with "/api/"
-	//Get rid of it
+	/*
+	 * All paths will start with "/api/",
+	 * so we need to remove it.
+	 */
 	public
 	function getPath($url) {
 		return substr($url, 5);
 	}
 
+	/*
+	 * Try to match an incoming URL path and then
+	 * call the appropriate function that maps to that path
+	 */
 	public
 	function matchRoute($path) {
 		foreach ($this->routes as $route => $rule) {
@@ -60,6 +67,10 @@ class Router {
 
 	}
 
+	/*
+	 * Get the incoming path for the request and pass
+	 * it along to the route matcher.
+	 */
 	public
 	function route($url) {
 		$this->matchRoute($this->getPath($url));
@@ -67,5 +78,6 @@ class Router {
 
 }
 
+//Make a router and attempt to match
 $router = Router::inst();
 echo $router->route($_GET['q']);

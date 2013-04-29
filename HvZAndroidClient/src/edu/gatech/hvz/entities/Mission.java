@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 import android.text.Html;
 
+/**
+ * Represents a mission from the website.  Can have one of three
+ * states: active, issued, or closed.
+ */
 public class Mission implements Serializable{
 
 	private static final long serialVersionUID = -3595817016895659759L;
@@ -13,6 +17,7 @@ public class Mission implements Serializable{
 		ISSUED,
 		CLOSED
 	}
+	
 	private int id;
 	private String name;
 	private String start_datetime;
@@ -42,6 +47,7 @@ public class Mission implements Serializable{
 		return release_datetime;
 	}
 	public String getDescription() {
+		//Attempt to decode the description from HTML.
 		return (description != null) ? Html.fromHtml(description).toString() : "";
 	}
 	

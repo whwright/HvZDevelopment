@@ -2,7 +2,7 @@
 include_once('db.php');
 
 class Achievement {
-	
+	/* Get all unlocked achievements for the player requesting this URL */
     /* PATH: /api/achievements/unlocked */
 	public static
 	function getUnlockedAchievements() {
@@ -19,6 +19,7 @@ class Achievement {
 		}
 	}
     
+    /* Get all locked achievements for the player requesting this URL */
     /* PATH: /api/achievements/locked */
     public static
 	function getLockedAchievements() {

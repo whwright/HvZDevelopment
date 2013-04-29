@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 import android.text.Html;
 
+/**
+ * An object to encapsulate an achievement.
+ */
 public class Achievement implements Serializable {
-	
 
 	private static final long serialVersionUID = 8642753786296032809L;
 	
@@ -38,6 +40,7 @@ public class Achievement implements Serializable {
 	}
 
 	public String getDescription() {
+		//Attemp to convert from html to standard string
 		return (description != null) ? Html.fromHtml(description).toString() : "";
 	}
 

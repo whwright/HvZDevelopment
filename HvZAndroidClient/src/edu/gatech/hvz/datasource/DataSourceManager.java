@@ -10,6 +10,10 @@ import edu.gatech.hvz.entities.Mission;
 import edu.gatech.hvz.entities.Mission.Status;
 import edu.gatech.hvz.entities.Player;
 
+/**
+ * A delegator class that forwards calls from this class to their
+ * actual implementation in more specific DataSource classes.
+ */
 public class DataSourceManager implements IDataSourceManager 
 {
 	private PlayerDataSource playerDataSource;

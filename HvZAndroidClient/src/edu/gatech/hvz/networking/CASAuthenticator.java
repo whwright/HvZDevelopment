@@ -8,6 +8,10 @@ import org.jsoup.Jsoup;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * A class to login and obtain an authentication cookie from
+ * GaTech CAS login system.
+ */
 public class CASAuthenticator {
 
 	private static final String casURI = "https://login.gatech.edu/cas/login";
@@ -31,6 +35,7 @@ public class CASAuthenticator {
 		try {
 			Response loginPage = Jsoup.connect(getURI()).method(Method.GET).execute();
 			String randomKey = getRandomKey(loginPage.parse());
+			//Make the final request to login and get the cookies
 			Response submitPage = Jsoup
 	                .connect(getURI())
 	                .data("username", user, "password", pass)

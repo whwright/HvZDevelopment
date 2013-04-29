@@ -8,6 +8,9 @@ import com.google.gson.JsonParseException;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.Mission;
 
+/**
+ * A data source that grabs all missions of a certain status.
+ */
 public class MissionDataSource {
 	
 	private String missionsURL = "https://hvz.gatech.edu/api/mission";

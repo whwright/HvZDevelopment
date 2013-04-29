@@ -1,5 +1,9 @@
 package edu.gatech.hvz.entities;
 
+/**
+ * An object to encapsulate and send an E-mail to the
+ * game admins.
+ */
 public class Email 
 {
 	private String subject;
@@ -14,6 +18,7 @@ public class Email
 		this.body = body;
 		this.name = name;
 		this.toEmail = email;
+		//Admin email
 		this.hvzemail = "hvzgatech@gmail.com";
 	}
 

@@ -1,5 +1,9 @@
 package edu.gatech.hvz.entities;
 
+/**
+ * A class that encapsulates a player kill.  All fields are required.  This 
+ * is meant to be sent to server in a json message.
+ */
 public class Kill {
 	private String playerCode;
 	private String feed1, feed2;

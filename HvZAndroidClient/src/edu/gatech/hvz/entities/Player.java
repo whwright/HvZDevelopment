@@ -4,6 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.Html;
 
+/**
+ * A class that represents a Player.  Used for both the current logged in player, and
+ * when fetching lists of players.
+ */
 public class Player implements Parcelable {
 	private int id;
 	private String gt_name;
@@ -35,6 +39,11 @@ public class Player implements Parcelable {
 		return faction;
 	}
 
+	
+	/**
+	 * Attempt to decode the slogan from HTML
+	 * @return
+	 */
 	public String getSlogan() {
 		return (slogan != null) ? Html.fromHtml(slogan).toString() : "";
 	}
@@ -65,15 +74,6 @@ public class Player implements Parcelable {
 				+ player_code + ", fname=" + fname + ", lname=" + lname
 				+ ", faction=" + faction + ", slogan=" + slogan
 				+ ", starve_time=" + starve_time + ", kills=" + kills + "]";
-	}
-
-	public boolean searchName(String text) 
-	{
-		if( text.indexOf(getFName()) > 0 || text.indexOf(getLName()) > 0 )
-		{
-			return true;
-		}
-		return false;
 	}
 
 	/**

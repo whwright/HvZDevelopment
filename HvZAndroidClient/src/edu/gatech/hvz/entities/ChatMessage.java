@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import android.text.Html;
 
+/**
+ * An object to encapsulate a chat message.
+ */
 public class ChatMessage implements Serializable {
 
 	private static final long serialVersionUID = 2738625505328994550L;
@@ -35,6 +38,7 @@ public class ChatMessage implements Serializable {
 	}
 	
 	public String getComment() {
+		//Try to convert from html to string
 		return (comment != null) ? Html.fromHtml(comment).toString() : "";
 	}
 	
