@@ -69,9 +69,6 @@
             android:name="edu.gatech.hvz.activities.MissionListActivity"
             android:label="@string/title_activity_mission_list" />
         <activity
-            android:name="edu.gatech.hvz.activities.KillMapActivity"
-            android:label="@string/title_activity_kill_map" />
-        <activity
             android:name="edu.gatech.hvz.activities.ContactAdminsActivity"
             android:label="@string/title_activity_contact_admins"
             android:windowSoftInputMode="stateHidden" />
