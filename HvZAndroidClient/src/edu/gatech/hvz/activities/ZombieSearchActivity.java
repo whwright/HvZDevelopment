@@ -2,12 +2,10 @@ package edu.gatech.hvz.activities;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-
 import edu.gatech.hvz.R;
 import edu.gatech.hvz.ResourceManager;
 import edu.gatech.hvz.entities.EntityUtils;
@@ -35,33 +33,43 @@ public class ZombieSearchActivity extends SherlockActivity {
 	private ListView zombieList;
 	private List<Player> zombies;
 	private ResourceManager resources;
-	//implement searchable
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zombie_search);
+		
+		//get resource manager
 		resources = ResourceManager.getResourceManager();
 		
-		// ActionBar setup
+		//ActionBar setup
 		ActionBar bar = getSupportActionBar();
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		bar.setDisplayHomeAsUpEnabled(true);
 		bar.setTitle("Zombie Search");
 		
+		//init zombie list data
 		zombies = new ArrayList<Player>();
 		zombieList = (ListView) findViewById(R.id.zombiesearch_zombie_listview);
 		
+		//get zombie data and update the view
 		getZombieData();
 		updateListView();
 	}
 
+	/**
+	 * Gets the ArrayList of Player objects for zombies from ReportKillActivity
+	 * intent.
+	 */
 	private void getZombieData() 
 	{
 		Intent i = getIntent();
 		zombies = i.getParcelableArrayListExtra("ZombiesList");
 	}
 
+	/**
+	 * Sets the ZombieAdapter and OnItemClickListener for the list of zombies.
+	 */
 	private void updateListView() 
 	{
 		zombieList.setAdapter( new ZombieAdapter(ZombieSearchActivity.this, R.layout.activity_zombie_search_list_item, zombies) );
@@ -113,7 +121,7 @@ public class ZombieSearchActivity extends SherlockActivity {
 	}
 	
 	/**
-	 * Custom adapter for zombieList
+	 * Custom adapter for zombieList to show name and starve data.
 	 * @author whwright
 	 *
 	 */
