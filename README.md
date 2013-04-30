@@ -4,6 +4,10 @@ HvZDevelopment
 
 Introduction
 ------------
+
+Version 1.3
+
+
 An Android application to support the Georgia Tech Humans vs. Zombies game.
 
 More information can be found at [HvZ](https://hvz.gatech.edu).
