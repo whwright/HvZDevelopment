@@ -24,22 +24,21 @@
         <![CDATA[ 
 <h1>Contact Admin Page</h1>
 This page can be used to send emails to the HvZ admins.
-
-<h4>How do I send an Email to the admins?</h4>
+<h6><font color="green">How do I send an Email to the admins?</font></h6>
 1.  Type the subject of your email into the <strong>Subject</strong> text box.<br>
 2.  Type the body of your email into the <strong>Body</strong> text box.<br>
 3.  Enter your name in the <strong>Name</strong> text box, or use the default value.<br>
 4.  Enter your Email in the <strong>Email Address</strong> text box, or use the default value.<br>
 5.  Tap the <strong>Send</strong> button to send the Email to an admin.
-
-<h3>Troubleshooting</h3>
-<h6>I receive the message <i>"Unable to send email"</i></h6>
-Possible Cause: Network connectivity issues.<br>
+<h4>Troubleshooting</h4>
+I receive the message: <br>  <font color ="red"><i>"Unable to send email"</i><br></font><br>
+<b><u>Possible Cause:</u></b>  <br>
+<font color = "yellow"> Network connectivity issues</font><br>
 1. Open a web browser on your mobile device.<br>
 2. Open a new tab on the web browser.<br>
 3. Attempt to access a webpage (e.g. www.google.com).<br>
 4. If you cannot access a webpage on the internet, try again at a later time when you have internet connectivity.<br>
-5. If you can access a webpage on the internet, restart the HvZ application on your mobile device and try again.<br>
+5. If you can access a webpage on the internet, restart the HvZ application on your mobile device and try again.<br><br>
         ]]></string>
         
     <string name="topic_mission_list_section"><![CDATA[ 
