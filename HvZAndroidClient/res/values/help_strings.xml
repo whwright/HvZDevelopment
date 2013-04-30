@@ -22,7 +22,7 @@
     
     <string name="topic_contact_section">
         <![CDATA[ 
-<h1>Contact Admin Page</h1>
+<h1>Contact Admin</h1>
 This page can be used to send emails to the HvZ admins.
 <h6><font color="green">How do I send an Email to the admins?</font></h6>
 1.  Type the subject of your email into the <strong>Subject</strong> text box.<br>
@@ -113,7 +113,7 @@ fellow zombies to feed with their kills as well. <br><br>
 5. If you can access a webpage on the internet, restart the HvZ application on your mobile device and try again.<br><br>
         ]]></string>
     <string name="topic_chat_section"><![CDATA[
-<h1>HvZ Chat</h1>
+<h1>Chat Room</h1>
 The HvZ chat room allows HvZ players to plan, coordinate, and relay information to one
 another. The chat room is global and anyone signed up for Humans Vs. Zombies this semester
 can view your messages.
