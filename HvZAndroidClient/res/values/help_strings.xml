@@ -65,7 +65,7 @@ The kill board displays the current state of the game by showing lists of which 
 The achievement page lists all possible achievements you can earn in HvZ. You can scroll through a list of achievements you have earned (Unlocked), or a list of achievements you have yet to earn (Locked).
 	    ]]></string>
     <string name="topic_profile_section"><![CDATA[ 
-<h1>User Profile</h1>
+<h1>Player Profile</h1>
 This page is your player profile page. It displays your avatar and slogan, as well as your stats for the current game.
 <h3>Troubleshooting</h3>
 <h6><font color ="red">The profile on my phone does not match the one on the HvZ game website.</font></h6>
