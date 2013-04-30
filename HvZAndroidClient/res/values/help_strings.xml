@@ -34,12 +34,12 @@ This page can be used to send emails to the HvZ admins.
 
 <h3>Troubleshooting</h3>
 <h6>I receive the message <i>"Unable to send email"</i></h6>
-Possible Cause: Network connectivity issues<br>
-1. Open a web browser on your mobile device<br>
-2. Open a new tab on the web browser<br>
-3. Attempt to access a webpage (e.g. www.google.com)<br>
+Possible Cause: Network connectivity issues.<br>
+1. Open a web browser on your mobile device.<br>
+2. Open a new tab on the web browser.<br>
+3. Attempt to access a webpage (e.g. www.google.com).<br>
 4. If you cannot access a webpage on the internet, try chat again at a later time when you have internet connectivity.<br>
-5. If you can access a webpage on the internet, restart the HvZ application on your mobile device and try again<br>
+5. If you can access a webpage on the internet, restart the HvZ application on your mobile device and try again.<br>
         ]]></string>
         
     <string name="topic_mission_list_section"><![CDATA[ 
@@ -110,7 +110,7 @@ Possible Cause: Network connectivity issues<br>
 		5. Press the "Report Kill" button to finish reporting your kill.<br>
        </p>
        <p><br><b><font color="green">How do I specify which zombies to feed?</font></b><br>
-		1.  Tap the text feed to the right of the "Feed1" label. A list of players should appear<br>
+		1.  Tap the text feed to the right of the "Feed1" label. A list of players should appear.<br>
 		2.  Scroll through the list to find the player you wish to feed.<br>
 		3.  Tap the name of the player you have found. You should now be taken back to the Report kill screen
 			and the text field next to "Feed1" should show the name of the player you tapped in step 3.
@@ -126,13 +126,13 @@ Possible Cause: Network connectivity issues<br>
       I receive the message: <br>  <font color ="red"><i>"Error fetching Zombie names."</i><br></font><br>
 				<b><u>Possible Cause:</u></b>  <br>
 			<font color = "yellow">You have lost connection to the internet since you logged in.</font><br>
-				1. Open a web browser on your mobile device<br>
-				2. Open a new tab on the web browser<br>
-				3. Attempt to access a webpage (e.g. www.google.com)<br>
-				4. If you cannot access a webpage on the internet, try chat again at a later time
+				1. Open a web browser on your mobile device.<br>
+				2. Open a new tab on the web browser.<br>
+				3. Attempt to access a webpage (e.g. www.google.com).<br>
+				4. If you cannot access a webpage on the internet, try again at a later time
 		    when you have internet connectivity.<br>
 				5. If you can access a webpage on the internet, restart the HvZ application on 
-		    your mobile device and try again<br><br>
+		    your mobile device and try again.<br><br>
         ]]></string>
     <string name="topic_chat_section"><![CDATA[
         <p>
@@ -149,27 +149,27 @@ Possible Cause: Network connectivity issues<br>
 		I receive the message: <br>  <font color ="red"><i>"There was an Error fetching the chats"</i><br></font><br>
 		<b><u>Possible Causes:</u></b>  <br>
 			<font color = "yellow"> Network connectivity issues</font><br>
-				1. Open a web browser on your mobile device<br>
-				2. Open a new tab on the web browser<br>
-				3. Attempt to access a webpage (e.g. www.google.com)<br>
+				1. Open a web browser on your mobile device.<br>
+				2. Open a new tab on the web browser.<br>
+				3. Attempt to access a webpage (e.g. www.google.com).<br>
 				4. If you cannot access a webpage on the internet, try chat again at a later time
 		    when you have internet connectivity.<br>
 				5. If you can access a webpage on the internet, restart the HvZ application on 
-		    your mobile device and try again<br><br>
+		    your mobile device and try again.<br><br>
 
 		
 			<font color = "yellow">Chat rooms disabled by HvZ admins</font><br>
 						1. Attempt to join the chat room hosted on the HvZ website 
-      					<a href = https://hvz.gatech.edu/chat/>here</a><br>
+      					<a href = https://hvz.gatech.edu/chat/>here</a>.<br>
 						 2. If chat room is available, attempt to post a message using a the web interface.<br>
 						 3. If a message cannot be posted, consult an HvZ admin about chat room 
 				     restrictions.<br>
 						 4. If a message can be posted, restart the HvZ application on your mobile device 
-				     and try again<br><br>
+				     and try again.<br><br>
 				     
 			<font color = "yellow">Chat servers are offline</font><br>
 						1. Attempt to join the chat room hosted on the HvZ website at 
-   							<a href = https://hvz.gatech.edu/chat/>here</a><br>
+   							<a href = https://hvz.gatech.edu/chat/>here</a>.<br>
 						2. If chat room is unavailable, consult an HvZ admin regarding the status of the 
     						chat room.<br>
       
@@ -181,13 +181,13 @@ Possible Cause: Network connectivity issues<br>
 		<font color ="red">I receive the message: <br>  <i>"Unable to send email"</i></font><br>
 		<b><u>Possible Cause:</u></b>  <br>
 			<font color = "yellow"> Network connectivity issues</font><br>
-				1. Open a web browser on your mobile device<br>
-				2. Open a new tab on the web browser<br>
-				3. Attempt to access a webpage (e.g. www.google.com)<br>
+				1. Open a web browser on your mobile device.<br>
+				2. Open a new tab on the web browser.<br>
+				3. Attempt to access a webpage (e.g. www.google.com).<br>
 				4. If you cannot access a webpage on the internet, try chat again at a later time
 		    when you have internet connectivity.<br>
 				5. If you can access a webpage on the internet, restart the HvZ application on 
-		    your mobile device and try again<br><br><br>
+		    your mobile device and try again.<br><br><br>
 
 		<font color ="red">The profile on my phone does not match the one on the HvZ game website.</font><br>
 		<b><u>Possible Cause:</u></b>  <br>
@@ -202,43 +202,43 @@ Possible Cause: Network connectivity issues<br>
 		<b><u>Possible Cause:</u></b>  <br>
 			<font color = "yellow">One or more players you are trying to feed have not been properly inserted into
 			the HvZ database.</font><br>
-				1. Contact an Hvz Admin <br>
+				1. Contact an Hvz Admin. <br>
 				2. Tell the admin about this message and which player(s) you tried to feed.<br><br>
       <font color ="red">I receive the message: <br><i>"Error fetching Zombie names."</i></font><br>
 				<b><u>Possible Cause:</u></b>  <br>
 			<font color = "yellow">You have lost connection to the internet since you logged in.</font><br>
-				1. Open a web browser on your mobile device<br>
-				2. Open a new tab on the web browser<br>
-				3. Attempt to access a webpage (e.g. www.google.com)<br>
-				4. If you cannot access a webpage on the internet, try chat again at a later time
+				1. Open a web browser on your mobile device.<br>
+				2. Open a new tab on the web browser.<br>
+				3. Attempt to access a webpage (e.g. www.google.com).<br>
+				4. If you cannot access a webpage on the internet, try again at a later time
 		    when you have internet connectivity.<br>
 				5. If you can access a webpage on the internet, restart the HvZ application on 
-		    your mobile device and try again<br><br>
+		    your mobile device and try again.<br><br>
 
 <font color ="red">I receive the message: <br><i>"There was an Error fetching the chats"</i></font><br>
 		<b><u>Possible Causes:</u></b>  <br>
-			<font color = "yellow"> Network connectivity issues</font><br>
-				1. Open a web browser on your mobile device<br>
-				2. Open a new tab on the web browser<br>
-				3. Attempt to access a webpage (e.g. www.google.com)<br>
-				4. If you cannot access a webpage on the internet, try chat again at a later time
+			<font color = "yellow"> Network connectivity issues.</font><br>
+				1. Open a web browser on your mobile device.<br>
+				2. Open a new tab on the web browser.<br>
+				3. Attempt to access a webpage (e.g. www.google.com).<br>
+				4. If you cannot access a webpage on the internet, try again at a later time
 		    when you have internet connectivity.<br>
 				5. If you can access a webpage on the internet, restart the HvZ application on 
-		    your mobile device and try again<br><br>
+		    your mobile device and try again.<br><br>
 
 		
 			<font color = "yellow">Chat rooms disabled by HvZ admins</font><br>
 						1. Attempt to join the chat room hosted on the HvZ website 
-      					<a href = https://hvz.gatech.edu/chat/>here</a><br>
+      					<a href = https://hvz.gatech.edu/chat/>here</a>.<br>
 						 2. If chat room is available, attempt to post a message using a the web interface.<br>
 						 3. If a message cannot be posted, consult an HvZ admin about chat room 
 				     restrictions.<br>
 						 4. If a message can be posted, restart the HvZ application on your mobile device 
-				     and try again<br><br>
+				     and try again.<br><br>
 				     
 			<font color = "yellow">Chat servers are offline</font><br>
 						1. Attempt to join the chat room hosted on the HvZ website at 
-   							<a href = https://hvz.gatech.edu/chat/>here</a><br>
+   							<a href = https://hvz.gatech.edu/chat/>here</a>.<br>
 						2. If chat room is unavailable, consult an HvZ admin regarding the status of the 
     						chat room.<br>
       
@@ -248,17 +248,17 @@ Possible Cause: Network connectivity issues<br>
 			<font color = "yellow">Incorrect login credentials</font><br>
 				1. Verify your 
 				login credentials by logging into the
-				 Georgia Tech CAS login system at <a href="https://login.gatech.edu/ ">here</a><br>
-				2. Use these credentials to log into HvZ gatech<br><br>
+				 Georgia Tech CAS login system at <a href="https://login.gatech.edu/ ">here</a>.<br>
+				2. Use these credentials to log into HvZ gatech.<br><br>
 		
 			<font color = "yellow">Network connectivity issues</font><br>
-						1. Open a web browser on your mobile device<br>
-						2. Open a new tab on the web browser<br>
-						3. Attempt to access a webpage (e.g. www.google.com)<br>
+						1. Open a web browser on your mobile device.<br>
+						2. Open a new tab on the web browser.<br>
+						3. Attempt to access a webpage (e.g. www.google.com).<br>
 						4. If you cannot access a webpage on the internet, 
-						try chat again at a later time when you have internet connectivity.<br>
+						try again at a later time when you have internet connectivity.<br>
 						5. If you can access a webpage on the internet, restart the HvZ 
-						application on your mobile device and try again <br>
+						application on your mobile device and try again. <br>
       
        </p>
         ]]>
@@ -323,17 +323,17 @@ Possible Cause: Network connectivity issues<br>
 			<font color = "yellow">Incorrect login credentials</font><br>
 				1. Verify your 
 				login credentials by logging into the
-				 Georgia Tech CAS login system at <a href="https://login.gatech.edu/ ">here</a><br>
-				2. Use these credentials to log into HvZ gatech<br><br>
+				 Georgia Tech CAS login system at <a href="https://login.gatech.edu/ ">here</a>.<br>
+				2. Use these credentials to log into HvZ gatech.<br><br>
 		
 			<font color = "yellow">Network connectivity issues</font><br>
-						1. Open a web browser on your mobile device<br>
-						2. Open a new tab on the web browser<br>
-						3. Attempt to access a webpage (e.g. www.google.com)<br>
+						1. Open a web browser on your mobile device.<br>
+						2. Open a new tab on the web browser.<br>
+						3. Attempt to access a webpage (e.g. www.google.com).<br>
 						4. If you cannot access a webpage on the internet, 
 						try again at a later time when you have internet connectivity.<br>
 						5. If you can access a webpage on the internet, restart the HvZ 
-						application on your mobile device and try again <br>
+						application on your mobile device and try again. <br>
       
        </p>
       ]]>
