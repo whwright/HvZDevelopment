@@ -287,7 +287,7 @@
 		5. Press the "Report Kill" button to finish reporting your kill.<br>
        </p>
        <p><br><b><font color="green">How do I specify which zombies to feed?</font></b><br>
-		1.  Tap the text feed to the right of the "Feed1" label. A list of players should appear<br>
+		1.  Tap the text feed to the right of the "Feed1" label. A list of players should appear.<br>
 		2.  Scroll through the list to find the player you wish to feed.<br>
 		3.  Tap the name of the player you have found. You should now be taken back to the Report kill screen
 			and the text field next to "Feed1" should show the name of the player you tapped in step 3.<br>
@@ -298,10 +298,10 @@
 		2.  When finished with your message, press the "Post" button to post your message.<br>
        </p>
 <p><br><b><font color="green">How do I log in to my account?</font></b><br>
-		1. Type your Gt username into the username field (this will be the same username you use
+		1. Type your GT username into the username field (this will be the same username you use
 		to access T-Square).<br>
 		2. Type your GT password into the password field.<br>
-		3. Press the Login button<br>
+		3. Press the Login button.<br>
        </p>
         ]]>
         </string>
@@ -310,14 +310,14 @@
       <p>
         <b>Login screen</b> <br><br>
 		HvZ players can use this screen to access their HvZ accounts and view game information. 
-		In order to log in, please insure that you have registered for HvZ this semester at
-		<a href="https://hvz.gatech.edu/ ">hvz.gatech.edu</a><br><br>
+		In order to log in, please ennsure that you have registered for HvZ this semester at
+		<a href="https://hvz.gatech.edu/ ">hvz.gatech.edu</a>.<br><br>
         </p>
-      <p><br><b><font color="green">How do I log in to my account?</font></b><br>
+      <p><br><b><font color="green">How do I login to my account?</font></b><br>
 		1. Type your Gt username into the username field (this will be the same username you use
 		to access T-Square).<br>
 		2. Type your GT password into the password field.<br>
-		3. Press the Login button<br>
+		3. Press the Login button.<br>
        </p>
       <p><b><u>Errors/troubleshooting</u></b><br>
 		I receive the message<br>  <font color ="red"><i>"There was an error logging in to your account"</i><br></font><br>
@@ -333,7 +333,7 @@
 						2. Open a new tab on the web browser<br>
 						3. Attempt to access a webpage (e.g. www.google.com)<br>
 						4. If you cannot access a webpage on the internet, 
-						try chat again at a later time when you have internet connectivity.<br>
+						try again at a later time when you have internet connectivity.<br>
 						5. If you can access a webpage on the internet, restart the HvZ 
 						application on your mobile device and try again <br>
       
