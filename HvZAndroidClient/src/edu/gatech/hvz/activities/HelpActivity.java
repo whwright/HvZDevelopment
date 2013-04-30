@@ -90,7 +90,7 @@ public class HelpActivity extends SherlockActivity
 	            //list view for the selection of topics by page
 	            ListView lv = (ListView) findViewById(R.id.pageselectlv);
 	            
-	            String[] items = { "Achivements", "Chat Room", "Contact Admin", "Kill Board", "Kill Map","Login", 
+	            String[] items = { "Achievements", "Chat Room", "Contact Admin", "Kill Board", "Kill Map","Login", 
 	            		"Missions", "Player Profile", "Report Kill"};
 	            
 	            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
