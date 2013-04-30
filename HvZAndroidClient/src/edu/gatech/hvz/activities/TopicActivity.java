@@ -1,5 +1,7 @@
 package edu.gatech.hvz.activities;
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.MenuItem;
 
 import edu.gatech.hvz.R;
 import android.content.Intent;
@@ -7,56 +9,48 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 
 /**
  * This activity displays help topics for an individual screen.
- * There is also a button to go to the main help menu
- *
  */
-
 public class TopicActivity extends SherlockActivity 
 {
 	static public final String ARG_TEXT_ID = "text_id";
-int mTextResourceId = 0;
+	int mTextResourceId = 0;
 
-/**
- * onCreate
- *
- * @param savedInstanceState Bundle
- */
-
-protected void onCreate(Bundle savedInstanceState) 
-{
-    super.onCreate(savedInstanceState);
-    setContentView (R.layout.activity_topic);
-    Log.d("no","way");
-    // Read the arguments from the Intent object.
-    Intent in = getIntent ();
-    mTextResourceId = in.getIntExtra (HelpActivity.ARG_TEXT_ID, 0);
-
-    
-    TextView textView = (TextView) findViewById (R.id.topic_text);
-    textView.setMovementMethod (LinkMovementMethod.getInstance());
-    textView.setText (Html.fromHtml (getString (mTextResourceId)));
-    
-}
-public void onClickTopic (View v)
-{
-	 int id = v.getId ();
-
-
-	 switch (id) {
-	      case R.id.main_help_menu_button :
-	           Intent intent = (new Intent(this, HelpActivity.class));
-		       startActivity (intent);
-	           break;
-	      default: 
-	    	   break;
-	    }
-}
-
-
+	@Override
+	protected void onCreate(Bundle savedInstanceState) 
+	{
+	    super.onCreate(savedInstanceState);
+	    setContentView (R.layout.activity_topic);
+	    
+		// ActionBar setup
+		ActionBar bar = getSupportActionBar();
+		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		bar.setDisplayHomeAsUpEnabled(true);
+		bar.setTitle("Help");
+	    
+	    Log.d("no","way");
+	    // Read the arguments from the Intent object.
+	    Intent in = getIntent ();
+	    mTextResourceId = in.getIntExtra (HelpActivity.ARG_TEXT_ID, 0);
+	
+	    
+	    TextView textView = (TextView) findViewById (R.id.topic_text);
+	    textView.setMovementMethod (LinkMovementMethod.getInstance());
+	    textView.setText (Html.fromHtml (getString (mTextResourceId)));
+	    
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch (item.getItemId()){
+			case android.R.id.home:
+				finish();
+				return true;
+			default:
+				return false;
+		}
+	}
 }

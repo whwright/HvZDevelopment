@@ -122,9 +122,9 @@ public class LandingPageActivity extends SherlockActivity {
 			startActivity(aboutintent);
 			return true;
 		case R.id.menu_help:
-		       Intent intent = (new Intent(this, HelpActivity.class));
-		       startActivity (intent);
-			return true;
+	       Intent intent = (new Intent(this, HelpActivity.class));
+	       startActivity (intent);
+	       return true;
 		case R.id.menu_logout:
 			resources.resetData();
 			Intent login = new Intent(this, LoginActivity.class);

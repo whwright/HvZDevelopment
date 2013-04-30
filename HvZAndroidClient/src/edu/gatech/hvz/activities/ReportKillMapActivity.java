@@ -85,6 +85,9 @@ public class ReportKillMapActivity extends SherlockActivity implements OnTouchLi
 	
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
+		case android.R.id.home:
+			finish();
+			return true;
 		case R.id.menu_contact:
 			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
 			startActivity(lineIntent);

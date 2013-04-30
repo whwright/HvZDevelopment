@@ -34,19 +34,5 @@
             android:textColor="@color/light_background" />
     </ScrollView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/main_help_menu_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="onClickTopic"
-            android:text="@string/back_to_help_menu" />
-
-    </RelativeLayout>
 
 </LinearLayout>

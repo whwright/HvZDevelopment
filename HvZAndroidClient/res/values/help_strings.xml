@@ -13,6 +13,13 @@
     <string name="help_text_section1">
      View all help topics in the "How do I?" sections. Topics are fit into one scrollable page.
     </string>
+   	<string name="help_text_section2">
+	    This is the Help Home screen. From here you can freely browse all help topics.
+    </string>
+    <string name="help_text_section3">
+        View all troubleshooting topics. Topics are fit into one scrollable page.
+    </string>
+    
     <string name="topic_contact_section"><![CDATA[ 
         <p><b>Contact Admin Page</b> <br><br>
         This contact admin page can be used to send emails to the HvZ admins.
@@ -20,7 +27,7 @@
         </p>
         <p><br><b><font color="green">How do I send an email to the admins?</font></b><br>
 		1.  Type the subject of your email into the subject line.<br>
-		2.  Type the body of your email into the text box below the "Body" label.<br>
+		2.  Type the body of your email into the <strong>Body<strong> text box.<br>
 		3.  If you wish, alter your name and your email address which should be pre-fille 
 		under the textbox containing the body of your email.<br>
 		4. Tap the button at the bottom of the screen that says "Send" to send the email to an admin.
@@ -333,15 +340,5 @@
        </p>
       ]]>
     </string>
-	<string name="help_text_section2">
-	    This is the Help Home screen. From here you can freely browse all help topics.
-    </string>
-    <string name="help_text_section3">
-      View all help topics in the "How do I?" sections. Topics are fit into one scrollable page.
-    </string>
-    <string name="help_text_section4">
-        View all troubleshooting topics. Topics are fit into one scrollable page.
-    </string>
-
 
 </resources>

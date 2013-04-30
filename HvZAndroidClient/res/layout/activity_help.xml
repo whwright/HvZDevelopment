@@ -94,7 +94,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/help_button4"
+            android:id="@+id/help_button3"
             style="@style/HelpButton.Dark"
             android:layout_width="180dip"
             android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dip"
-            android:text="@string/help_text_section4" />
+            android:text="@string/help_text_section3" />
 
     </LinearLayout>
 

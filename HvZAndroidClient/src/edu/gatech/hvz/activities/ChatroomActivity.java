@@ -93,6 +93,9 @@ public class ChatroomActivity extends SherlockListActivity {
 	
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch (item.getItemId()){
+		case android.R.id.home:
+			finish();
+			return true;
 		case R.id.menu_contact:
 			Intent lineIntent = new Intent(this, ContactAdminsActivity.class);
 			startActivity(lineIntent);
@@ -102,10 +105,10 @@ public class ChatroomActivity extends SherlockListActivity {
 			startActivity(aboutintent);
 			return true;
 		case R.id.menu_help:
-		       Intent intent = (new Intent(this, TopicActivity.class));
-		       intent.putExtra ("text_id", R.string.topic_chat_section);
-		       startActivity (intent);
-		       return true;
+	       Intent intent = (new Intent(this, TopicActivity.class));
+	       intent.putExtra ("text_id", R.string.topic_chat_section);
+	       startActivity (intent);
+	       return true;
 		case R.id.menu_logout:
 			resources.resetData();
 			Intent login = new Intent(this, LoginActivity.class);
